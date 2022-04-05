@@ -8,7 +8,7 @@ import firebaseConfig from './firebase-config';
 
 const axios = require('axios');
 
-const HOSTNAME = 'http://localhost:8001/';
+const HOSTNAME = window.location.origin + '/';
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
