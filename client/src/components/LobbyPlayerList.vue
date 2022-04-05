@@ -17,7 +17,8 @@
     <v-list class="blue-grey lighten-4">
       <draggable
         v-model="playerList"
-        v-bind:options='{disabled: !canDrag, handle: ".handle"}'
+        handle=".handle"
+        :disabled=!canDrag
         @end="onReorderList()">
         <v-list-tile v-for="player in playerList" :key="player">
           <v-icon left v-if="canDrag" class="handle">fas fa-bars</v-icon>
