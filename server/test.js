@@ -4,7 +4,7 @@ const _ = require('lodash');
 
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert(serviceAccount),
-  databaseURL: "https://cloudtest-231519.firebaseio.com"
+  databaseURL: "https://georgyo-avalon-default-rtdb.firebaseio.com"
 });
 
 const db = firebaseAdmin.firestore();

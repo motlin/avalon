@@ -4,12 +4,13 @@ const serviceAccount = require("./firebase-key.json");
 
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert(serviceAccount),
-  databaseURL: "https://cloudtest-231519.firebaseio.com"
+  databaseURL: "https://georgyo-avalon-default-rtdb.firebaseio.com"
 });
 
 const avalon = require('./avalon-server.js');
 const app = express();
 app.use(express.json());
+app.use(express.static('dist'))
 
 const router = require('express-promise-router')();
 

@@ -8,7 +8,7 @@ import firebaseConfig from './firebase-config';
 
 const axios = require('axios');
 
-const HOSTNAME = 'https://avalongame.online/';
+const HOSTNAME = 'http://localhost:8001/';
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
