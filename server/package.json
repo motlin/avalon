@@ -1,4 +1,5 @@
 {
+  "name": "@avalon/server",
   "scripts": {
     "start": "node server.js",
     "serve": "nodemon server.js",

@@ -1,3 +1,14 @@
 {
-  "packageManager": "yarn@3.2.0"
+  "name": "avalon-workspace",
+  "packageManager": "yarn@3.2.0",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "build": "turbo run build"
+  },
+  "devDependencies": {
+    "turbo": "^1.1.10"
+  }
 }
