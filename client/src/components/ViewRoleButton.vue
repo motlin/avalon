@@ -33,7 +33,7 @@
            <p v-if='avalon.lobby.role.assassin'>
              You are also the <span class='font-weight-medium'>ASSASSIN</span>!
              It will be up to you to identify MERLIN if the good team succeeds 3 missions.
-           <p>
+           </p>
            <div v-if='avalon.lobby.role.sees.length'>
                <p>You see <span class='font-weight-bold'>{{ avalon.lobby.role.sees.joinWithAnd() }}</span>.</p>
            </div>
