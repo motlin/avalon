@@ -20,24 +20,26 @@
         handle=".handle"
         :disabled=!canDrag
         @end="onReorderList()">
-        <v-list-tile v-for="player in playerList" :key="player">
+        <v-list-item v-for="player in playerList" :key="player">
           <v-icon left v-if="canDrag" class="handle">fas fa-bars</v-icon>
           <v-icon left v-if="player == avalon.lobby.admin.name">star</v-icon>
           <v-icon left v-else-if="player == avalon.user.name">perm_identity</v-icon>
           <v-icon left v-else>person</v-icon>
           <v-flex xs10>{{player}}</v-flex>
           <v-flex xs1>
-            <v-btn icon right flat
+            <template v-slot:activator="{ on }">
+            <v-btn icon right text
               v-if="(avalon.isAdmin && player != avalon.user.name && !avalon.isGameInProgress)"
               :loading="playersBeingKicked.includes(player)"
               @click.stop="kickPlayerConfirm(player)"
-              slot="activator"
+              v-on="on"
               color="black"
               dark>
               <v-icon>clear</v-icon>
             </v-btn>
+            </template>
           </v-flex>
-        </v-list-tile>
+        </v-list-item>
       </draggable>
     </v-list>
   </div>

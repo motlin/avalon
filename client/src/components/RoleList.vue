@@ -1,7 +1,7 @@
 <template>
   <div>
   <v-list class="blue-grey lighten-4">
-    <v-list-tile
+    <v-list-item
      v-for="(role, index) in roles"
       :key="index">
     <v-flex v-if="allowSelect" xs1>
@@ -20,7 +20,7 @@
       <v-btn icon @click='showRoleInfo(role)'><v-icon>info</v-icon>
       </v-btn>
     </v-flex>
-  </v-list-tile> 
+  </v-list-item> 
   </v-list>
   <v-dialog v-model="roleInfo" max-width='450'>
     <v-card class="cyan lighten-4">

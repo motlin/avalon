@@ -20,7 +20,9 @@ library.add(faCrown, faSolidCircle, faCircle,
 // the line below would add EVERYTHING, so would bloat the size
 //library.add(far, fas);
 
-Vue.use(Vuetify, {
+Vue.use(Vuetify)
+
+const vuetify =  new Vuetify({
   // iconfont: 'faSvg', <-- use default font instead for now
 })
 
@@ -34,5 +36,6 @@ Vue.use(Toasted,
     duration: 2000 });
 
 new Vue({
+  vuetify: vuetify,
   render: h => h(App),
 }).$mount('#app')

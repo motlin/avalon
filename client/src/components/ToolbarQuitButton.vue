@@ -1,9 +1,11 @@
 <template>
   <v-dialog v-model="dialog" max-width='450'>
-    <v-btn slot="activator" light :loading='quitting'>
-      <v-icon left>exit_to_app</v-icon>
-      Quit
-    </v-btn>
+    <template v-slot:activator="{ on }">
+        <v-btn v-on="on" light :loading='quitting'>
+        <v-icon left>exit_to_app</v-icon>
+        Quit
+        </v-btn>
+    </template>
     <v-card class="cyan lighten-4">
       <v-card-title class="cyan lighten-2">
           <h3>{{ actionDescription }}?</h3>
