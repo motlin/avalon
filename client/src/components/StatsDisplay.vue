@@ -43,7 +43,7 @@
     </tbody>
   </table>
   <v-flex pt-2>
-    <div pt-12>Total Playtime: {{ playtime }} </div>
+    <div pt-5>Total Playtime: {{ playtime }} </div>
   </v-flex>
   </v-layout>
 </template>

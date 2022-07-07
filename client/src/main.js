@@ -23,7 +23,6 @@ library.add(faCrown, faSolidCircle, faCircle,
 Vue.use(Vuetify)
 
 const vuetify =  new Vuetify({
-  dark: true
   // iconfont: 'faSvg', <-- use default font instead for now
 })
 

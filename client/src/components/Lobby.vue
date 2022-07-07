@@ -100,7 +100,7 @@
     <v-layout align-center justify-center pt-2>
       <BuyButton :avalon='avalon' />
     </v-layout>
-<v-layout pt-12 column align-end>
+<v-layout pt-5 column align-end>
   <v-flex>
     <v-btn small block href='https://discord.gg/HTdk68u' target='_blank' color='grey lighten-1'>
       <v-icon left small>

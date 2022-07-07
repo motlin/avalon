@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar flat class='blue darken-1' app>
+  <v-toolbar class='blue darken-1'>
     <template v-if="avalon.lobby && avalon.lobby.name && avalon.user && avalon.user.name">
     <v-icon left>
       room
@@ -15,7 +15,7 @@
       <v-spacer></v-spacer>
       <LogoutButton :avalon='avalon' />
     </template>
-  </v-app-bar>
+  </v-toolbar>
 </template>
 
 <script>

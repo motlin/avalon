@@ -46,7 +46,7 @@
         </template>
         </v-layout>
       <v-layout column align-end>
-        <v-flex class='mt-3 pt-4'>
+        <v-flex class='mt-3 pt-3'>
           <v-btn small href='mailto:support@avalongame.online' target="_blank" color='grey lighten-2'>
             <v-icon left small>
               fas fa-envelope-square

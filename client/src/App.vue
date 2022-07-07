@@ -2,7 +2,6 @@
   <div id="app">
     <v-app class="indigo darken-2">
       <EventHandler :avalon='avalon'></EventHandler>
-
       <v-container fill-height justify-center v-if='!avalon.initialized'>
         <v-progress-circular
                indeterminate
@@ -14,8 +13,8 @@
           <UserLogin :avalon='avalon' />
         </v-container>
         <template v-else>
-        <v-main  class="indigo darken-2">
           <Toolbar :avalon='avalon'></Toolbar>
+          <v-main>
             <v-container>          
               <v-layout align-center justify-center column fill-height>
                 <Login
