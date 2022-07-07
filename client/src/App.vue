@@ -14,7 +14,7 @@
         </v-container>
         <template v-else>
           <Toolbar :avalon='avalon'></Toolbar>
-          <v-main>
+          <v-content>
             <v-container>          
               <v-layout align-center justify-center column fill-height>
                 <Login
@@ -27,7 +27,7 @@
                 <Game :avalon='avalon' v-else />
               </v-layout>
             </v-container>
-          </v-main>
+          </v-content>
         </template>
       </template>
     </v-app>

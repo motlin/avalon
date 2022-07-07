@@ -1,14 +1,12 @@
 <template>
   <v-bottom-sheet v-model="sheet">
-  <template v-slot:activator="{ on }">
-    <v-btn v-on="on" light>
+    <v-btn slot="activator" light>
       <v-icon left>
         perm_identity
         <!-- person -->
       </v-icon>
       {{ avalon.user.name }}        
     </v-btn>
-    </template>
     <v-card v-if='!avalon.isGameInProgress' class="cyan lighten-4">
       <v-card-title>
         <v-layout align-center column justify-center>
