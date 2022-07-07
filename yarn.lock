@@ -30,10 +30,10 @@ __metadata:
   resolution: "@avalon/client@workspace:client"
   dependencies:
     "@babel/eslint-parser": ^7.17.0
-    "@fortawesome/fontawesome-svg-core": ^6.1.1
-    "@fortawesome/free-regular-svg-icons": ^6.1.1
-    "@fortawesome/free-solid-svg-icons": ^6.1.1
-    "@fortawesome/vue-fontawesome": ^2.0.6
+    "@fortawesome/fontawesome-svg-core": 6.1.1
+    "@fortawesome/free-regular-svg-icons": 6.1.1
+    "@fortawesome/free-solid-svg-icons": 6.1.1
+    "@fortawesome/vue-fontawesome": 2.0.6
     "@vue/cli-plugin-babel": 5.0.8
     "@vue/cli-plugin-eslint": 5.0.8
     "@vue/cli-service": 5.0.8
@@ -1824,7 +1824,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-svg-core@npm:^6.1.1":
+"@fortawesome/fontawesome-svg-core@npm:6.1.1":
   version: 6.1.1
   resolution: "@fortawesome/fontawesome-svg-core@npm:6.1.1"
   dependencies:
@@ -1833,7 +1833,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/free-regular-svg-icons@npm:^6.1.1":
+"@fortawesome/free-regular-svg-icons@npm:6.1.1":
   version: 6.1.1
   resolution: "@fortawesome/free-regular-svg-icons@npm:6.1.1"
   dependencies:
@@ -1842,7 +1842,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/free-solid-svg-icons@npm:^6.1.1":
+"@fortawesome/free-solid-svg-icons@npm:6.1.1":
   version: 6.1.1
   resolution: "@fortawesome/free-solid-svg-icons@npm:6.1.1"
   dependencies:
@@ -1851,7 +1851,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/vue-fontawesome@npm:^2.0.6":
+"@fortawesome/vue-fontawesome@npm:2.0.6":
   version: 2.0.6
   resolution: "@fortawesome/vue-fontawesome@npm:2.0.6"
   peerDependencies:
