@@ -6,13 +6,13 @@
     "lint": "eslint *.js"
   },
   "dependencies": {
-    "express": "^4.17.3",
-    "express-promise-router": "^4.1.1",
-    "firebase-admin": "^10.0.2",
-    "lodash": "^4.17.21"
+    "express": "4.17.3",
+    "express-promise-router": "4.1.1",
+    "firebase-admin": "10.0.2",
+    "lodash": "4.17.21"
   },
   "devDependencies": {
-    "eslint": "^8.12.0",
-    "nodemon": "^2.0.15"
+    "eslint": "8.12.0",
+    "nodemon": "2.0.15"
   }
 }
