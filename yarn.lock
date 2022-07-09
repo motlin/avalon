@@ -41,7 +41,7 @@ __metadata:
     axios: 0.26.1
     eslint: 8.12.0
     eslint-plugin-promise: 6.0.0
-    eslint-plugin-vue: 8.5.0
+    eslint-plugin-vue: 8.7.1
     firebase: 8.10.1
     i: 0.3.7
     lodash: 4.17.21
@@ -5288,17 +5288,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:8.5.0":
-  version: 8.5.0
-  resolution: "eslint-plugin-vue@npm:8.5.0"
+"eslint-plugin-vue@npm:8.7.1":
+  version: 8.7.1
+  resolution: "eslint-plugin-vue@npm:8.7.1"
   dependencies:
     eslint-utils: ^3.0.0
     natural-compare: ^1.4.0
+    nth-check: ^2.0.1
+    postcss-selector-parser: ^6.0.9
     semver: ^7.3.5
     vue-eslint-parser: ^8.0.1
   peerDependencies:
     eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
-  checksum: 2edc956debe3bf22d0daab04b5d59609185799c76dc24ce0c899035ecf64de07a526accc96e8622bccd368b6848f185980e9d6e395d4d14068e89a77e0010119
+  checksum: c3aefb226dea126db32cab4c570f17f4b4047d609f4f5748e8dc410e929fbbfacdc07af1421c0f7773398513e9363de4480694714bc85fa2188ca50d1d19cfbc
   languageName: node
   linkType: hard
 
