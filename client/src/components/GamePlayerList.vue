@@ -1,6 +1,6 @@
 <template>
   <v-list class="blue-grey lighten-4">
-    <v-list-tile
+    <v-list-item
      v-for="(playerName) in avalon.game.players"
       :key="playerName">
     <v-flex xs2> 
@@ -29,7 +29,7 @@
         </v-tooltip>
       </template>
       <template v-else-if='playerName == avalon.game.hammer'>
-        <v-layout align-center justify-center row fill-height>
+        <v-layout align-center justify-center fill-height>
         <v-icon small left>
           fas fa-hammer
         </v-icon>
@@ -75,7 +75,7 @@
         </v-tooltip>
         </div>
     </v-flex>
-  </v-list-tile> 
+  </v-list-item> 
   </v-list>
 </template>
 

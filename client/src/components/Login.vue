@@ -3,7 +3,7 @@
     <v-layout align-center justify-center column fill-height>
     <template v-if='!showLobbyInput'>
       <v-text-field
-        mask="AAAAAAAAAA" label="Your Name" ref='nameTextField' v-model="name" :error-messages='errorMsg' autofocus>          
+        label="Your Name" @input="name = name.toUpperCase()" ref='nameTextField' v-model="name" :error-messages='errorMsg' autofocus>          
       </v-text-field>
       <v-btn
        :disabled='!name' @click='createLobby()' :loading="isCreatingLobby">
@@ -14,7 +14,7 @@
       </v-btn>
   </template>
    <template v-else>
-    <v-text-field ref="lobbyTextField" mask="AAA" label="Lobby" :error-messages='errorMsg' v-model="lobby" @keyup.native.enter="joinLobby()"></v-text-field>
+    <v-text-field ref="lobbyTextField"  @input="lobby = lobby.toUpperCase()" label="Lobby" :error-messages='errorMsg' v-model="lobby" @keyup.native.enter="joinLobby()"></v-text-field>
     <v-btn :disabled='!lobby' @click='joinLobby()' :loading="isJoiningLobby">
       Join Lobby
     </v-btn>
@@ -75,7 +75,7 @@ export default {
       }, 5000);
     },
     setInputWidth(field) {
-      const size = this.$refs[field].mask.length + 1;
+      const size = 20;
       this.$refs[field].$el.getElementsByTagName('input')[0].setAttribute('size', size);
     }
   },

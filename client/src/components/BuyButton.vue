@@ -7,14 +7,14 @@
   <v-dialog v-model="dialog"  persistent hide-overlay max-width='450px'>
       <v-card class="cyan lighten-2">
         <v-card-title>
-            <v-layout align-center justify-center row fill-height>
+            <v-layout align-center justify-center fill-height>
                 <h2 style='text-align: center'>Turns out servers cost money</h2>
             </v-layout>
         </v-card-title>
         <v-card-text>
           <p>This site is completely free to use, but if you enjoy playing here, please consider making a donation to keep it running.</p>
           <p>So far, you have played for {{ playtime }} over {{ avalon.user.stats.games }} games.</p>
-        <v-layout align-center pt-3 column fill-height>
+        <v-layout align-center pt-6 column fill-height>
         <v-slider
           v-model="donationAmount"
           thumb-label="always"
@@ -24,7 +24,7 @@
             <v-btn :disabled='donationAmount < 1' @click='donateStripe(donationAmount)'>Donate ${{ donationAmount }} via Stripe</v-btn>
             <v-btn :disabled='donationAmount < 1' :href='payPalLink' target='_blank'>Donate ${{ donationAmount }} via PayPal</v-btn>
             </v-layout>
-            <v-layout pt-5 mt-5 align-end justify-end row fill-height>
+            <v-layout pt-12 mt-12 align-end justify-end fill-height>
             <v-btn @click='dialog=false'>lol no</v-btn>
             </v-layout>
         </v-card-text>

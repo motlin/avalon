@@ -5,7 +5,7 @@
       </v-card-title>
       <v-card-text>
         <div>Voting for {{ proposer }} team of {{ this.avalon.game.currentProposal.team.joinWithAnd() }}</div>
-        <v-layout align-center justify-space-between row fill-height>
+        <v-layout align-center justify-space-between fill-height>
         <v-btn @click='teamVote(true)'
          v-bind:loading='loadingState.yes'
          v-bind:disabled='disabledState.yes'>

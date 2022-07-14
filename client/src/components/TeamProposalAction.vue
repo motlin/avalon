@@ -7,7 +7,7 @@
       <v-layout align-center justify-center column fill-height>
      <div v-if='avalon.game.currentProposer == avalon.user.name'>
         <v-flex xs12>
-        <div class="text-xs-center">Propose a team of {{ this.avalon.game.currentMission.teamSize }}</div>
+        <div class="text-center">Propose a team of {{ this.avalon.game.currentMission.teamSize }}</div>
         </v-flex>
         <v-flex xs12>
       <v-btn
@@ -16,7 +16,7 @@
         v-on:click='proposeTeam()'>Propose Team</v-btn>
         </v-flex>
      </div>
-     <div v-else class="text-xs-center">
+     <div v-else class="text-center">
        Waiting for {{ avalon.game.currentProposer }} to propose a team of {{ this.avalon.game.currentMission.teamSize }}
      </div>
       </v-layout>

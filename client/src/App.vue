@@ -9,12 +9,12 @@
                color="yellow"></v-progress-circular>
       </v-container>
       <template v-else>
+        <v-main class="indigo darken-2">
         <v-container v-if='!avalon.isLoggedIn' fill-height justify-center>
           <UserLogin :avalon='avalon' />
         </v-container>
         <template v-else>
           <Toolbar :avalon='avalon'></Toolbar>
-          <v-content>
             <v-container>          
               <v-layout align-center justify-center column fill-height>
                 <Login
@@ -27,8 +27,8 @@
                 <Game :avalon='avalon' v-else />
               </v-layout>
             </v-container>
-          </v-content>
         </template>
+        </v-main>
       </template>
     </v-app>
   </div>

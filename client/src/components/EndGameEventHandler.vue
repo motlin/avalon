@@ -2,13 +2,13 @@
      <v-dialog v-model="endGameDialog" fullscreen persistent>
       <v-card v-if='endGameDialog && avalon.game && avalon.game.outcome' class="cyan lighten-4">
         <v-card-title class="cyan lighten-2 endGameTitle">
-            <v-layout align-center justify-center row fill-height>
-                <span class='display-1 font-weight-bold'>{{title}}</span>
+            <v-layout align-center justify-center fill-height>
+                <span class='text-h4 font-weight-bold'>{{title}}</span>
             </v-layout>
         </v-card-title>
         <v-card-text>
             <v-layout align-center column justify-center>            
-            <div class='headline font-weight-bold'> {{ avalon.game.outcome.message }}</div>
+            <div class='text-h5 font-weight-bold'> {{ avalon.game.outcome.message }}</div>
             <p v-if='avalon.game.outcome.assassinated'>
                 {{ avalon.game.outcome.assassinated}} was assassinated by
                 {{ avalon.game.outcome.roles.find(r => r.assassin ).name }}

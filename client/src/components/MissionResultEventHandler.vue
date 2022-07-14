@@ -2,7 +2,7 @@
      <v-dialog v-model="missionDialog" max-width='450px'>
       <v-card v-if='missionDialog' class="cyan lighten-4">
         <v-card-title class="cyan lighten-2">
-            <div class='headline'>
+            <div class='text-h5'>
                 <span v-if="mission.state == 'SUCCESS'">
                     <v-icon left color="green">fas fa-check-circle</v-icon>
                     Mission Succeeded!

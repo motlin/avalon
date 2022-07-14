@@ -17,7 +17,7 @@
       </v-tab>
       <v-tab-item v-for="(mission, idx) in avalon.game.missions" :key="'missionItem' + idx">
         <v-card flat :class='classForMission(mission)'>
-          <v-card-text class="caption">
+          <v-card-text class="text-caption">
             <div>Mission {{ idx + 1 }}:
               {{ (idx == avalon.game.currentMissionIdx) && (avalon.game.phase != 'ASSASSINATION') ? 'CURRENT' : mission.state }}
               <span v-if="mission.numFails > 0">({{ mission.numFails }} {{ mission.numFails > 1 ? 'fails' : 'fail'}})</span>

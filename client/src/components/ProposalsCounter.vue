@@ -1,6 +1,6 @@
 <template>
 <v-container>
-  <v-layout align-center justify-space-around row>
+  <v-layout align-center justify-space-around>
     <div v-for="n in 5" :key="n">
       <v-icon v-if='avalon.game.currentProposalIdx + 1 == n' class="fas fa-crown"></v-icon>
       <v-icon v-else small class="fas fa-circle"></v-icon>

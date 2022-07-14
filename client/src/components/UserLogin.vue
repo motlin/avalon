@@ -9,8 +9,8 @@
         </v-alert>
 
         <div class='welcome'>
-            <span class=display-2>Avalon: The Resistance <span class="font-weight-thin">Online</span></span>
-            <p class='mt-3 pt-2'>
+            <span class=dtext-h3Avalon:> The Resistance <span class="font-weight-thin">Online</span></span>
+            <p class='mt-4 pt-2'>
               <span class='subheading'>
                 A game of social deduction for 5 to 10 people, now on desktop and mobile.
               </span>
@@ -23,7 +23,7 @@
            ref='userEmailField'
            v-model='emailAddr'
            type="email"
-           browser-autocomplete="email"
+           autocomplete="email"
            @keyup='clearErrorMessage()'
            @keyup.native.enter='submitEmailAddress()'
            :error-messages='errorMessage'
@@ -35,18 +35,18 @@
         </template>
         <template v-else>
           <v-card xs6 md3 class="blue-grey lighten-4">
-            <v-card-text class="text-xs-center">
+            <v-card-text class="text-center">
                 <p>Check your email for the verification link</p>
             </v-card-text>
           </v-card>
-          <v-btn class='mt-3'
+          <v-btn class='mt-4'
            @click='resetForm()'>
             Try Again
           </v-btn>
         </template>
         </v-layout>
       <v-layout column align-end>
-        <v-flex class='mt-3 pt-3'>
+        <v-flex class='mt-4 pt-4'>
           <v-btn small href='mailto:support@avalongame.online' target="_blank" color='grey lighten-2'>
             <v-icon left small>
               fas fa-envelope-square

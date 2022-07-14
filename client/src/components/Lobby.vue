@@ -17,13 +17,13 @@
         </v-card-actions>
       </v-card>    
 
-  <v-layout align-start justify-center row wrap>
+  <v-layout align-start justify-center wrap>
   <v-flex xs12 sm6>
     <v-container>
     <p class="cyan--text text--lighten-4">Players</p>
     <LobbyPlayerList v-bind:avalon='avalon' />
     <p v-if='avalon.isAdmin && avalon.config.playerList.length > 2'
-      class="cyan--text text--lighten-4 caption">Drag names to specify seating order</p>
+      class="cyan--text text--lighten-4 text-caption">Drag names to specify seating order</p>
     </v-container>
   </v-flex>
    <v-flex v-show='validTeamSize' xs12 sm6>
@@ -35,10 +35,10 @@
     </v-container>
   </v-flex>
   </v-layout>
-  <v-layout align-center justify-center row>
+  <v-layout align-center justify-center>
    <v-flex xs12 v-if='validTeamSize'>
-     <v-layout align-center justify-center row fill-height>
-      <p class="cyan--text text--lighten-4 title">
+     <v-layout align-center justify-center fill-height>
+      <p class="cyan--text text--lighten-4 text-h6">
       {{ avalon.config.playerList.length }} players:
       {{ avalon.config.playerList.length - numEvilPlayers }} good, {{ numEvilPlayers }} evil
     </p>
@@ -92,7 +92,7 @@
       Start Game
     </v-btn>
     <v-card v-else xs6 md3 class="blue-grey lighten-4">
-      <v-card-text class="text-xs-center">
+      <v-card-text class="text-center">
         {{ reasonToNotStartGame }}
       </v-card-text>
     </v-card>
@@ -100,7 +100,7 @@
     <v-layout align-center justify-center pt-2>
       <BuyButton :avalon='avalon' />
     </v-layout>
-<v-layout pt-5 column align-end>
+<v-layout pt-12 column align-end>
   <v-flex>
     <v-btn small block href='https://discord.gg/HTdk68u' target='_blank' color='grey lighten-1'>
       <v-icon left small>

@@ -5,7 +5,7 @@
      </v-card-title>
      <v-card-text>
       <div v-if='needsToVote'>
-        <v-layout align-center justify-space-between row fill-height>
+        <v-layout align-center justify-space-between fill-height>
         <v-btn @click='missionVote(true)'>
             <v-icon left color="green">fas fa-check-circle</v-icon>
                 SUCCESS

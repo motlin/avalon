@@ -1,12 +1,14 @@
 <template>
   <v-bottom-sheet v-model="sheet">
-    <v-btn slot="activator" light>
-      <v-icon left>
-        perm_identity
-        <!-- person -->
-      </v-icon>
-      {{ avalon.user.name }}        
-    </v-btn>
+    <template v-slot:activator="{ on }">
+      <v-btn slot="activator" v-on="on" light>
+        <v-icon left>
+          perm_identity
+          <!-- person -->
+        </v-icon>
+        {{ avalon.user.name }}        
+      </v-btn>
+    </template>
     <v-card v-if='!avalon.isGameInProgress' class="cyan lighten-4">
       <v-card-title>
         <v-layout align-center column justify-center>
@@ -24,7 +26,7 @@
       <v-card-title class="cyan lighten-2">
           <v-icon left v-if='avalon.lobby.role.role.team == "good"'>fab fa-old-republic</v-icon>
           <v-icon left v-else color="red">fas fa-khanda</v-icon>          
-          <span class='headline'>{{ avalon.lobby.role.role.name }}</span>
+          <span class='text-h5'>{{ avalon.lobby.role.role.name }}</span>
       </v-card-title>
       <v-card-text>
            <p>Your role is <span class='font-weight-medium'>{{ avalon.lobby.role.role.name}}</span>.</p>
@@ -41,7 +43,7 @@
              You do not see anyone.
            </p>
       </v-card-text>
-    </v-card>    
+    </v-card>
   </v-bottom-sheet>
 </template>
 
