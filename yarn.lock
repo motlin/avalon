@@ -47,7 +47,7 @@ __metadata:
     firebase: 9.9.0
     i: 0.3.7
     lodash: 4.17.21
-    npm: 8.14.0
+    npm: 8.15.1
     seedrandom: 3.0.5
     vue: 2.7.7
     vue-template-compiler: 2.7.7
@@ -2262,9 +2262,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@npmcli/config@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@npmcli/config@npm:4.1.0"
+"@npmcli/config@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "@npmcli/config@npm:4.2.0"
   dependencies:
     "@npmcli/map-workspaces": ^2.0.2
     ini: ^3.0.0
@@ -2274,7 +2274,7 @@ __metadata:
     read-package-json-fast: ^2.0.3
     semver: ^7.3.5
     walk-up-path: ^1.0.0
-  checksum: ec0f8947e7695d246dafde2fb5bb0cb20c3cab55bbee4326468f51a3a811bfb3677517bf5f66185a10cca258938d15be0c7f30ae69f45ca6e62c938d5e309843
+  checksum: 30dfa346b59aeea33845d179594d30e9707457ea8879f89a86e86d8839eb0ca5bab04cae579e26bbeb5fafd18a5f4e82986909b4b35aaecb172c07e278236168
   languageName: node
   linkType: hard
 
@@ -7677,7 +7677,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"make-fetch-happen@npm:^10.0.3, make-fetch-happen@npm:^10.0.6, make-fetch-happen@npm:^10.1.8":
+"make-fetch-happen@npm:^10.0.3, make-fetch-happen@npm:^10.0.6":
   version: 10.1.8
   resolution: "make-fetch-happen@npm:10.1.8"
   dependencies:
@@ -7698,6 +7698,30 @@ __metadata:
     socks-proxy-agent: ^7.0.0
     ssri: ^9.0.0
   checksum: 5fe9fd9da5368a8a4fe9a3ea5b9aa15f1e91c9ab703cd9027a6b33840ecc8a57c182fbe1c767c139330a88c46a448b1f00da5e32065cec373aff2450b3da54ee
+  languageName: node
+  linkType: hard
+
+"make-fetch-happen@npm:^10.2.0":
+  version: 10.2.0
+  resolution: "make-fetch-happen@npm:10.2.0"
+  dependencies:
+    agentkeepalive: ^4.2.1
+    cacache: ^16.1.0
+    http-cache-semantics: ^4.1.0
+    http-proxy-agent: ^5.0.0
+    https-proxy-agent: ^5.0.0
+    is-lambda: ^1.0.1
+    lru-cache: ^7.7.1
+    minipass: ^3.1.6
+    minipass-collect: ^1.0.2
+    minipass-fetch: ^2.0.3
+    minipass-flush: ^1.0.5
+    minipass-pipeline: ^1.2.4
+    negotiator: ^0.6.3
+    promise-retry: ^2.0.1
+    socks-proxy-agent: ^7.0.0
+    ssri: ^9.0.0
+  checksum: 2f6c294179972f56fab40fd8618f07841e06550692bb78f6da16e7afaa9dca78c345b08cf44a77a8907ef3948e4dc77e93eb7492b8381f1217d7ac057a7522f8
   languageName: node
   linkType: hard
 
@@ -8309,7 +8333,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-registry-fetch@npm:^13.0.0, npm-registry-fetch@npm:^13.0.1, npm-registry-fetch@npm:^13.2.0":
+"npm-registry-fetch@npm:^13.0.0, npm-registry-fetch@npm:^13.0.1":
   version: 13.2.0
   resolution: "npm-registry-fetch@npm:13.2.0"
   dependencies:
@@ -8321,6 +8345,21 @@ __metadata:
     npm-package-arg: ^9.0.1
     proc-log: ^2.0.0
   checksum: be5f53dede252d051137897c4efc615102c27fb250671564feaf03394d0532c24d57c7b3e374b943b28988f2e9381c0b10a57146b0f5adb68d93ccfcbfb802ed
+  languageName: node
+  linkType: hard
+
+"npm-registry-fetch@npm:^13.3.0":
+  version: 13.3.0
+  resolution: "npm-registry-fetch@npm:13.3.0"
+  dependencies:
+    make-fetch-happen: ^10.0.6
+    minipass: ^3.1.6
+    minipass-fetch: ^2.0.3
+    minipass-json-stream: ^1.0.1
+    minizlib: ^2.1.2
+    npm-package-arg: ^9.0.1
+    proc-log: ^2.0.0
+  checksum: f153e471b7204eef260d4b774087291981a0d2909db7568540d77759409300d10f8e2a464af0da15ab1c4da4d6285c5d746ba09707dd55a4bd66f5f0ceafcf64
   languageName: node
   linkType: hard
 
@@ -8349,14 +8388,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm@npm:8.14.0":
-  version: 8.14.0
-  resolution: "npm@npm:8.14.0"
+"npm@npm:8.15.1":
+  version: 8.15.1
+  resolution: "npm@npm:8.15.1"
   dependencies:
     "@isaacs/string-locale-compare": ^1.1.0
     "@npmcli/arborist": ^5.0.4
     "@npmcli/ci-detect": ^2.0.0
-    "@npmcli/config": ^4.1.0
+    "@npmcli/config": ^4.2.0
     "@npmcli/fs": ^2.1.0
     "@npmcli/map-workspaces": ^2.0.3
     "@npmcli/package-json": ^2.0.0
@@ -8388,7 +8427,7 @@ __metadata:
     libnpmsearch: ^5.0.2
     libnpmteam: ^4.0.2
     libnpmversion: ^3.0.1
-    make-fetch-happen: ^10.1.8
+    make-fetch-happen: ^10.2.0
     minipass: ^3.1.6
     minipass-pipeline: ^1.2.4
     mkdirp: ^1.0.4
@@ -8401,7 +8440,7 @@ __metadata:
     npm-package-arg: ^9.1.0
     npm-pick-manifest: ^7.0.1
     npm-profile: ^6.2.0
-    npm-registry-fetch: ^13.2.0
+    npm-registry-fetch: ^13.3.0
     npm-user-validate: ^1.0.1
     npmlog: ^6.0.2
     opener: ^1.5.2
@@ -8427,7 +8466,7 @@ __metadata:
   bin:
     npm: bin/npm-cli.js
     npx: bin/npx-cli.js
-  checksum: df569b92bc34dab8fffd47ef583db74f2d529cae58c5c6c05495359df9821f0e24886db4cdb3db34cb523a7e50a25694125f2e0ee0daacdc7c34319b8a4afa43
+  checksum: ce14b69a67e830b525211bab93ad05de7b5826753c902fdc5b4808c6d77815634199fba653d37f37ac5a14f6128e00036bdf5cb3e5ed91e89a83788d33a9078e
   languageName: node
   linkType: hard
 
