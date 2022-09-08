@@ -3,6 +3,7 @@ import Vuetify from 'vuetify'
 import App from './App.vue'
 import 'vuetify/dist/vuetify.min.css'
 import Toasted from 'vue-toasted';
+import '@mdi/font/css/materialdesignicons.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText} from '@fortawesome/vue-fontawesome'
 
@@ -21,7 +22,7 @@ library.add(faCrown, faSolidCircle, faCircle,
 //library.add(far, fas);
 
 const opts = {
-  iconfont: 'faSvg',
+  iconfont: 'mdiSvg',
   //dark: true,
 }
 Vue.use(Vuetify, opts)
