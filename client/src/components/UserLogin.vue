@@ -47,17 +47,11 @@
         </v-layout>
       <v-layout column align-end>
         <v-flex class='mt-4 pt-4'>
-          <v-btn small href='mailto:support@avalongame.online' target="_blank" color='grey lighten-2'>
+          <v-btn small href='mailto:avalon@shamm.as' target="_blank" color='grey lighten-2'>
             <v-icon left small>
               fas fa-envelope-square
             </v-icon>
             <span>Email</span>
-          </v-btn>
-          <v-btn small href='https://discord.gg/HTdk68u' target='_blank' color='grey lighten-2'>
-            <v-icon left small>
-              fab fa-discord
-            </v-icon>
-            <span>Discord</span>
           </v-btn>
         </v-flex>
       </v-layout>

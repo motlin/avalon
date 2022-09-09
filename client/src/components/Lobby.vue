@@ -10,11 +10,6 @@
           Please pitch in if you enjoy playing here. Every little bit helps.
         </v-card-text>
         <v-divider></v-divider>
-        <v-card-actions>
- <v-layout align-center justify-center pt-2>
-      <BuyButton :avalon='avalon' staticText="Donate" />
-    </v-layout>          
-        </v-card-actions>
       </v-card>    
 
   <v-layout align-start justify-center wrap>
@@ -97,20 +92,9 @@
       </v-card-text>
     </v-card>
   </v-layout>
-    <v-layout align-center justify-center pt-2>
-      <BuyButton :avalon='avalon' />
-    </v-layout>
 <v-layout pt-12 column align-end>
   <v-flex>
-    <v-btn small block href='https://discord.gg/HTdk68u' target='_blank' color='grey lighten-1'>
-      <v-icon left small>
-        fab fa-discord
-      </v-icon>
-      <span>Discord Chat</span>
-    </v-btn>
-  </v-flex>
-  <v-flex>
-    <v-btn small block href='mailto:support@avalongame.online' target="_blank" color='grey lighten-1'>
+    <v-btn small block href='mailto:avalon@shamm.as' target="_blank" color='grey lighten-1'>
       <v-icon left small>
         fas fa-envelope-square
       </v-icon>
@@ -126,13 +110,11 @@ import { EventBus } from '@/main.js'
 import avalonLib from '@/../../server/common/avalonlib.js'
 import LobbyPlayerList from './LobbyPlayerList.vue'
 import RoleList from './RoleList.vue'
-import BuyButton from './BuyButton.vue'
 
 export default {
   name: 'Lobby',
   components: {
     LobbyPlayerList,
-    BuyButton,
     RoleList
   },
   props: [ 'avalon' ],
