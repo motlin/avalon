@@ -10,7 +10,7 @@ spec:
         autoscaling.knative.dev/scale-to-zero-pod-retention-period: "5m0s"
     spec:
       containers:
-      - image: docker.io/georgyo/avalon:202207122043
+      - image: georgyo/avalon
         volumeMounts:
           - mountPath: "/app/server/firebase-key.json"
             subPath: firebase-key
