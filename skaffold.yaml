@@ -1,0 +1,19 @@
+apiVersion: skaffold/v2beta20
+kind: Config
+metadata:
+  name: nycr5
+build:
+  artifacts:
+    - image: georgyo/avalon
+      context: .
+      docker:
+        cacheFrom:
+          - georgyo/avalon
+  tagPolicy:
+    dateTime:
+      format: "200601020304"
+      timezone: "UTC"
+deploy:
+  kustomize:
+    paths:
+    - deploy

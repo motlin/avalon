@@ -1,0 +1,20 @@
+---
+apiVersion: networking.internal.knative.dev/v1alpha1
+kind: ClusterDomainClaim
+metadata:
+  name: avalon.shamm.as
+spec:
+  namespace: default
+---
+apiVersion: serving.knative.dev/v1alpha1
+kind: DomainMapping
+metadata:
+  name: avalon.shamm.as
+  namespace: default
+spec:
+  ref:
+    name: avalon
+    kind: Service
+    apiVersion: serving.knative.dev/v1
+  tls:
+    secretName: avalon-tls
