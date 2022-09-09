@@ -540,8 +540,6 @@ export default class AvalonGame {
       } else {
         // we have user credentials
         console.debug('I am', userCred.uid);
-        gtag('set', {'user_id': userCred.uid}); // eslint-disable-line
-        gtag('event', 'login');     // eslint-disable-line
         this.api.login(userCred.email).then(function() {
           this.userDocUnsubscribe = db.collection('users').doc(userCred.uid).onSnapshot(
             this.userDocUpdated.bind(this),

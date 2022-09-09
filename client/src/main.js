@@ -4,6 +4,7 @@ import App from './App.vue'
 import 'vuetify/dist/vuetify.min.css'
 import Toasted from 'vue-toasted';
 import '@mdi/font/css/materialdesignicons.css'
+import '@fortawesome/fontawesome-free/css/all.min.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText} from '@fortawesome/vue-fontawesome'
 
