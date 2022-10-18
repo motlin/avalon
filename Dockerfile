@@ -1,4 +1,4 @@
-FROM node:current-alpine AS yarninstall
+FROM node:current AS yarninstall
 
 RUN mkdir /app && chown node:node /app
 
@@ -16,7 +16,7 @@ RUN yarn install --immutable --inline-builds \
   && rm -rf .yarn/cache
 
 
-FROM node:current-alpine 
+FROM node:current
 
 WORKDIR /app
 USER node
