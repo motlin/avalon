@@ -6,7 +6,7 @@ import avalonLib from '../../server/common/avalonlib';
 import {AvalonApi} from './avalon-api-rest';
 import firebaseConfig from './firebase-config';
 
-const axios = require('axios');
+import axios from 'axios';
 
 const HOSTNAME = window.location.origin + '/';
 

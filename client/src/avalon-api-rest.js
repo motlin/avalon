@@ -1,7 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
-const axios = require('axios');    
+import axios from 'axios';
 
 export class AvalonApi {
   constructor() {
