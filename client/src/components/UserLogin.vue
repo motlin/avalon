@@ -1,6 +1,8 @@
 <template>
-  <v-container class="cyan lighten-5">
+  <v-card class="welcome cyan lighten-5">
     <v-layout align-center justify-center column fill-height>
+      <v-card-title>
+
        <v-alert
         :value="avalon.confirmingEmailError"
         type="error"
@@ -8,6 +10,7 @@
         {{ avalon.confirmingEmailError }} Please try logging in again.
         </v-alert>
 
+        
         <div class='welcome'>
             <span class=dtext-h3Avalon:> The Resistance <span class="font-weight-thin">Online</span></span>
             <p class='mt-4 pt-2'>
@@ -16,7 +19,14 @@
               </span>
             </p>
         </div>
-
+      </v-card-title>
+        <v-tabs v-model="tab" center-active align-center fill-height centered grow >
+          <v-tabs-slider></v-tabs-slider>
+          <v-tab key="email">Email</v-tab>
+          <v-tab key="anonymous">Anonymous</v-tab>
+      </v-tabs>
+      <v-tabs-items v-model="tab" continuous center-active align-center fill-height centered >
+        <v-tab-item key="email">
         <template v-if='!emailSubmitted'>
           <v-text-field
            label="Email Address" 
@@ -44,6 +54,15 @@
             Try Again
           </v-btn>
         </template>
+      </v-tab-item>
+    <v-tab-item key="anonymous">
+      <v-btn
+           @click='signInAnonymously()'>
+            Login
+        </v-btn>
+    </v-tab-item>
+      </v-tabs-items>
+
         </v-layout>
       <v-layout column align-end>
         <v-flex class='mt-4 pt-4'>
@@ -55,7 +74,7 @@
           </v-btn>
         </v-flex>
       </v-layout>
-  </v-container>
+  </v-card>
 </template>
 
 <script>
@@ -64,6 +83,7 @@ export default {
   name: 'UserLogin',
   data() {
     return {
+      tab: null,
       emailAddr: '',
       errorMessage: '',
       isSubmittingEmailAddr: false,
@@ -91,6 +111,12 @@ export default {
         }.bind(this)).finally(function() {
             this.isSubmittingEmailAddr = false;
         }.bind(this));
+    },
+    signInAnonymously() {
+      this.clearErrorMessage();
+      this.avalon.signInAnonymously()
+      .then()
+      .catch((err) => this.errorMessage = err.message)
     },
     resetForm() {
         this.emailSubmitted = false;

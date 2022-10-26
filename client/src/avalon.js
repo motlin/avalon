@@ -503,6 +503,10 @@ export default class AvalonGame {
     });
   }
 
+  async signInAnonymously() {
+    return firebase.auth().signInAnonymously()
+  }
+
   init() {
     let urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("purchaseSuccess")) {

@@ -1,6 +1,11 @@
-module.exports = {
+const { defineConfig } = require('@vue/cli-service')
+module.exports = defineConfig({
   "outputDir" : "../server/dist",
   devServer: {
-    proxy: 'http://localhost:8001'
-  }
-}
+    proxy: 'https://avalon.onl'
+  },
+
+  transpileDependencies: [
+    'vuetify'
+  ]
+})
