@@ -50,7 +50,8 @@ node_modules/
 
 # Optional npm cache directory
 .npm
-.yarn
+.yarn/cache
+.yarn/install-state.gz 
 
 # Optional eslint cache
 .eslintcache
