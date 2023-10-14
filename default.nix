@@ -3,4 +3,22 @@
 
 { pkgs ? import <nixpkgs> { } }:
 
-pkgs.callPackage ./yarn-project.nix { } { src = ./.; }
+let
+  project =
+    pkgs.callPackage ./yarn-project.nix
+      {
+        nodejs = pkgs.nodejs-slim_20;
+      }
+      {
+        src = ./.;
+      };
+in
+project.overrideAttrs (oldAttrs: {
+
+  name = "avalon";
+
+  buildPhase = ''
+    (cd client && yarn build)
+  '';
+
+})
