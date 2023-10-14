@@ -79,6 +79,8 @@ __metadata:
     firebase-admin: 11.11.0
     lodash: 4.17.21
     nodemon: 2.0.22
+  bin:
+    avalon_server: ./server.js
   languageName: unknown
   linkType: soft
 
@@ -4459,6 +4461,8 @@ __metadata:
   resolution: "avalon-workspace@workspace:."
   dependencies:
     turbo: 1.10.15
+  bin:
+    avalon_server: ./server/server.js
   languageName: unknown
   linkType: soft
 
