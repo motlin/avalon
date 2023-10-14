@@ -6,7 +6,7 @@
     "server"
   ],
   "bin": {
-    "avalon_server": "./server/server.js"
+    "avalon-server": "./server/server.js"
   },
   "scripts": {
     "build": "turbo run build"
