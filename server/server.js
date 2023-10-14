@@ -1,6 +1,7 @@
 const express = require('express');
 const firebaseAdmin = require('firebase-admin');
-const serviceAccount = require("./firebase-key.json");
+const firebaseKeyJson = process.env.FIREBASE_KEY || "./firebase-key.json"
+const serviceAccount = require(firebaseKeyJson);
 
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert(serviceAccount),
