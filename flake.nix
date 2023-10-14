@@ -13,13 +13,22 @@
   };
 
   outputs = { self, nixpkgs, flake-utils, ... }@inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = nixpkgs.legacyPackages.${system}; in
-      {
-        packages = rec {
-          avalon-online = pkgs.callPackage ./default.nix { };
-          default = avalon-online;
-        };
-      }
-    );
+    let
+      overlay = final: prev: {
+        avalon-online = final.callPackage ./default.nix { };
+      };
+    in
+    flake-utils.lib.eachDefaultSystem
+      (system:
+        let pkgs = import nixpkgs { inherit system; overlays = [ overlay ]; }; in
+        {
+          packages = rec {
+            default = pkgs.avalon-online;
+          };
+        }
+      )
+    // {
+      overlays.default = overlay;
+    }
+  ;
 }
