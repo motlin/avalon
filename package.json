@@ -9,9 +9,7 @@
     "avalon-server": "./server/server.js"
   },
   "scripts": {
-    "build": "turbo run build"
-  },
-  "devDependencies": {
-    "turbo": "1.10.15"
+    "build": "yarn workspace @avalon/client build",
+    "start": "yarn workspace @avalon/server start"
   }
 }
