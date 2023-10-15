@@ -18,7 +18,7 @@ project.overrideAttrs (oldAttrs: {
   name = "avalon";
 
   buildPhase = ''
-    (cd client && yarn build)
+    yarn build
   '';
 
 })
