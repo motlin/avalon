@@ -1,16 +1,13 @@
-import vetur from '@volar-plugins/vetur';
-import prettyhtml from '@volar-plugins/prettyhtml'
-import { volarPrettierPlugin } from '@volar-plugins/prettier'
-export default {
-	plugins: [
-		vetur(),
-		prettyhtml({ printWidth: 100 }),
-		volarPrettierPlugin({
-			languages: ['html', 'css', 'scss', 'typescript', 'javascript'],
-			html: {
-				breakContentsFromTags: true,
-			},
-			useVscodeIndentation: true,
-		}),
-	],
+module.exports = {
+    services: [
+        require('volar-service-vetur').create(),
+        require('volar-service-prettyhtml').create({ printWidth: 100 }),
+        require('volar-service-prettier').create({
+                  languages: ['html', 'css', 'scss', 'typescript', 'javascript'],
+                   html: {
+                         breakContentsFromTags: true,
+                  },
+                  useVscodeIndentation: true,
+            }),
+    ],
 };
