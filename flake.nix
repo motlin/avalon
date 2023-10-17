@@ -17,6 +17,7 @@
       overlay = final: prev: {
         avalon-online = final.callPackage ./default.nix { };
       };
+      rev = if (self ? shortRev) then self.shortRev else self.dirtyShortRev;
     in
     flake-utils.lib.eachDefaultSystem
       (system:
@@ -24,6 +25,15 @@
         {
           packages = rec {
             default = pkgs.avalon-online;
+            container = pkgs.dockerTools.buildImage {
+              name = "avalon";
+              tag = "${rev}";
+              config = {
+                Cmd = [ "${pkgs.avalon-online}/bin/avalon-server" ];
+                ExposePorts = { "8001/tcp" = { }; };
+
+              };
+            };
           };
         }
       )
