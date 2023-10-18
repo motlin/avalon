@@ -25,7 +25,7 @@
         {
           packages = rec {
             default = pkgs.avalon-online;
-            container = pkgs.dockerTools.buildImage {
+            container = pkgs.dockerTools.buildLayeredImage {
               name = "avalon";
               tag = "${rev}";
               config = {
