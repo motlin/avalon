@@ -54,7 +54,15 @@ exports.ROLES = [
       sees: ['MORGANA', 'MORDRED', 'EVIL MINION'],
       selected: false,
       selectable: false
-     }
+    },
+    { name: 'ASSASSIN',
+      description: 'The same as Evil Minion, but guaranteed to be the Assassin. They can see other evil people (except Oberon)',
+      team: 'evil',
+      assassinationPriority: 10,
+      sees: ['MORGANA', 'MORDRED', 'EVIL MINION'],
+      selected: false,
+      selectable: true
+    }
 ];
 
 exports.getNumEvilForGameSize = function(numPlayers) {
