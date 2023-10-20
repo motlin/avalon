@@ -16,6 +16,7 @@ let
           filter = path: type:
             let bname = baseNameOf path; in
             bname != "default.nix"
+            && bname != "Dockerfile"
             && bname != "flake.nix"
             && bname != "flake.lock";
         };

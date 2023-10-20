@@ -1,30 +1,25 @@
-FROM node:current AS yarninstall
+FROM nixpkgs/nix-flakes:latest AS build
 
-RUN mkdir /app && chown node:node /app
+COPY . /src
 
-WORKDIR /app
-USER node
+RUN --mount=type=cache,id=s/1d457021-351d-4d45-9d11-9cc268601d0b/root/nix,target=/nix-out \
+    cd /src \
+    && nix build \
+    --extra-substituters /nix-out/?trusted=1 \
+    --print-out-paths \
+    --max-jobs 8 \
+    "/src#"
 
-# Dockerfile is really bad at copying directories, 
-# so we must add files from each directory individually. 
-COPY --chown=node:node yarn.lock .yarnrc.yml package.json ./
-COPY --chown=node:node .yarn/ .yarn/
-COPY --chown=node:node server/package.json server/
-COPY --chown=node:node client/package.json client/
+RUN --mount=type=cache,id=s/1d457021-351d-4d45-9d11-9cc268601d0b/root/nix,target=/nix-out \
+    nix copy --no-check-sigs  --all --to /nix-out
 
-RUN yarn install --immutable --inline-builds \
-  && rm -rf .yarn/cache
+RUN mkdir -p /tmp/nix-run/store \
+    && cp -R $(nix-store -qR /src/result/) /tmp/nix-run/store \
+    && mv /src/result /tmp/nix-run/app
 
+FROM scratch
 
-FROM node:current
+COPY --from=build --link /tmp/nix-run /nix
 
-WORKDIR /app
-USER node
+CMD ["/nix/app/bin/avalon-server"]
 
-COPY --from=yarninstall --chown=node:node /app/ ./
-
-COPY --chown=node:node  ./ ./
-
-RUN yarn build
-
-CMD yarn workspace @avalon/server serve
