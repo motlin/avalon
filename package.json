@@ -3,14 +3,17 @@
   "packageManager": "yarn@3.6.4",
   "workspaces": [
     "client",
-    "server"
+    "server",
+    "firebase/functions"
   ],
   "bin": {
+    "avalon-admin": "./server/admin.js",
     "avalon-server": "./server/server.js"
   },
   "scripts": {
     "build": "yarn workspace @avalon/client build",
-    "start": "yarn workspace @avalon/server start"
+    "start": "yarn workspace @avalon/server start",
+    "admin": "avalon-admin"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",

@@ -1,5 +1,8 @@
 const firebaseAdmin = require('firebase-admin');
-const serviceAccount = require("./firebase-key.json");
+const { readEnv } = require('read-env');
+const firebaseKeyJson = process.env.FIREBASE_KEY_FILE || "./firebase-key.json"
+const serviceAccount = readEnv('FIREBASE_KEY')[''] || require(firebaseKeyJson);
+
 const fs = require('fs');
 
 firebaseAdmin.initializeApp({

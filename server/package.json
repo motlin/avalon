@@ -13,6 +13,7 @@
     "read-env": "^2.0.0"
   },
   "devDependencies": {
+    "@firebase/app-types": "^0.9.0",
     "eslint": "8.52.0",
     "nodemon": "2.0.22"
   }
