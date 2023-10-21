@@ -1,5 +1,5 @@
 const firebaseAdmin = require('firebase-admin');
-const serviceAccount = require("./firebase-key.json");
+const serviceAccount = require("./firebaseKey.js");
 const _ = require('lodash');
 
 firebaseAdmin.initializeApp({
