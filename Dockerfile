@@ -21,5 +21,6 @@ FROM scratch
 
 COPY --from=build --link /tmp/nix-run /nix
 
+WORKDIR /nix/app/libexec/avalon
 CMD ["/nix/app/bin/avalon-server"]
 
