@@ -102,7 +102,7 @@ __metadata:
     eslint: "npm:8.52.0"
     express: "npm:4.18.3"
     express-promise-router: "npm:4.1.1"
-    firebase-admin: "npm:11.11.0"
+    firebase-admin: "npm:11.11.1"
     lodash: "npm:4.17.21"
     nodemon: "npm:3.1.0"
     read-env: "npm:^2.0.0"
@@ -2365,7 +2365,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/firestore@npm:^6.6.0":
+"@google-cloud/firestore@npm:^6.8.0":
   version: 6.8.0
   resolution: "@google-cloud/firestore@npm:6.8.0"
   dependencies:
@@ -8950,14 +8950,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"firebase-admin@npm:11.11.0":
-  version: 11.11.0
-  resolution: "firebase-admin@npm:11.11.0"
+"firebase-admin@npm:11.11.1":
+  version: 11.11.1
+  resolution: "firebase-admin@npm:11.11.1"
   dependencies:
     "@fastify/busboy": "npm:^1.2.1"
     "@firebase/database-compat": "npm:^0.3.4"
     "@firebase/database-types": "npm:^0.10.4"
-    "@google-cloud/firestore": "npm:^6.6.0"
+    "@google-cloud/firestore": "npm:^6.8.0"
     "@google-cloud/storage": "npm:^6.9.5"
     "@types/node": "npm:>=12.12.47"
     jsonwebtoken: "npm:^9.0.0"
@@ -8969,7 +8969,7 @@ __metadata:
       optional: true
     "@google-cloud/storage":
       optional: true
-  checksum: 10/74f8592589c9d31b5ce14c117911df812123924c7ff06f1e0e744c85a78f54448aaefd9fd2642cf22d1b928b3161c724b1a1041e2deb5502dea16feb7f32c4e7
+  checksum: 10/e0b7058239e22bd8dbd4a0352187241b62c2fcbf202f7b630ebed1e639822a32ca5e7da967ab883dd41398ac07504974c0c8c6b6f6b38a8c9f2a271a6d9f16de
   languageName: node
   linkType: hard
 
@@ -9377,7 +9377,7 @@ __metadata:
     "@firebase/app-types": "npm:^0.9.0"
     eslint: "npm:8.52.0"
     eslint-plugin-promise: "npm:6.1.1"
-    firebase-admin: "npm:11.11.0"
+    firebase-admin: "npm:11.11.1"
     firebase-functions: "npm:4.8.0"
     firebase-functions-test: "npm:3.1.0"
     firebase-tools: "npm:11.30.0"
