@@ -38,9 +38,10 @@
     "eslint-plugin-vue": "^9.17.0",
     "eslint-plugin-vuetify": "2.2.0",
     "postcss": "^8.4.31",
+    "volar-service-css": "^0.0.34",
+    "volar-service-html": "^0.0.34",
+    "volar-service-json": "^0.0.34",
     "volar-service-prettier": "^0.0.34",
-    "volar-service-prettyhtml": "^0.0.34",
-    "volar-service-vetur": "^0.0.34",
     "vue-template-compiler": "2.7.16"
   }
 }
