@@ -119,7 +119,6 @@ const RAW_RUNTIME_STATE =
           ["eslint", "npm:8.57.0"],\
           ["eslint-plugin-promise", "virtual:72317fc24132b0dfc6fb58738ca290a67319a03b6d103f7bc51125559648f6a8b269569c980259fc873c383282f7a0e2337aa6d97ccebc2f6c5667ef5691ebd8#npm:6.6.0"],\
           ["eslint-plugin-vue", "virtual:307f0f0a0f6bbe419b2892b2adbeb625075054c34bce101c7493ba00895524625ed865e532e293b325047e347afc45f9c2b2b1217a78ed253b0c25afd92ce307#npm:9.27.0"],\
-          ["eslint-plugin-vuetify", "virtual:72317fc24132b0dfc6fb58738ca290a67319a03b6d103f7bc51125559648f6a8b269569c980259fc873c383282f7a0e2337aa6d97ccebc2f6c5667ef5691ebd8#npm:2.4.0"],\
           ["firebase", "npm:9.23.0"],\
           ["i", "npm:0.3.7"],\
           ["lodash", "npm:4.17.21"],\
@@ -10636,34 +10635,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["eslint-plugin-vuetify", [\
-      ["npm:2.4.0", {\
-        "packageLocation": "./.yarn/cache/eslint-plugin-vuetify-npm-2.4.0-3c4e751baa-87cf463ec6.zip/node_modules/eslint-plugin-vuetify/",\
-        "packageDependencies": [\
-          ["eslint-plugin-vuetify", "npm:2.4.0"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["virtual:72317fc24132b0dfc6fb58738ca290a67319a03b6d103f7bc51125559648f6a8b269569c980259fc873c383282f7a0e2337aa6d97ccebc2f6c5667ef5691ebd8#npm:2.4.0", {\
-        "packageLocation": "./.yarn/__virtual__/eslint-plugin-vuetify-virtual-488ed34476/0/cache/eslint-plugin-vuetify-npm-2.4.0-3c4e751baa-87cf463ec6.zip/node_modules/eslint-plugin-vuetify/",\
-        "packageDependencies": [\
-          ["eslint-plugin-vuetify", "virtual:72317fc24132b0dfc6fb58738ca290a67319a03b6d103f7bc51125559648f6a8b269569c980259fc873c383282f7a0e2337aa6d97ccebc2f6c5667ef5691ebd8#npm:2.4.0"],\
-          ["@types/eslint", null],\
-          ["@types/vuetify", null],\
-          ["eslint", "npm:8.57.0"],\
-          ["eslint-plugin-vue", "virtual:307f0f0a0f6bbe419b2892b2adbeb625075054c34bce101c7493ba00895524625ed865e532e293b325047e347afc45f9c2b2b1217a78ed253b0c25afd92ce307#npm:9.27.0"],\
-          ["requireindex", "npm:1.2.0"],\
-          ["vuetify", "virtual:72317fc24132b0dfc6fb58738ca290a67319a03b6d103f7bc51125559648f6a8b269569c980259fc873c383282f7a0e2337aa6d97ccebc2f6c5667ef5691ebd8#npm:2.7.2"]\
-        ],\
-        "packagePeers": [\
-          "@types/eslint",\
-          "@types/vuetify",\
-          "eslint",\
-          "vuetify"\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["eslint-scope", [\
       ["npm:5.1.1", {\
         "packageLocation": "./.yarn/cache/eslint-scope-npm-5.1.1-71fe59b18a-c541ef384c.zip/node_modules/eslint-scope/",\
@@ -18600,15 +18571,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/require-from-string-npm-2.0.2-8557e0db12-839a3a8901.zip/node_modules/require-from-string/",\
         "packageDependencies": [\
           ["require-from-string", "npm:2.0.2"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["requireindex", [\
-      ["npm:1.2.0", {\
-        "packageLocation": "./.yarn/cache/requireindex-npm-1.2.0-483c52ddaf-266d1cb31f.zip/node_modules/requireindex/",\
-        "packageDependencies": [\
-          ["requireindex", "npm:1.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\

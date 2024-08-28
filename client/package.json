@@ -36,7 +36,6 @@
     "eslint": "8.57.0",
     "eslint-plugin-promise": "6.6.0",
     "eslint-plugin-vue": "^9.17.0",
-    "eslint-plugin-vuetify": "2.4.0",
     "postcss": "^8.4.41",
     "volar-service-css": "^0.0.61",
     "volar-service-html": "^0.0.61",

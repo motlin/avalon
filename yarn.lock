@@ -66,7 +66,6 @@ __metadata:
     eslint: "npm:8.57.0"
     eslint-plugin-promise: "npm:6.6.0"
     eslint-plugin-vue: "npm:^9.17.0"
-    eslint-plugin-vuetify: "npm:2.4.0"
     firebase: "npm:9.23.0"
     i: "npm:0.3.7"
     lodash: "npm:4.17.21"
@@ -7413,7 +7412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:^9.17.0, eslint-plugin-vue@npm:^9.6.0":
+"eslint-plugin-vue@npm:^9.17.0":
   version: 9.27.0
   resolution: "eslint-plugin-vue@npm:9.27.0"
   dependencies:
@@ -7428,19 +7427,6 @@ __metadata:
   peerDependencies:
     eslint: ^6.2.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
   checksum: 10/b8ea74e0a57bd9faba71b362ddea34a6b866ccd7af42692a108d818feef27480df87e30261ffd790520006ff4dd808ecc1a1577a13713e3c66378e2214f3e1fb
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-vuetify@npm:2.4.0":
-  version: 2.4.0
-  resolution: "eslint-plugin-vuetify@npm:2.4.0"
-  dependencies:
-    eslint-plugin-vue: "npm:^9.6.0"
-    requireindex: "npm:^1.2.0"
-  peerDependencies:
-    eslint: ^8.0.0
-    vuetify: ^3.0.0
-  checksum: 10/87cf463ec6efc84fdd6e8dce3078bdbef81fe11bc576f0cce816df6b398c3a1adc8f6ea7eb457070d73ecc7fbe8a2e757dcde7d22918303232ee4e5e601067ee
   languageName: node
   linkType: hard
 
@@ -14225,13 +14211,6 @@ __metadata:
   version: 2.0.2
   resolution: "require-from-string@npm:2.0.2"
   checksum: 10/839a3a890102a658f4cb3e7b2aa13a1f80a3a976b512020c3d1efc418491c48a886b6e481ea56afc6c4cb5eef678f23b2a4e70575e7534eccadf5e30ed2e56eb
-  languageName: node
-  linkType: hard
-
-"requireindex@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "requireindex@npm:1.2.0"
-  checksum: 10/266d1cb31f6cbc4b6cf2e898f5bbc45581f7919bcf61bba5c45d0adb69b722b9ff5a13727be3350cde4520d7cd37f39df45d58a29854baaa4552cd6b05ae4a1a
   languageName: node
   linkType: hard
 
