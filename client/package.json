@@ -16,7 +16,7 @@
     "firebase": "9.23.0",
     "i": "0.3.7",
     "lodash": "4.17.21",
-    "npm": "10.5.0",
+    "npm": "10.8.2",
     "seedrandom": "3.0.5",
     "vue": "2.7.16",
     "vue-toasted": "1.1.28",
@@ -37,11 +37,11 @@
     "eslint-plugin-promise": "6.6.0",
     "eslint-plugin-vue": "^9.17.0",
     "eslint-plugin-vuetify": "2.4.0",
-    "postcss": "^8.4.31",
+    "postcss": "^8.4.41",
     "volar-service-css": "^0.0.61",
-    "volar-service-html": "^0.0.34",
-    "volar-service-json": "^0.0.34",
-    "volar-service-prettier": "^0.0.34",
+    "volar-service-html": "^0.0.61",
+    "volar-service-json": "^0.0.61",
+    "volar-service-prettier": "^0.0.61",
     "vue-template-compiler": "2.7.16"
   }
 }
