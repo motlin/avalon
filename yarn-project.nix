@@ -6,7 +6,7 @@
 
 let
 
-  yarnBin = ./.yarn/releases/yarn-4.4.1.cjs;
+  yarnBin = ./.yarn/releases/yarn-4.5.0.cjs;
 
   cacheFolder = ".yarn/cache";
   lockfile = ./yarn.lock;
