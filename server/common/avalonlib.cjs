@@ -67,4 +67,5 @@ exports.ROLES = [
 
 exports.getNumEvilForGameSize = function(numPlayers) {
     return { 5: 2, 6: 2, 7: 3, 8: 3, 9: 3, 10: 4 }[numPlayers];
-}
+};
+

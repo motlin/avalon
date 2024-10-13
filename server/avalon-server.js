@@ -1,6 +1,6 @@
 const firebaseAdmin = require('firebase-admin');
 const _ = require('lodash');
-const avalonLib = require('./common/avalonlib');
+const avalonLib = require('./common/avalonlib.cjs');
 
 const db = firebaseAdmin.firestore();
 const FieldValue = firebaseAdmin.firestore.FieldValue;
