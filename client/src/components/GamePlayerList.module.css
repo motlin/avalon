@@ -1,0 +1,143 @@
+.playerList {
+  background-color: #cfd8dc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.playerItem {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  min-height: 48px;
+}
+
+.playerItem:last-child {
+  border-bottom: none;
+}
+
+.checkboxColumn {
+  width: 16.67%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #3f51b5;
+}
+
+.checkbox:disabled {
+  cursor: not-allowed;
+}
+
+.selectedForMission {
+  accent-color: #7986cb;
+  pointer-events: none;
+}
+
+.statusColumn {
+  width: 16.67%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crownContainer {
+  position: relative;
+  font-size: 1.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crown {
+  display: block;
+}
+
+.proposalNumber {
+  position: absolute;
+  font-size: 0.5em;
+  bottom: -4px;
+  right: -4px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.hammerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hammer {
+  font-size: 1.2em;
+}
+
+.nameColumn {
+  width: 58.33%;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.iconColumn {
+  width: 8.33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statusIcons {
+  position: relative;
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: help;
+}
+
+.teamIcon {
+  color: #629ec1;
+  font-size: 1.2em;
+}
+
+.waitingIcon {
+  color: #4c4c4c;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.votedIcon {
+  color: #4c4c4c;
+  font-size: 1em;
+}
+
+.approvedIcon {
+  color: green;
+  font-size: 1em;
+}
+
+.rejectedIcon {
+  color: #ed1515;
+  font-size: 1em;
+}
+
+.statusIcons > * {
+  margin: 0 1px;
+}
+
+.statusIcons > *:not(:last-child) {
+  margin-right: 2px;
+}
