@@ -469,7 +469,7 @@ export default class AvalonGame {
   }
 
   logout() {
-    firebase.auth().signOut();
+    return firebase.auth().signOut();
   }
 
   async validateEmailAddr(email) {
