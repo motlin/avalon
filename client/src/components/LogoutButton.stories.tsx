@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import LogoutButton from './LogoutButton';
 
 const meta: Meta<typeof LogoutButton> = {
-  title: 'UI/LogoutButton',
   component: LogoutButton,
   parameters: {
     layout: 'centered',

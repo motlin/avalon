@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Achievements from './Achievements';
 
 const meta: Meta<typeof Achievements> = {
-  title: 'Game/Achievements',
   component: Achievements,
   parameters: {
     layout: 'centered',

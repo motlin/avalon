@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import LobbyPlayerList from './LobbyPlayerList';
 
 const meta: Meta<typeof LobbyPlayerList> = {
-  title: 'Lobby/LobbyPlayerList',
   component: LobbyPlayerList,
   parameters: {
     layout: 'centered',

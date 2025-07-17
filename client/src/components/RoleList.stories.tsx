@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import RoleList from './RoleList';
 
 const meta: Meta<typeof RoleList> = {
-  title: 'Components/RoleList',
   component: RoleList,
   parameters: {
     layout: 'centered',

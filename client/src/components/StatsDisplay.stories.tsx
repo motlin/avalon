@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import StatsDisplay from './StatsDisplay';
 
 const meta: Meta<typeof StatsDisplay> = {
-  title: 'Game/StatsDisplay',
   component: StatsDisplay,
   parameters: {
     layout: 'centered',

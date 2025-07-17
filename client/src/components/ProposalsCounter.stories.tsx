@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ProposalsCounter from './ProposalsCounter';
 
 const meta = {
-  title: 'Game/ProposalsCounter',
   component: ProposalsCounter,
   parameters: {
     layout: 'centered',
