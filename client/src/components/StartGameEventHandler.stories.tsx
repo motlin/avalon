@@ -44,15 +44,22 @@ const createMockAvalon = (initialEvents: string[] = []) => {
   };
 };
 
-export const Hidden: Story = {
-  args: {
-    avalon: createMockAvalon(),
-  },
-};
-
 export const GameStartedDialog: Story = {
   args: {
     avalon: createMockAvalon(['GAME_STARTED']),
+  },
+  parameters: {
+    docs: {
+      story: {
+        primary: true,
+      },
+    },
+  },
+};
+
+export const Hidden: Story = {
+  args: {
+    avalon: createMockAvalon(),
   },
 };
 
