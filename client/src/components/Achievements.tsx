@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Achievements.module.css';
-import GameAnalysis from '../avalon-analysis.js';
+import GameAnalysis from '../avalon-analysis.ts';
 
 interface Badge {
   title: string;
@@ -54,14 +54,6 @@ interface AchievementsProps {
   avalon: AvalonProps;
 }
 
-// Utility function to replicate Array.prototype.joinWithAnd
-function joinWithAnd(array: string[]): string {
-  if (array.length === 0) return '';
-  if (array.length === 1) return array[0];
-  const arrCopy = array.slice(0);
-  const lastElement = arrCopy.pop();
-  return arrCopy.join(', ') + ' and ' + lastElement;
-}
 
 const Achievements: React.FC<AchievementsProps> = ({ avalon }) => {
   const getBadges = (): Badge[] => {
