@@ -12,7 +12,7 @@
 
         
         <div class='welcome'>
-            <span class=dtext-h3Avalon:> The Resistance <span class="font-weight-thin">Online</span></span>
+            <span class="text-h3">Avalon: The Resistance <span class="font-weight-thin">Online</span></span>
             <p class='mt-4 pt-2'>
               <span class='subheading'>
                 A game of social deduction for 5 to 10 people, now on desktop and mobile.
