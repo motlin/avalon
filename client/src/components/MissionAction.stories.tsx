@@ -58,24 +58,6 @@ export const WaitingForOthers: Story = {
   },
 };
 
-export const WaitingForResults: Story = {
-  args: {
-    avalon: {
-      user: {
-        name: 'Alice',
-      },
-      game: {
-        currentProposal: {
-          team: ['Alice', 'Bob', 'Charlie'],
-        },
-        currentMission: {
-          team: ['Alice', 'Bob', 'Charlie'],
-        },
-      },
-      doMission: mockDoMission,
-    },
-  },
-};
 
 export const SinglePlayerWaiting: Story = {
   args: {
