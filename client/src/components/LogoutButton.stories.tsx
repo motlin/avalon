@@ -25,12 +25,26 @@ export const Default: Story = {
   },
 };
 
-export const Interactive: Story = {
+export const AdminCanDragAndKick: Story = {
   args: {
-    avalon: {
-      logout: () => {
-        alert('Logout functionality would be triggered here');
-      },
-    },
+    avalon: mockAvalon,
+  },
+};
+
+export const NonAdminView: Story = {
+  args: {
+    avalon: mockAvalon,
+  },
+};
+
+export const SinglePlayer: Story = {
+  args: {
+    avalon: mockAvalon,
+  },
+};
+
+export const AdminInMiddle: Story = {
+  args: {
+    avalon: mockAvalon,
   },
 };
