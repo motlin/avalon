@@ -24,26 +24,3 @@ export const Default: Story = {
   },
 };
 
-export const AdminCanDragAndKick: Story = {
-  args: {
-    avalon: mockAvalon,
-  },
-};
-
-export const NonAdminView: Story = {
-  args: {
-    avalon: mockAvalon,
-  },
-};
-
-export const SinglePlayer: Story = {
-  args: {
-    avalon: mockAvalon,
-  },
-};
-
-export const AdminInMiddle: Story = {
-  args: {
-    avalon: mockAvalon,
-  },
-};

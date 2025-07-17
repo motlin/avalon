@@ -12,7 +12,6 @@ const meta: Meta<typeof LobbyPlayerList> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Helper function to create mock avalon prop
 const createMockAvalon = (overrides = {}) => ({
   config: {
     playerList: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
@@ -57,74 +56,6 @@ export const NonAdminView: Story = {
   },
 };
 
-export const GameInProgress: Story = {
-  args: {
-    avalon: createMockAvalon({
-      isGameInProgress: true,
-    }),
-  },
-};
-
-export const NonAdminDuringGame: Story = {
-  args: {
-    avalon: createMockAvalon({
-      isAdmin: false,
-      isGameInProgress: true,
-      user: { name: 'CHARLIE' },
-    }),
-  },
-};
-
-export const DifferentAdmin: Story = {
-  args: {
-    avalon: createMockAvalon({
-      user: { name: 'BOB' },
-      lobby: {
-        admin: { name: 'DIANA' },
-      },
-      isAdmin: false,
-    }),
-  },
-};
-
-export const AdminDuringGame: Story = {
-  args: {
-    avalon: createMockAvalon({
-      isGameInProgress: true,
-      user: { name: 'DIANA' },
-      lobby: {
-        admin: { name: 'DIANA' },
-      },
-    }),
-  },
-};
-
-export const SmallLobby: Story = {
-  args: {
-    avalon: createMockAvalon({
-      config: {
-        playerList: ['ALICE', 'BOB'],
-        sortList: (newList: string[]) => {
-          console.log('Sorting list:', newList);
-        },
-      },
-    }),
-  },
-};
-
-export const FullLobby: Story = {
-  args: {
-    avalon: createMockAvalon({
-      config: {
-        playerList: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE', 'FRANK', 'GRACE', 'HENRY'],
-        sortList: (newList: string[]) => {
-          console.log('Sorting list:', newList);
-        },
-      },
-    }),
-  },
-};
-
 export const SinglePlayer: Story = {
   args: {
     avalon: createMockAvalon({
@@ -133,29 +64,6 @@ export const SinglePlayer: Story = {
         sortList: (newList: string[]) => {
           console.log('Sorting list:', newList);
         },
-      },
-    }),
-  },
-};
-
-export const LongPlayerNames: Story = {
-  args: {
-    avalon: createMockAvalon({
-      config: {
-        playerList: [
-          'ADMINISTRATOR',
-          'VERYLONGPLAYERNAMETHATMIGHTCAUSEISSUES',
-          'ANOTHERLONGNAME',
-          'SHORT',
-          'MEDIUMLENGTH',
-        ],
-        sortList: (newList: string[]) => {
-          console.log('Sorting list:', newList);
-        },
-      },
-      user: { name: 'ADMINISTRATOR' },
-      lobby: {
-        admin: { name: 'ADMINISTRATOR' },
       },
     }),
   },
@@ -174,24 +82,6 @@ export const AdminInMiddle: Story = {
       lobby: {
         admin: { name: 'CHARLIE' },
       },
-    }),
-  },
-};
-
-export const UserNotAdmin: Story = {
-  args: {
-    avalon: createMockAvalon({
-      config: {
-        playerList: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
-        sortList: (newList: string[]) => {
-          console.log('Sorting list:', newList);
-        },
-      },
-      user: { name: 'EVE' },
-      lobby: {
-        admin: { name: 'BOB' },
-      },
-      isAdmin: false,
     }),
   },
 };
