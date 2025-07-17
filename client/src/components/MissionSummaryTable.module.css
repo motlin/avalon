@@ -1,0 +1,98 @@
+.table {
+  border-collapse: collapse;
+}
+
+.evenRow {
+  background-color: gainsboro;
+}
+
+.oddRow {
+  background-color: bisque;
+}
+
+.evenRow td,
+.oddRow td {
+  height: 2.3em;
+  width: 1.7em;
+  padding-left: 6px;
+  padding-right: 4px;
+}
+
+.playerName {
+  border-left: 2px solid;
+}
+
+.fontWeightMedium {
+  font-weight: 500;
+}
+
+.role {
+  border-right: 2px solid;
+  white-space: nowrap;
+}
+
+.proposalCell {
+  text-align: center;
+  position: relative;
+}
+
+.iconStack {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.proposerIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ffd700;
+  font-size: 20px;
+  transform: scale(1.3);
+}
+
+.teamIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #629ec1;
+  font-size: 20px;
+  transform: scale(1.3);
+}
+
+.voteYes {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  color: green;
+  font-size: 16px;
+}
+
+.voteNo {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  color: #ed1515;
+  font-size: 16px;
+}
+
+.missionResult {
+  border-right: 2px solid;
+  text-align: center;
+}
+
+.missionSuccess {
+  color: green;
+  font-size: 16px;
+}
+
+.missionFail {
+  color: red;
+  font-size: 16px;
+}
+
+.endGameTitle {
+  padding-left: 30px;
+  text-align: center;
+}
