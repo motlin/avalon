@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import MissionSummaryTable from './MissionSummaryTable';
 
 const meta: Meta<typeof MissionSummaryTable> = {
-  title: 'Components/MissionSummaryTable',
   component: MissionSummaryTable,
   parameters: {
     layout: 'centered',

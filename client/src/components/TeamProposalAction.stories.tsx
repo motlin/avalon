@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TeamProposalAction from './TeamProposalAction';
 
 const meta: Meta<typeof TeamProposalAction> = {
-  title: 'Game/TeamProposalAction',
   component: TeamProposalAction,
   parameters: {
     layout: 'centered',
