@@ -35,30 +35,6 @@ export const BasicStats: Story = {
   },
 };
 
-export const NewPlayer: Story = {
-  args: {
-    stats: {
-      games: 2,
-      good: 1,
-      wins: 1,
-      good_wins: 1,
-      playtimeSeconds: 300, // 5 minutes
-    },
-  },
-};
-
-export const ExperiencedPlayer: Story = {
-  args: {
-    stats: {
-      games: 200,
-      good: 100,
-      wins: 120,
-      good_wins: 65,
-      playtimeSeconds: 28800, // 8 hours
-    },
-  },
-};
-
 export const WithGlobalStats: Story = {
   args: {
     stats: {
@@ -78,17 +54,5 @@ export const WithGlobalStats: Story = {
 export const EmptyStats: Story = {
   args: {
     stats: {},
-  },
-};
-
-export const EvilPreference: Story = {
-  args: {
-    stats: {
-      games: 30,
-      good: 8,
-      wins: 18,
-      good_wins: 2,
-      playtimeSeconds: 5400, // 1.5 hours
-    },
   },
 };
