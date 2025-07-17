@@ -54,7 +54,7 @@ const MissionSummaryTable: React.FC<MissionSummaryTableProps> = ({
             )}
             {missions.map((mission, missionIndex) => {
               const validProposals = mission.proposals.filter(p => p.team.length > 0);
-              return validProposals.map((proposal, proposalIndex) => {
+              const proposalCells = validProposals.map((proposal, proposalIndex) => {
                 const isProposer = proposal.proposer === player;
                 const isOnTeam = proposal.team.includes(player);
                 const votedYes = proposal.votes.includes(player);
@@ -88,9 +88,8 @@ const MissionSummaryTable: React.FC<MissionSummaryTableProps> = ({
                   </td>
                 );
               });
-            })}
-            {missions.map((mission, missionIndex) => (
-              missionVotes && (
+
+              const missionVoteCell = missionVotes && (
                 <td key={`${player}_mission${missionIndex}`} className={styles.missionResult}>
                   {mission.team.includes(player) && (
                     <FontAwesomeIcon 
@@ -99,8 +98,10 @@ const MissionSummaryTable: React.FC<MissionSummaryTableProps> = ({
                     />
                   )}
                 </td>
-              )
-            ))}
+              );
+
+              return [...proposalCells, missionVoteCell];
+            }).flat()}
           </tr>
         ))}
       </tbody>
