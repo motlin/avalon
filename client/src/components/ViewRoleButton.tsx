@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import styles from './ViewRoleButton.module.css';
 import StatsDisplay from './StatsDisplay';
 
@@ -84,7 +86,7 @@ const ViewRoleButton: React.FC<ViewRoleButtonProps> = ({ avalon }) => {
   if (!sheet) {
     return (
       <button className={styles.activatorButton} onClick={handleButtonClick}>
-        <i className="material-icons">perm_identity</i>
+        <FontAwesomeIcon icon={faUser} />
         {avalon.user.name}
       </button>
     );
