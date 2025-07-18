@@ -9,3 +9,7 @@ install:
 # `yarn storybook`
 storybook: install
     yarn storybook
+
+# `yarn build-storybook`
+precommit: install
+    yarn build-storybook
