@@ -15,20 +15,30 @@
     "start": "yarn workspace @avalon/server start",
     "admin": "avalon-admin",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test-storybook": "test-storybook --maxWorkers=1 --testTimeout=15000",
+    "test-storybook:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"yarn build-storybook --quiet && npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test-storybook\"",
+    "test:vitest": "vitest run"
   },
   "devDependencies": {
     "@babel/core": "^7.25.8",
     "@babel/eslint-parser": "^7.25.8",
     "@storybook/addon-docs": "^9.0.17",
     "@storybook/addon-onboarding": "^9.0.17",
+    "@storybook/addon-vitest": "^9.0.17",
+    "@storybook/react": "^9.0.17",
     "@storybook/react-vite": "^9.0.17",
+    "@storybook/test-runner": "^0.23.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "@vitest/browser": "^3.2.4",
     "autoprefixer": "^10.4.20",
+    "concurrently": "^9.2.0",
     "eslint": "^9.12.0",
     "eslint-plugin-storybook": "^9.0.17",
     "eslint-plugin-vue": "^9.29.0",
+    "http-server": "^14.1.1",
+    "playwright": "^1.54.1",
     "postcss": "^8.4.47",
     "prop-types": "^15.8.1",
     "react": "^19.1.0",
@@ -36,7 +46,9 @@
     "require-from-string": "^2.0.2",
     "storybook": "^9.0.17",
     "typescript": "^5.8.3",
-    "vite": "^7.0.4"
+    "vite": "^7.0.4",
+    "vitest": "^3.2.4",
+    "wait-on": "^8.0.3"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",

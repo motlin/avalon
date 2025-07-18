@@ -1,24 +1,15 @@
-import { join, dirname } from "path"
-
-/**
-* This function is used to resolve the absolute path of a package.
-* It is needed in projects that use Yarn PnP or are set up within a monorepo.
-*/
-function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, 'package.json')))
-}
-
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
   "stories": [
     "../client/src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
   "addons": [
-    getAbsolutePath('@storybook/addon-docs'),
-    getAbsolutePath('@storybook/addon-onboarding')
+    '@storybook/addon-docs',
+    '@storybook/addon-onboarding',
+    '@storybook/addon-vitest'
   ],
   "framework": {
-    "name": getAbsolutePath('@storybook/react-vite'),
+    "name": '@storybook/react-vite',
     "options": {}
   },
   "viteFinal": async (config) => {
@@ -28,6 +19,12 @@ const config = {
         localsConvention: 'camelCase'
       }
     };
+    
+    config.resolve = {
+      ...config.resolve,
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+    };
+    
     return config;
   }
 };

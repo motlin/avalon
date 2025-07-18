@@ -6,7 +6,7 @@ const meta: Meta<typeof Login> = {
   parameters: {
     layout: 'fullscreen',
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'test'],
   argTypes: {
     avalon: {
       control: 'object',
