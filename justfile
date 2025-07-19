@@ -11,7 +11,7 @@ storybook: install
     yarn storybook
 
 # `yarn build-storybook`
-precommit: install
+build-storybook: install
     yarn build-storybook
 
 # `yarn test-storybook` - Run tests using Storybook test runner
@@ -19,5 +19,8 @@ test-storybook: install
     yarn test-storybook
 
 # `yarn test:vitest` - Run tests using Vitest addon
-test-vitest: install
+test-vitest: install build-storybook
     yarn test:vitest
+
+# Runs all precommit checks
+precommit: test-vitest
