@@ -62,7 +62,8 @@ This is a **multiplayer Avalon card game** with three main components:
 5. Firebase Functions compute stats after game completion
 
 **Key Files:**
-- `server/common/avalonlib.cjs` - Core game logic (roles, rules)
+- `server/common/avalonlib.js` - Core game logic (roles, rules) - CommonJS module
+- `server/common/avalonlib.mjs` - Core game logic (roles, rules) - ES module
 - `firebase/functions/common/avalonlib.js` - Shared game utilities
 - `client/src/avalon-api-rest.js` - API client wrapper
 - `client/src/components/Game.vue` - Main game interface

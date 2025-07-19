@@ -25,6 +25,13 @@ const config = {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     };
     
+    config.build = {
+      ...config.build,
+      commonjsOptions: {
+        transformMixedEsModules: true
+      }
+    };
+    
     return config;
   }
 };
