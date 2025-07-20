@@ -5,6 +5,39 @@ const meta: Meta<typeof RoleList> = {
   component: RoleList,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+The RoleList component displays all available roles in Avalon with their team affiliations and abilities. It can function as both a reference guide and an interactive selection interface.
+
+### Display Modes
+
+- **Reference Mode** - Shows role information without interaction
+- **Selection Mode** - Includes checkboxes for role configuration in lobby
+
+### Role Categories
+
+**Good Team (Blue)**
+- **Merlin** - Knows evil (except Mordred), but can be assassinated
+- **Percival** - Sees Merlin and Morgana, but not which is which
+- **Loyal Follower** - No special knowledge
+
+**Evil Team (Red)**
+- **Morgana** - Appears as Merlin to Percival
+- **Mordred** - Hidden from Merlin's sight
+- **Oberon** - Works alone, unknown to other evil players
+- **Assassin** - Gets one chance to identify Merlin
+- **Evil Minion** - Standard evil team member
+
+### Visual Design
+
+- Color-coded by team (blue for good, red for evil)
+- Icons represent each role's unique abilities
+- Hover effects provide additional context
+- Selected roles are highlighted when in selection mode
+        `,
+      },
+    },
   },
   argTypes: {
     allowSelect: {
@@ -12,6 +45,7 @@ const meta: Meta<typeof RoleList> = {
       description: 'Allow selecting roles with checkboxes',
     },
   },
+  tags: ['autodocs'],
 };
 
 export default meta;

@@ -5,6 +5,45 @@ const meta: Meta<typeof Lobby> = {
   component: Lobby,
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component: `
+The Lobby component is the game setup interface where players gather before starting an Avalon game. It provides comprehensive game configuration options and player management features.
+
+### Key Features
+
+- **Player Management** - View connected players, kick players (admin only)
+- **Role Selection** - Choose which special roles to include in the game
+- **Game Configuration** - Set optional rules and game variants
+- **Quick Links** - Easy sharing of lobby URL and access codes
+- **Chat System** - Real-time communication between players
+
+### Admin Controls
+
+The lobby creator (admin) has exclusive controls to:
+- Configure game settings and roles
+- Kick players from the lobby
+- Start the game when ready
+- Access advanced configuration options
+
+### Role System
+
+The lobby allows selection of various special roles:
+- **Good Team**: Merlin, Percival, Loyal Followers
+- **Evil Team**: Morgana, Mordred, Oberon, Assassin, Evil Minions
+
+The component automatically balances teams based on player count and selected roles.
+
+### Game States
+
+The lobby handles multiple states:
+- **Waiting** - Players joining, admin configuring
+- **Ready** - Enough players, valid configuration
+- **Starting** - Game initialization in progress
+- **In Progress** - Redirects to active game
+        `,
+      },
+    },
   },
   tags: ['autodocs'],
 };

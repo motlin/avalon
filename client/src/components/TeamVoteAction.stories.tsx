@@ -5,12 +5,42 @@ const meta = {
   component: TeamVoteAction,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+The TeamVoteAction component handles the team approval voting phase of the game. All players simultaneously vote to approve or reject the proposed mission team.
+
+### Voting Mechanics
+
+- **Approve** ✓ - Support the proposed team composition
+- **Reject** ✗ - Oppose the team and pass proposal to next player
+- **Anonymous Until Complete** - Votes are hidden until all players vote
+- **Majority Rules** - Team is approved if more than half vote approve
+
+### UI Features
+
+- **Team Display** - Shows which players are on the proposed team
+- **Vote Status** - Indicates whether you've already voted
+- **Proposal Counter** - Shows current proposal number (1-5)
+- **Warning on 5th Vote** - The 5th proposal auto-approves (evil wins if team fails)
+
+### Strategic Elements
+
+Voting patterns reveal information:
+- Evil players may coordinate to reject good teams
+- Good players must balance suspicion with progress
+- The 5th vote creates tension and forces decisions
+- Vote timing can sometimes reveal alliances
+        `,
+      },
+    },
   },
   argTypes: {
     avalon: {
       description: 'Avalon game state object containing voting information',
     },
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof TeamVoteAction>;
 
 export default meta;

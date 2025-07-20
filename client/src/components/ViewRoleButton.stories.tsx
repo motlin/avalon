@@ -6,6 +6,36 @@ const meta: Meta<typeof ViewRoleButton> = {
   component: ViewRoleButton,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+The ViewRoleButton component provides a toggleable interface for players to view their secret role information during gameplay. This is essential for checking your identity and understanding what information you have access to.
+
+### Features
+
+- **Toggle Display** - Click to show/hide role information
+- **Auto-Hide** - Automatically hides when certain game events occur
+- **Security** - Prevents accidental role reveals to other players
+- **Context Sensitive** - Shows relevant information based on your role
+
+### Role Information Display
+
+Different roles see different information:
+- **Merlin** - Sees all evil players except Mordred
+- **Percival** - Sees Merlin and Morgana (but not which is which)
+- **Evil Team** - See each other (except Oberon)
+- **Oberon** - Sees no one and is not seen
+- **Loyal Followers** - See only their own role
+
+### Safety Features
+
+The component automatically hides role information when:
+- A new game starts
+- The game ends
+- Certain game events occur that might risk exposure
+        `,
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {

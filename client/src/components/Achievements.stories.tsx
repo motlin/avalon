@@ -5,6 +5,27 @@ const meta: Meta<typeof Achievements> = {
   component: Achievements,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+The Achievements component displays special badges earned during gameplay. These badges recognize exceptional performance, strategic play, and memorable moments in Avalon games.
+
+### Badge Types
+
+- **Clean Sweep** 🧹 - Win all missions (Good: 3-0, Evil: 3 fails)
+- **Trusting Bunch** 🤝 - All proposals approved on first attempt
+- **Taking a Bullet** 🛡️ - Percival assassinated instead of Merlin
+- **Trust You Guys** 🎭 - Non-proposer suggests their team
+- **Perfect Coordination** 🎯 - Evil team wins with exactly required fails
+- **Reversal of Fortune** 🔄 - Comeback victory (down 0-2, win 3-2)
+- **Merlin Betrayal** 🗡️ - Merlin rejects own team or fails mission
+
+### Usage
+
+Achievements are calculated automatically based on game outcome and mission history. The component analyzes voting patterns, mission results, and role assignments to determine which badges players have earned.
+        `,
+      },
+    },
   },
   tags: ['autodocs'],
 };
