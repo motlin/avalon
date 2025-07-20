@@ -1,93 +1,98 @@
-import React from 'react';
-import styles from './Achievements.module.css';
-import GameAnalysis from '../avalon-analysis.ts';
+import { faTrophy } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type React from "react";
+import GameAnalysis from "../avalon-analysis.ts";
+import styles from "./Achievements.module.css";
 
 interface Badge {
-  title: string;
-  body: string;
+	title: string;
+	body: string;
 }
 
 interface Mission {
-  state: string;
-  team: string[];
-  proposals: any[];
-  evilOnTeam?: string[];
-  failsRequired: number;
-  numFails: number;
+	state: string;
+	team: string[];
+	proposals: any[];
+	evilOnTeam?: string[];
+	failsRequired: number;
+	numFails: number;
 }
 
 interface OutcomeRole {
-  name: string;
-  role: string;
+	name: string;
+	role: string;
 }
 
 interface GameOutcome {
-  state: string;
-  roles: OutcomeRole[];
-  assassinated?: string;
+	state: string;
+	roles: OutcomeRole[];
+	assassinated?: string;
 }
 
 interface Game {
-  players: string[];
-  missions: Mission[];
-  outcome: GameOutcome;
+	players: string[];
+	missions: Mission[];
+	outcome: GameOutcome;
 }
 
 interface RoleInfo {
-  team: string;
+	team: string;
 }
 
 interface Config {
-  roleMap: Record<string, RoleInfo>;
+	roleMap: Record<string, RoleInfo>;
 }
 
 interface Lobby {
-  game: Game;
+	game: Game;
 }
 
 interface AvalonProps {
-  lobby: Lobby;
-  config: Config;
+	lobby: Lobby;
+	config: Config;
 }
 
 interface AchievementsProps {
-  avalon: AvalonProps;
+	avalon: AvalonProps;
 }
 
-
 const Achievements: React.FC<AchievementsProps> = ({ avalon }) => {
-  const getBadges = (): Badge[] => {
-    if (avalon.lobby.game.outcome.state === 'CANCELED') return [];
-    
-    const gameAnalysis = new GameAnalysis(
-      avalon.lobby.game,
-      avalon.config.roleMap
-    );
-    return gameAnalysis.getBadges();
-  };
+	const getBadges = (): Badge[] => {
+		if (avalon.lobby.game.outcome.state === "CANCELED") return [];
 
-  const badges = getBadges();
+		const gameAnalysis = new GameAnalysis(
+			avalon.lobby.game,
+			avalon.config.roleMap,
+		);
+		return gameAnalysis.getBadges();
+	};
 
-  if (!badges.length) {
-    return null;
-  }
+	const badges = getBadges();
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.title}>Achievements</div>
-      {badges.map((badge) => (
-        <div key={badge.title} className={styles.badgeContainer}>
-          <div className={styles.card}>
-            <div className={styles.cardTitle}>
-              <span className={styles.trophyIcon}>🏆</span>
-              <div className={styles.badgeTitle}>{badge.title}</div>
-            </div>
-            <div className={styles.cardText}>{badge.body}</div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+	if (!badges.length) {
+		return null;
+	}
+
+	return (
+		<div className={styles.container}>
+			<div className={styles.title}>Achievements</div>
+			{badges.map((badge) => (
+				<div key={badge.title} className={styles.badgeContainer}>
+					<div className={styles.card}>
+						<div className={styles.cardTitle}>
+							<FontAwesomeIcon
+								icon={faTrophy}
+								className={styles.trophyIcon}
+								color="yellow"
+							/>
+							<div className={styles.badgeTitle}>{badge.title}</div>
+						</div>
+						<div className={styles.cardText}>{badge.body}</div>
+					</div>
+				</div>
+			))}
+		</div>
+	);
 };
 
 export default Achievements;

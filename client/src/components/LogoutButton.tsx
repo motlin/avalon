@@ -1,32 +1,35 @@
-import React, { useState } from 'react';
-import styles from './LogoutButton.module.css';
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type React from "react";
+import { useState } from "react";
+import styles from "./LogoutButton.module.css";
 
 interface AvalonApi {
-  logout: () => void;
+	logout: () => void;
 }
 
 interface LogoutButtonProps {
-  avalon: AvalonApi;
+	avalon: AvalonApi;
 }
 
 const LogoutButton: React.FC<LogoutButtonProps> = ({ avalon }) => {
-  const [loggingOut, setLoggingOut] = useState(false);
+	const [loggingOut, setLoggingOut] = useState(false);
 
-  const handleLogoutClick = () => {
-    setLoggingOut(true);
-    avalon.logout();
-  };
+	const handleLogoutClick = () => {
+		setLoggingOut(true);
+		avalon.logout();
+	};
 
-  return (
-    <button 
-      className={`${styles.logoutButton} ${loggingOut ? styles.loading : ''}`}
-      onClick={handleLogoutClick}
-      disabled={loggingOut}
-    >
-      <span className={styles.icon}>🚪</span>
-      {loggingOut ? 'Logging out...' : 'Logout'}
-    </button>
-  );
+	return (
+		<button
+			className={`${styles.logoutButton} ${loggingOut ? styles.loading : ""}`}
+			onClick={handleLogoutClick}
+			disabled={loggingOut}
+		>
+			<FontAwesomeIcon icon={faRightFromBracket} className={styles.icon} />
+			{loggingOut ? "Logging out..." : "Logout"}
+		</button>
+	);
 };
 
 export default LogoutButton;
