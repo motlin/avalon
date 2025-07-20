@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import Missions from './Missions.vue'
+import Missions from './Missions.tsx'
 import GameParticipants from './GameParticipants.vue'
-import ActionPane from './ActionPane.vue'
+import ActionPane from './ActionPane.tsx'
 
 export default {
   name: 'Game',

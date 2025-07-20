@@ -94,7 +94,8 @@ const MissionSummaryTable: React.FC<MissionSummaryTableProps> = ({
                   {mission.team.includes(player) && (
                     <FontAwesomeIcon 
                       icon={missionVotes[missionIndex]?.[player] ? faCheckCircle : faTimesCircle}
-                      className={missionVotes[missionIndex]?.[player] ? styles.missionSuccess : styles.missionFail}
+                      color={missionVotes[missionIndex]?.[player] ? 'green' : 'red'}
+                      size="sm"
                     />
                   )}
                 </td>

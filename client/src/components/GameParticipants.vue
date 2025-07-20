@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import GamePlayerList from './GamePlayerList.ts'
+import GamePlayerList from './GamePlayerList.tsx'
 import RoleList from './RoleList.vue'
 
 export default {
