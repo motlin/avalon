@@ -9,7 +9,7 @@
 <script>
 import { EventBus } from '@/main.js'
 import StartGameEventHandler from './StartGameEventHandler.vue'
-import EndGameEventHandler from './EndGameEventHandler.vue'
+import EndGameEventHandler from './EndGameEventHandler.tsx'
 import MissionResultEventHandler from './MissionResultEventHandler.vue'
 
 export default {

@@ -126,10 +126,10 @@ export default class GameAnalysis {
         const approvedProposal = mission.proposals.find(p => p.state === 'APPROVED');
         if (approvedProposal &&
             (this.namesByRole['MERLIN'] === approvedProposal.proposer) &&
-            (mission.evilOnTeam!.length >= mission.failsRequired)) {
+            mission.evilOnTeam && (mission.evilOnTeam.length >= mission.failsRequired)) {
           return {
             title: 'Traitor Merlin',
-            body: `Merlin sent an evil team with ${joinWithAnd(mission.evilOnTeam!)}`
+            body: `Merlin sent an evil team with ${joinWithAnd(mission.evilOnTeam)}`
           };
         }
       }
@@ -143,9 +143,10 @@ export default class GameAnalysis {
           if ((proposal.proposer === this.namesByRole['MERLIN']) &&
                proposal.votes.includes(this.namesByRole['MERLIN']) &&
                proposal.team.filter(p => this.evilPlayers.includes(p) && this.rolesByName[p].role !== 'MORDRED').length > mission.failsRequired) {
+            const evilOnProposedTeam = proposal.team.filter(p => this.evilPlayers.includes(p) && this.rolesByName[p].role !== 'MORDRED');
             return {
               title: 'Advanced Merlin',
-              body: `Merlin proposed and approved a team with ${joinWithAnd(mission.evilOnTeam!)}`
+              body: `Merlin proposed and approved a team with ${joinWithAnd(evilOnProposedTeam)}`
             };
           }
         }
@@ -154,10 +155,10 @@ export default class GameAnalysis {
     },
     runningScared: (): Badge | false => {
       for (const [missionIdx, mission] of this.missions.entries()) {
-        if ((mission.evilOnTeam!.length > 1) && (mission.numFails === 0)) {
+        if (mission.evilOnTeam && (mission.evilOnTeam.length > 1) && (mission.numFails === 0)) {
           return {
             title: 'No, you do it',
-            body: `${joinWithAnd(mission.evilOnTeam!)} went on mission ${missionIdx + 1} together and nobody failed`
+            body: `${joinWithAnd(mission.evilOnTeam)} went on mission ${missionIdx + 1} together and nobody failed`
           };
         }
       }
@@ -167,10 +168,11 @@ export default class GameAnalysis {
       for (const [missionIdx, mission] of this.missions.entries()) {
         if ((mission.numFails > mission.failsRequired) &&
             (missionIdx < this.missions.length - 1) &&
-            (this.missions[missionIdx + 1].state !== 'PENDING')) { // on last mission, it doesn't matter
+            (this.missions[missionIdx + 1].state !== 'PENDING') &&
+            mission.evilOnTeam) { // on last mission, it doesn't matter
           return {
             title: 'Failure to coordinate',
-            body: `${joinWithAnd(mission.evilOnTeam!)} had ${mission.numFails} failure votes on mission ${missionIdx+1}`
+            body: `${joinWithAnd(mission.evilOnTeam)} had ${mission.numFails} failure votes on mission ${missionIdx+1}`
           };
         }
       }
@@ -178,10 +180,10 @@ export default class GameAnalysis {
     },
     perfectCoordination: (): Badge | false => {
       for (const [missionIdx, mission] of this.missions.entries()) {
-        if ((mission.evilOnTeam!.length > mission.numFails) && (mission.numFails === mission.failsRequired)) {
+        if (mission.evilOnTeam && (mission.evilOnTeam.length > mission.numFails) && (mission.numFails === mission.failsRequired)) {
           return {
             title: 'Same wavelength',
-            body: `${joinWithAnd(mission.evilOnTeam!)} had perfect coordination on mission ${missionIdx + 1}`
+            body: `${joinWithAnd(mission.evilOnTeam)} had perfect coordination on mission ${missionIdx + 1}`
           };
         }
       }
@@ -191,7 +193,7 @@ export default class GameAnalysis {
       if (this.evilPlayers.length <= 2) return false;
 
       for (const [missionIdx, mission] of this.missions.entries()) {
-        if (mission.evilOnTeam!.length === this.evilPlayers.length) {
+        if (mission.evilOnTeam && mission.evilOnTeam.length === this.evilPlayers.length) {
           return {
             title: 'With our powers combined',
             body: `All evil players went on mission ${missionIdx + 1} together`
@@ -201,17 +203,19 @@ export default class GameAnalysis {
       return false;
     },
     noEvilPlayersOnMissions: (): Badge | false => {
-      if (_.tail(this.missions).every(m => m.evilOnTeam!.length === 0)) {
+      if (_.tail(this.missions).every(m => m.evilOnTeam && m.evilOnTeam.length === 0)) {
+        const firstMissionHadEvil = this.missions[0] && this.missions[0].evilOnTeam && this.missions[0].evilOnTeam.length > 0;
         return {
           title: 'Lockdown',
           body: 'No evil players went on any missions' +
-            (this.missions[0].evilOnTeam!.length ? ' after mission 1' : '')
+            (firstMissionHadEvil ? ' after mission 1' : '')
         };
       }
       return false;
     },
     cleanSweep: (): Badge | false => {
-      if ((this.missions[0].state === this.missions[1].state) &&
+      if (this.missions.length >= 3 &&
+          (this.missions[0].state === this.missions[1].state) &&
           (this.missions[1].state === this.missions[2].state)) {
         if (this.missions[0].state === 'FAIL') {
           return {
@@ -248,6 +252,7 @@ export default class GameAnalysis {
       return false;
     },
     trustingBunch: (): Badge | false => {
+      if (this.missions.length === 0) return false;
       const approvedIdx = this.missions[0].proposals.findIndex(p => p.state === 'APPROVED');
       if ((approvedIdx >= 0) && (approvedIdx < 4)) {
         return {
@@ -259,12 +264,12 @@ export default class GameAnalysis {
     },
     playingTheLongCon: (): Badge | false => {
       for(const [missionIdx, mission] of _.tail(this.missions).entries()) {
-        if ((mission.evilOnTeam!.length === 1) &&
+        if (mission.evilOnTeam && mission.evilOnTeam.length === 1 &&
             (mission.failsRequired < 2) &&
             (mission.numFails === 0)) {
           return {
             title: 'Playing the long con',
-            body: `${mission.evilOnTeam![0]} stayed undercover instead of failing mission ${missionIdx + 2}`
+            body: `${mission.evilOnTeam[0]} stayed undercover instead of failing mission ${missionIdx + 2}`
           };
         }
       }
@@ -289,9 +294,9 @@ export default class GameAnalysis {
       let evilPlayersOnBadMissions: string[] = [];
       for(const mission of this.missions) {
         if (mission.state === 'SUCCESS') {
-          evilPlayersOnGoodMissions = evilPlayersOnGoodMissions.concat(mission.evilOnTeam!);
+          evilPlayersOnGoodMissions = evilPlayersOnGoodMissions.concat(mission.evilOnTeam || []);
         } else if (mission.state === 'FAIL') {
-          evilPlayersOnBadMissions = evilPlayersOnBadMissions.concat(mission.evilOnTeam!);
+          evilPlayersOnBadMissions = evilPlayersOnBadMissions.concat(mission.evilOnTeam || []);
         }
       }
       const candidates = _.difference(evilPlayersOnGoodMissions, evilPlayersOnBadMissions);
@@ -322,7 +327,8 @@ export default class GameAnalysis {
     },
     reversalOfFortune: (): Badge | false => {
       //pulled it out in the end: one side wins first 2, other side wins the game
-      if ((this.missions[0].state === this.missions[1].state) &&
+      if (this.missions.length >= 5 &&
+          (this.missions[0].state === this.missions[1].state) &&
           (this.missions[1].state !== this.missions[2].state) &&
           (this.missions[2].state === this.missions[3].state) &&
           (this.missions[3].state === this.missions[4].state)) {        

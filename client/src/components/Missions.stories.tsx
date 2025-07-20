@@ -30,6 +30,7 @@ const mockAvalonData = {
         failsRequired: 1,
         numFails: 0,
         team: mockTeam,
+        evilOnTeam: [],
         proposals: [
           {
             proposer: 'ALICE',
@@ -45,6 +46,7 @@ const mockAvalonData = {
         failsRequired: 1,
         numFails: 1,
         team: mockTeam,
+        evilOnTeam: ['EVE'],
         proposals: [
           {
             proposer: 'BOB',
@@ -66,6 +68,7 @@ const mockAvalonData = {
         failsRequired: 1,
         numFails: 0,
         team: mockTeam,
+        evilOnTeam: [],
         proposals: [
           {
             proposer: 'DIANA',
@@ -81,6 +84,7 @@ const mockAvalonData = {
         failsRequired: 2,
         numFails: 0,
         team: mockTeam,
+        evilOnTeam: [],
         proposals: [],
       },
       {
@@ -89,6 +93,7 @@ const mockAvalonData = {
         failsRequired: 1,
         numFails: 0,
         team: mockTeam,
+        evilOnTeam: [],
         proposals: [],
       },
     ],
@@ -125,6 +130,7 @@ const realGameMissions = [
     team: {
       joinWithAnd: () => "LUKEE, KEN and VINAY"
     },
+    evilOnTeam: ["VINAY"],
     proposals: [
       {
         proposer: "ROB",
@@ -148,6 +154,7 @@ const realGameMissions = [
     team: {
       joinWithAnd: () => "TIFANY, ROB, ZEHUA and CRAIGM"
     },
+    evilOnTeam: [],
     proposals: [
       {
         proposer: "TIFANY",
@@ -165,6 +172,7 @@ const realGameMissions = [
     team: {
       joinWithAnd: () => ""
     },
+    evilOnTeam: [],
     proposals: [],
   },
   {
@@ -175,6 +183,7 @@ const realGameMissions = [
     team: {
       joinWithAnd: () => ""
     },
+    evilOnTeam: [],
     proposals: [],
   },
   {
@@ -185,6 +194,7 @@ const realGameMissions = [
     team: {
       joinWithAnd: () => ""
     },
+    evilOnTeam: [],
     proposals: [],
   }
 ];

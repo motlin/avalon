@@ -46,12 +46,13 @@ const mockRoleMap = {
 };
 
 // Helper to create a basic mission
-const createMission = (state: string, team: string[], numFails = 0, failsRequired = 1, teamSize?: number) => ({
+const createMission = (state: string, team: string[], numFails = 0, failsRequired = 1, teamSize?: number, evilOnTeam: string[] = []) => ({
   state,
   team,
   numFails,
   failsRequired,
   teamSize: teamSize || team.length,
+  evilOnTeam,
   proposals: [
     {
       proposer: team[0],
@@ -95,6 +96,7 @@ export const CleanSweepGood: Story = {
               numFails: 0,
               failsRequired: 1,
               teamSize: 2,
+              evilOnTeam: [],
               proposals: [
                 {
                   proposer: 'Alice',
@@ -147,6 +149,7 @@ export const CleanSweepEvil: Story = {
               numFails: 1,
               failsRequired: 1,
               teamSize: 2,
+              evilOnTeam: ['Diana'],
               proposals: [
                 {
                   proposer: 'Alice',
@@ -162,8 +165,8 @@ export const CleanSweepEvil: Story = {
                 },
               ],
             },
-            createMission('FAIL', ['Bob', 'Eve', 'Charlie'], 1, 1, 3),
-            createMission('FAIL', ['Diana', 'Eve', 'Frank', 'Alice'], 2, 2, 4),
+            createMission('FAIL', ['Bob', 'Eve', 'Charlie'], 1, 1, 3, ['Eve']),
+            createMission('FAIL', ['Diana', 'Eve', 'Frank', 'Alice'], 2, 2, 4, ['Diana', 'Eve']),
             createMission('PENDING', [], 0, 2, 4),
             createMission('PENDING', [], 0, 1, 5),
           ],
@@ -200,6 +203,7 @@ export const TrustingBunch: Story = {
               numFails: 0,
               failsRequired: 1,
               teamSize: 3,
+              evilOnTeam: [],
               proposals: [
                 {
                   proposer: 'Alice',
@@ -215,6 +219,7 @@ export const TrustingBunch: Story = {
               numFails: 1,
               failsRequired: 1,
               teamSize: 3,
+              evilOnTeam: ['Diana', 'Eve'],
               proposals: [
                 {
                   proposer: 'Bob',
@@ -230,6 +235,7 @@ export const TrustingBunch: Story = {
               numFails: 0,
               failsRequired: 1,
               teamSize: 3,
+              evilOnTeam: ['Eve'],
               proposals: [
                 {
                   proposer: 'Charlie',
@@ -245,6 +251,7 @@ export const TrustingBunch: Story = {
               numFails: 1,
               failsRequired: 2,
               teamSize: 4,
+              evilOnTeam: ['Diana'],
               proposals: [
                 {
                   proposer: 'Diana',
@@ -288,6 +295,7 @@ export const TakingABullet: Story = {
               numFails: 0,
               failsRequired: 1,
               teamSize: 2,
+              evilOnTeam: [],
               proposals: [
                 {
                   proposer: 'Alice',
@@ -341,6 +349,7 @@ export const TrustYouGuys: Story = {
               numFails: 0,
               failsRequired: 1,
               teamSize: 2,
+              evilOnTeam: [],
               proposals: [
                 {
                   proposer: 'Alice',
@@ -356,6 +365,7 @@ export const TrustYouGuys: Story = {
               numFails: 1,
               failsRequired: 1,
               teamSize: 2,
+              evilOnTeam: ['Diana', 'Eve'],
               proposals: [
                 {
                   proposer: 'Bob',
@@ -410,6 +420,7 @@ export const PerfectCoordination: Story = {
               numFails: 2,
               failsRequired: 2,
               teamSize: 4,
+              evilOnTeam: ['Diana', 'Eve'],
               proposals: [
                 {
                   proposer: 'Diana',
@@ -494,6 +505,7 @@ export const MerlinBetrayal: Story = {
               numFails: 2,
               failsRequired: 1,
               teamSize: 3,
+              evilOnTeam: ['Diana', 'Eve'],
               proposals: [
                 {
                   proposer: 'Charlie',
