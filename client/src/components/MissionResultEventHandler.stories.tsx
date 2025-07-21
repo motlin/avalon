@@ -3,11 +3,53 @@ import { useState } from 'react';
 import MissionResultEventHandler from './MissionResultEventHandler';
 
 const meta: Meta<typeof MissionResultEventHandler> = {
+  title: 'Events/MissionResultEventHandler',
   component: MissionResultEventHandler,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: `MissionResultEventHandler displays the outcome of missions with dramatic flair.
+        
+## Features
+- Fullscreen modal presentation
+- Success/failure animations
+- Shows team members who went on mission
+- Displays number of fail votes (for failures)
+- Auto-dismisses after animation
+- Event-driven display logic
+
+## Mission Results
+- **Success**: All team members voted to pass
+- **Failure**: One or more sabotage votes
+- Shows exact fail count (important for deduction)
+
+## Event Handling
+The component listens for:
+- \`MISSION_RESULT\` - Shows the result modal
+- \`GAME_ENDED\` - Hides any open modal
+- Auto-hides after animation completes
+
+## Usage
+\`\`\`tsx
+import MissionResultEventHandler from './MissionResultEventHandler';
+
+function Game() {
+  return (
+    <MissionResultEventHandler avalon={avalonApi} />
+  );
+}
+\`\`\``,
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    avalon: {
+      description: 'Avalon API object with mission data and event system',
+      control: { type: 'object' },
+    },
+  },
 };
 
 export default meta;
@@ -68,11 +110,25 @@ export const MissionSucceeded: Story = {
   args: {
     avalon: createMockAvalon(successMission, ['MISSION_RESULT']),
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Successful mission with no fail votes. Shows team members and success animation.',
+      },
+    },
+  },
 };
 
 export const MissionFailedSingle: Story = {
   args: {
     avalon: createMockAvalon(failureMission, ['MISSION_RESULT']),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Failed mission with 1 sabotage vote. Shows which players were on the mission.',
+      },
+    },
   },
 };
 
@@ -80,11 +136,25 @@ export const MissionFailedMultiple: Story = {
   args: {
     avalon: createMockAvalon(failureMissionMultiple, ['MISSION_RESULT']),
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Failed mission with 2 sabotage votes. Multiple fails provide important deduction information.',
+      },
+    },
+  },
 };
 
 export const Hidden: Story = {
   args: {
     avalon: createMockAvalon(successMission),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Component in hidden state, waiting for MISSION_RESULT event to display.',
+      },
+    },
   },
 };
 
@@ -105,5 +175,12 @@ export const InteractiveExample: Story = {
         <MissionResultEventHandler avalon={mockAvalon} />
       </div>
     );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Interactive demo with buttons to trigger mission result events. Try showing and hiding the modal.',
+      },
+    },
   },
 };

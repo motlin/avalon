@@ -2,11 +2,62 @@ import type { Meta, StoryObj } from '@storybook/react';
 import GamePlayerList from './GamePlayerList';
 
 const meta: Meta<typeof GamePlayerList> = {
+  title: 'Game/GamePlayerList',
   component: GamePlayerList,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: `GamePlayerList shows the status of all players during an active Avalon game.
+        
+## Features
+- Displays all players in game order
+- Shows current proposer with visual indicator
+- Highlights team members in current proposal
+- Tracks voting status with checkmarks
+- Identifies the hammer (5th proposer)
+- Enables player selection for certain actions
+
+## Game Phases
+The component adapts its display based on the current game phase:
+- **Team Proposal**: Proposer can select team members
+- **Proposal Vote**: Shows who has voted
+- **Mission Vote**: Shows team members on mission
+- **Assassination**: Assassin can select target
+
+## Visual Indicators
+- 📝 Current proposer
+- 🔨 Hammer (forced approval on 5th proposal)
+- ✅ Player has voted
+- Highlighted background for team members
+
+## Usage
+\`\`\`tsx
+import GamePlayerList from './GamePlayerList';
+
+function Game() {
+  return (
+    <GamePlayerList
+      avalon={avalonApi}
+      onSelectedPlayers={(players) => handleSelection(players)}
+    />
+  );
+}
+\`\`\``,
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    avalon: {
+      description: 'Avalon API object containing game state and player information',
+      control: { type: 'object' },
+    },
+    onSelectedPlayers: {
+      description: 'Callback function when players are selected (during team proposal or assassination)',
+      action: 'onSelectedPlayers',
+    },
+  },
 };
 
 export default meta;
@@ -46,6 +97,13 @@ export const TeamProposal: Story = {
       console.log('Selected players:', players);
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Team proposal phase where ALICE is selecting team members. Shows the proposer indicator and current team selection.',
+      },
+    },
+  },
 };
 
 export const ProposalVoting: Story = {
@@ -71,6 +129,13 @@ export const ProposalVoting: Story = {
       console.log('Selected players:', players);
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Voting phase showing proposed team members highlighted and checkmarks for players who have already voted.',
+      },
+    },
+  },
 };
 
 export const MissionVoting: Story = {
@@ -94,6 +159,13 @@ export const MissionVoting: Story = {
     }),
     onSelectedPlayers: (players: string[]) => {
       console.log('Selected players:', players);
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Mission phase where team members are deciding to pass or fail. Shows which players have submitted their mission votes.',
+      },
     },
   },
 };
@@ -129,6 +201,13 @@ export const Assassination: Story = {
       console.log('Selected players:', players);
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Assassination phase where the assassin (viewing player) can select who they think is Merlin. Critical endgame moment.',
+      },
+    },
+  },
 };
 
 export const HammerTime: Story = {
@@ -158,6 +237,13 @@ export const HammerTime: Story = {
     }),
     onSelectedPlayers: (players: string[]) => {
       console.log('Selected players:', players);
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'The 5th and final proposal attempt. EVE is both proposer and hammer - if this proposal is rejected, evil wins automatically.',
+      },
     },
   },
 };

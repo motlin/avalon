@@ -2,14 +2,45 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Missions from './Missions';
 
 const meta: Meta<typeof Missions> = {
+  title: 'Game/Missions',
   component: Missions,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: `The Missions component displays the progress of all 5 missions in an Avalon game.
+        
+## Features
+- Visual representation of all 5 missions
+- Shows success/fail status for completed missions
+- Highlights the current mission
+- Displays team size and fail requirements
+- Shows proposal history for each mission
+- Optionally includes in-game logs for debugging
+
+## Mission States
+- **PENDING**: Mission not yet attempted
+- **SUCCESS**: Good team completed the mission successfully
+- **FAIL**: Evil sabotaged the mission
+
+## Game Flow
+Good wins by succeeding 3 missions. Evil wins by failing 3 missions.
+
+## Usage
+\`\`\`tsx
+import Missions from './Missions';
+
+function Game() {
+  return <Missions avalon={avalonApi} />;
+}
+\`\`\``,
+      },
+    },
   },
   argTypes: {
     avalon: {
       control: 'object',
-      description: 'Avalon game data containing missions and game state',
+      description: 'Avalon game API object containing missions array and game state information',
     },
   },
 };
@@ -220,17 +251,38 @@ export const Default: Story = {
   args: {
     avalon: mockAvalonData,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Shows a game in progress with 1 successful mission, 1 failed mission, and working on the 3rd mission.',
+      },
+    },
+  },
 };
 
 export const WithInGameLog: Story = {
   args: {
     avalon: mockAvalonWithLogs,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Same as default but with in-game logging enabled. Useful for debugging and seeing detailed proposal information.',
+      },
+    },
+  },
 };
 
 export const RealGameData: Story = {
   args: {
     avalon: realGameData,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Example from a real 9-player game showing actual mission data and voting patterns.',
+      },
+    },
   },
 };
 
@@ -247,6 +299,13 @@ export const AllPending: Story = {
         game: {
           currentMissionIdx: 0,
         },
+      },
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Shows the initial game state where no missions have been attempted yet.',
       },
     },
   },
@@ -275,6 +334,13 @@ export const GoodWins: Story = {
       },
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Good has won 3 missions! The game is now in assassination phase where evil tries to identify Merlin.',
+      },
+    },
+  },
 };
 
 export const EvilWins: Story = {
@@ -297,6 +363,13 @@ export const EvilWins: Story = {
         game: {
           currentMissionIdx: 4,
         },
+      },
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Evil has won by failing 3 missions! The game is over and evil team celebrates their victory.',
       },
     },
   },

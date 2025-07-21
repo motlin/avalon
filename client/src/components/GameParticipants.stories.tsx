@@ -2,11 +2,50 @@ import type { Meta, StoryObj } from '@storybook/react';
 import GameParticipants from './GameParticipants';
 
 const meta: Meta<typeof GameParticipants> = {
+  title: 'Game/GameParticipants',
   component: GameParticipants,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: `GameParticipants displays the list of players in an Avalon game with their roles and status.
+        
+## Features
+- Shows all players in the game
+- Displays current proposer and hammer
+- Highlights team members during proposals
+- Shows vote status during voting phases
+- Provides role information for each player
+- Supports player selection for team proposals
+
+## Usage
+
+\`\`\`tsx
+import GameParticipants from './GameParticipants';
+
+function Game() {
+  return (
+    <GameParticipants
+      avalon={avalonApi}
+      onSelectedPlayers={(players) => console.log('Selected:', players)}
+    />
+  );
+}
+\`\`\``,
+      },
+    },
   },
   tags: ['autodocs'],
+  argTypes: {
+    avalon: {
+      description: 'The Avalon game API object containing game state, user info, and configuration',
+      control: { type: 'object' },
+    },
+    onSelectedPlayers: {
+      description: 'Callback function triggered when players are selected during team proposal phase',
+      action: 'onSelectedPlayers',
+    },
+  },
 };
 
 export default meta;
@@ -90,6 +129,13 @@ export const Default: Story = {
     avalon: createMockAvalon(),
     onSelectedPlayers: (players: string[]) => console.log('Selected players:', players),
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'The default state during team proposal phase with the current proposer (ALICE) selecting team members.',
+      },
+    },
+  },
 };
 
 export const DuringMission: Story = {
@@ -117,6 +163,13 @@ export const DuringMission: Story = {
     }),
     onSelectedPlayers: (players: string[]) => console.log('Selected players:', players),
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Shows the component during an active mission phase. The team has been approved and is on a mission. Players cannot be selected during this phase.',
+      },
+    },
+  },
 };
 
 export const HammerTime: Story = {
@@ -143,5 +196,12 @@ export const HammerTime: Story = {
       },
     }),
     onSelectedPlayers: (players: string[]) => console.log('Selected players:', players),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'The hammer scenario - this is the 5th proposal for a mission. EVE is both the current proposer and the hammer. If this proposal is rejected, the mission automatically fails and evil wins.',
+      },
+    },
   },
 };

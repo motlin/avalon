@@ -2,15 +2,41 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Login from './Login';
 
 const meta: Meta<typeof Login> = {
+  title: 'Authentication/Login',
   component: Login,
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component: `The Login component provides the main entry point for users to join or create game lobbies.
+        
+## Features
+- Display user stats and achievements
+- Create new game lobbies
+- Join existing lobbies by code
+- Show global game statistics
+- Provide achievement overview
+- Responsive layout for various screen sizes
+
+## User Flow
+1. User sees their stats (if logged in) or a welcome message
+2. User can either create a new lobby or join an existing one
+3. Upon successful action, user is redirected to the game lobby
+
+## Error Handling
+The component gracefully handles:
+- Failed lobby creation
+- Invalid lobby codes
+- Network errors
+- Missing user data`,
+      },
+    },
   },
   tags: ['autodocs', 'test'],
   argTypes: {
     avalon: {
       control: 'object',
-      description: 'Avalon API object with user data and methods',
+      description: 'Avalon API object containing user data, stats, and methods for lobby operations',
     },
     disableAutoFocus: {
       control: 'boolean',
@@ -66,6 +92,13 @@ export const WithUser: Story = {
   args: {
     avalon: mockAvalonApi,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Shows the login screen for an authenticated user with their stats and ability to create/join lobbies.',
+      },
+    },
+  },
 };
 
 export const WithoutUser: Story = {
@@ -73,6 +106,13 @@ export const WithoutUser: Story = {
     avalon: {
       ...mockAvalonApi,
       user: undefined,
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Shows the login screen for an unauthenticated user. They can still join or create lobbies but won\'t see personal stats.',
+      },
     },
   },
 };
@@ -88,10 +128,24 @@ export const EmptyStats: Story = {
       globalStats: undefined,
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Shows the component when user stats are not available. This might happen for new users or when stats fail to load.',
+      },
+    },
+  },
 };
 
 export const ErrorScenario: Story = {
   args: {
     avalon: mockAvalonApiError,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Demonstrates error handling when lobby operations fail. Try creating or joining a lobby to see error messages.',
+      },
+    },
   },
 };
