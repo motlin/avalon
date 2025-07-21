@@ -41,7 +41,7 @@ type Story = StoryObj<typeof meta>;
 
 const baseAvalon = {
   user: {
-    name: 'Alice',
+    name: 'CRAIGM',
   },
   proposeTeam: (playerList: string[]) => {
     console.log('Proposing team:', playerList);

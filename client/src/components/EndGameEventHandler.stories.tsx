@@ -17,18 +17,18 @@ const createMockAvalon = (gameOutcome: 'GOOD_WIN' | 'EVIL_WIN' | 'CANCELED', ass
 
   return {
     game: {
-      players: ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+      players: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
       missions: [
         {
           proposals: [
             {
-              proposer: 'Alice',
-              team: ['Alice', 'Bob'],
-              votes: ['Alice', 'Bob', 'Charlie'],
+              proposer: 'CRAIGM',
+              team: ['CRAIGM', 'ZEHUA'],
+              votes: ['CRAIGM', 'ZEHUA', 'VINAY'],
               state: 'APPROVED' as const,
             },
           ],
-          team: ['Alice', 'Bob'],
+          team: ['CRAIGM', 'ZEHUA'],
           state: 'COMPLETE',
           evilOnTeam: [],
           failsRequired: 1,
@@ -37,15 +37,15 @@ const createMockAvalon = (gameOutcome: 'GOOD_WIN' | 'EVIL_WIN' | 'CANCELED', ass
         {
           proposals: [
             {
-              proposer: 'Bob',
-              team: ['Bob', 'Charlie', 'David'],
-              votes: ['Bob', 'Charlie', 'David', 'Eve'],
+              proposer: 'ZEHUA',
+              team: ['ZEHUA', 'VINAY', 'LUKEE'],
+              votes: ['ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
               state: 'APPROVED' as const,
             },
           ],
-          team: ['Bob', 'Charlie', 'David'],
+          team: ['ZEHUA', 'VINAY', 'LUKEE'],
           state: 'COMPLETE',
-          evilOnTeam: ['David'],
+          evilOnTeam: ['LUKEE'],
           failsRequired: 1,
           numFails: 0,
         },
@@ -59,21 +59,21 @@ const createMockAvalon = (gameOutcome: 'GOOD_WIN' | 'EVIL_WIN' | 'CANCELED', ass
           : 'The game has been canceled.',
         assassinated,
         roles: [
-          { name: 'Alice', role: 'Merlin' },
-          { name: 'Bob', role: 'Percival' },
-          { name: 'Charlie', role: 'Loyal Servant of Arthur' },
-          { name: 'David', role: 'Morgana' },
-          { name: 'Eve', role: 'Assassin', assassin: true },
+          { name: 'CRAIGM', role: 'Merlin' },
+          { name: 'ZEHUA', role: 'Percival' },
+          { name: 'VINAY', role: 'Loyal Servant of Arthur' },
+          { name: 'LUKEE', role: 'Morgana' },
+          { name: 'KEN', role: 'Assassin', assassin: true },
         ],
         votes: {
-          0: { 'Alice': true, 'Bob': true },
-          1: { 'Bob': true, 'Charlie': false, 'David': false },
+          0: { 'CRAIGM': true, 'ZEHUA': true },
+          1: { 'ZEHUA': true, 'VINAY': false, 'LUKEE': false },
         },
       },
     },
     lobby: {
       game: {
-        players: ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+        players: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
         missions: [],
         outcome: {
           state: gameOutcome,
@@ -148,7 +148,7 @@ export const EvilWins: Story = {
 
 export const EvilWinsWithAssassination: Story = {
   args: {
-    avalon: createMockAvalon('EVIL_WIN', 'Alice'),
+    avalon: createMockAvalon('EVIL_WIN', 'CRAIGM'),
   },
   parameters: {
     docs: {
@@ -174,7 +174,7 @@ export const GameCanceled: Story = {
 
 export const InteractiveControls: Story = {
   render: () => {
-    const mockAvalon = createMockAvalon('GOOD_WIN', 'Alice');
+    const mockAvalon = createMockAvalon('GOOD_WIN', 'CRAIGM');
 
     return (
       <div>

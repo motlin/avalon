@@ -48,19 +48,19 @@ const createMockAvalon = (mission: any, initialEvents: string[] = []) => {
 
 const successMission = {
   state: 'SUCCESS',
-  team: ['Alice', 'Bob', 'Charlie'],
+  team: ['CRAIGM', 'ZEHUA', 'VINAY'],
   numFails: 0
 };
 
 const failureMission = {
   state: 'FAILURE',
-  team: ['Alice', 'Bob'],
+  team: ['CRAIGM', 'ZEHUA'],
   numFails: 1
 };
 
 const failureMissionMultiple = {
   state: 'FAILURE',
-  team: ['Alice', 'Bob', 'Charlie', 'David'],
+  team: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE'],
   numFails: 2
 };
 

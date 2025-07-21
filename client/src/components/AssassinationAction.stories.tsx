@@ -67,7 +67,7 @@ const mockAvalonAssassin = {
     },
   },
   user: {
-    name: 'player1',
+    name: 'LUKEE',
   },
   assassinate: async (target: string) => {
     console.log(`Assassinating ${target}`);
@@ -88,7 +88,7 @@ const mockAvalonNonAssassin = {
     },
   },
   user: {
-    name: 'player1',
+    name: 'LUKEE',
   },
   assassinate: async (target: string) => {
     console.log(`Assassinating ${target}`);
@@ -99,14 +99,14 @@ const mockAvalonNonAssassin = {
 export const AssassinWithValidTarget: Story = {
   args: {
     avalon: mockAvalonAssassin,
-    playerList: ['merlin'],
+    playerList: ['KEN'],
   },
 };
 
 export const AssassinWithInvalidTargetSelf: Story = {
   args: {
     avalon: mockAvalonAssassin,
-    playerList: ['player1'],
+    playerList: ['LUKEE'],
   },
 };
 
@@ -120,13 +120,13 @@ export const AssassinWithNoTarget: Story = {
 export const AssassinWithMultipleTargets: Story = {
   args: {
     avalon: mockAvalonAssassin,
-    playerList: ['merlin', 'percival'],
+    playerList: ['KEN', 'ZEHUA'],
   },
 };
 
 export const NonAssassinWaiting: Story = {
   args: {
     avalon: mockAvalonNonAssassin,
-    playerList: ['merlin'],
+    playerList: ['KEN'],
   },
 };

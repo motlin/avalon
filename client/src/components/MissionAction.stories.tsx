@@ -54,11 +54,11 @@ export const NeedsToVote: Story = {
   args: {
     avalon: {
       user: {
-        name: 'Alice',
+        name: 'CRAIGM',
       },
       game: {
         currentProposal: {
-          team: ['Alice', 'Bob', 'Charlie'],
+          team: ['CRAIGM', 'ZEHUA', 'VINAY'],
         },
         currentMission: {
           team: [],
@@ -73,14 +73,14 @@ export const WaitingForOthers: Story = {
   args: {
     avalon: {
       user: {
-        name: 'David',
+        name: 'LUKEE',
       },
       game: {
         currentProposal: {
-          team: ['Alice', 'Bob', 'Charlie'],
+          team: ['CRAIGM', 'ZEHUA', 'VINAY'],
         },
         currentMission: {
-          team: ['Alice'],
+          team: ['CRAIGM'],
         },
       },
       doMission: mockDoMission,
@@ -93,14 +93,14 @@ export const SinglePlayerWaiting: Story = {
   args: {
     avalon: {
       user: {
-        name: 'David',
+        name: 'LUKEE',
       },
       game: {
         currentProposal: {
-          team: ['Alice', 'Bob'],
+          team: ['CRAIGM', 'ZEHUA'],
         },
         currentMission: {
-          team: ['Alice'],
+          team: ['CRAIGM'],
         },
       },
       doMission: mockDoMission,

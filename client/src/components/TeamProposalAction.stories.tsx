@@ -43,13 +43,13 @@ type Story = StoryObj<typeof meta>;
 const mockAvalon = {
   game: {
     currentProposalIdx: 0,
-    currentProposer: 'Alice',
+    currentProposer: 'CRAIGM',
     currentMission: {
       teamSize: 3,
     },
   },
   user: {
-    name: 'Alice',
+    name: 'CRAIGM',
   },
   proposeTeam: (playerList: string[]) => {
     console.log('Proposing team:', playerList);
@@ -59,21 +59,21 @@ const mockAvalon = {
 const mockAvalonAsSpectator = {
   ...mockAvalon,
   user: {
-    name: 'Bob',
+    name: 'ZEHUA',
   },
 };
 
 export const AsProposer: Story = {
   args: {
     avalon: mockAvalon,
-    playerList: ['Alice', 'Bob', 'Charlie'],
+    playerList: ['CRAIGM', 'ZEHUA', 'VINAY'],
   },
 };
 
 export const AsProposerInvalidSelection: Story = {
   args: {
     avalon: mockAvalon,
-    playerList: ['Alice', 'Bob'],
+    playerList: ['CRAIGM', 'ZEHUA'],
   },
 };
 
@@ -103,7 +103,7 @@ export const LaterProposal: Story = {
         },
       },
     },
-    playerList: ['Alice', 'Bob', 'Charlie', 'Diana'],
+    playerList: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE'],
   },
 };
 
@@ -115,6 +115,6 @@ export const Interactive: Story = {
         alert(`Proposing team: ${playerList.join(', ')}`);
       },
     },
-    playerList: ['Alice', 'Bob', 'Charlie'],
+    playerList: ['CRAIGM', 'ZEHUA', 'VINAY'],
   },
 };

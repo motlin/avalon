@@ -56,13 +56,13 @@ export const FirstProposal: Story = {
       game: {
         currentProposalIdx: 0,
         currentProposal: {
-          team: ['Alice', 'Bob', 'Charlie'],
+          team: ['CRAIGM', 'ZEHUA', 'VINAY'],
           votes: [],
         },
-        currentProposer: 'Alice',
+        currentProposer: 'CRAIGM',
       },
       user: {
-        name: 'Dave',
+        name: 'LUKEE',
       },
       voteTeam: mockVoteTeam,
     },
@@ -75,13 +75,13 @@ export const SecondProposal: Story = {
       game: {
         currentProposalIdx: 1,
         currentProposal: {
-          team: ['Bob', 'Charlie', 'Dave'],
+          team: ['ZEHUA', 'VINAY', 'LUKEE'],
           votes: [],
         },
-        currentProposer: 'Bob',
+        currentProposer: 'ZEHUA',
       },
       user: {
-        name: 'Alice',
+        name: 'CRAIGM',
       },
       voteTeam: mockVoteTeam,
     },
@@ -94,13 +94,13 @@ export const YourProposal: Story = {
       game: {
         currentProposalIdx: 2,
         currentProposal: {
-          team: ['Alice', 'Eve', 'Frank'],
+          team: ['CRAIGM', 'KEN', 'ROB'],
           votes: [],
         },
-        currentProposer: 'Charlie',
+        currentProposer: 'VINAY',
       },
       user: {
-        name: 'Charlie',
+        name: 'VINAY',
       },
       voteTeam: mockVoteTeam,
     },
@@ -113,13 +113,13 @@ export const AlreadyVoted: Story = {
       game: {
         currentProposalIdx: 3,
         currentProposal: {
-          team: ['Dave', 'Eve'],
-          votes: ['Alice'],
+          team: ['LUKEE', 'KEN'],
+          votes: ['CRAIGM'],
         },
-        currentProposer: 'Dave',
+        currentProposer: 'LUKEE',
       },
       user: {
-        name: 'Alice',
+        name: 'CRAIGM',
       },
       voteTeam: mockVoteTeam,
     },
@@ -132,13 +132,13 @@ export const FinalProposal: Story = {
       game: {
         currentProposalIdx: 4,
         currentProposal: {
-          team: ['Alice', 'Bob', 'Charlie', 'Dave'],
+          team: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE'],
           votes: [],
         },
-        currentProposer: 'Eve',
+        currentProposer: 'KEN',
       },
       user: {
-        name: 'Frank',
+        name: 'ROB',
       },
       voteTeam: mockVoteTeam,
     },
