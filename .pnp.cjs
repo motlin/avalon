@@ -135,6 +135,7 @@ const RAW_RUNTIME_STATE =
           ["@dnd-kit/utilities", "virtual:72317fc24132b0dfc6fb58738ca290a67319a03b6d103f7bc51125559648f6a8b269569c980259fc873c383282f7a0e2337aa6d97ccebc2f6c5667ef5691ebd8#npm:3.2.2"],\
           ["@fortawesome/fontawesome-free", "npm:6.6.0"],\
           ["@fortawesome/fontawesome-svg-core", "npm:6.6.0"],\
+          ["@fortawesome/free-brands-svg-icons", "npm:6.6.0"],\
           ["@fortawesome/free-regular-svg-icons", "npm:6.6.0"],\
           ["@fortawesome/free-solid-svg-icons", "npm:6.6.0"],\
           ["@fortawesome/react-fontawesome", "virtual:72317fc24132b0dfc6fb58738ca290a67319a03b6d103f7bc51125559648f6a8b269569c980259fc873c383282f7a0e2337aa6d97ccebc2f6c5667ef5691ebd8#npm:0.2.2"],\
@@ -5648,6 +5649,16 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@fortawesome/fontawesome-common-types", "npm:6.7.2"],\
           ["@fortawesome/fontawesome-svg-core", "npm:6.7.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@fortawesome/free-brands-svg-icons", [\
+      ["npm:6.6.0", {\
+        "packageLocation": "./.yarn/cache/@fortawesome-free-brands-svg-icons-npm-6.6.0-515a59fc1e-d998d8fde3.zip/node_modules/@fortawesome/free-brands-svg-icons/",\
+        "packageDependencies": [\
+          ["@fortawesome/fontawesome-common-types", "npm:6.6.0"],\
+          ["@fortawesome/free-brands-svg-icons", "npm:6.6.0"]\
         ],\
         "linkType": "HARD"\
       }]\
