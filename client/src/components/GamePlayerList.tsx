@@ -263,22 +263,18 @@ export default function GamePlayerList({
 									<FontAwesomeIcon
 										icon={faCircle}
 										className={styles.teamIcon}
-										color="#629ec1"
 									/>
 								)}
 								{waitingOnVote(playerName) && (
 									<FontAwesomeIcon
 										icon={faEllipsis}
 										className={styles.waitingIcon}
-										color="#4c4c4c"
 									/>
 								)}
 								{hasVoted(playerName) && !waitingOnVote(playerName) && (
 									<FontAwesomeIcon
 										icon={faVoteYea}
 										className={styles.votedIcon}
-										color="#4c4c4c"
-										transform="left-2 up-1"
 									/>
 								)}
 								{approvedProposal(playerName) &&
@@ -287,8 +283,6 @@ export default function GamePlayerList({
 										<FontAwesomeIcon
 											icon={faThumbsUp}
 											className={styles.approvedIcon}
-											color="green"
-											transform="right-1"
 										/>
 									)}
 								{rejectedProposal(playerName) &&
@@ -297,8 +291,6 @@ export default function GamePlayerList({
 										<FontAwesomeIcon
 											icon={faThumbsDown}
 											className={styles.rejectedIcon}
-											color="#ed1515"
-											transform="right-1"
 										/>
 									)}
 							</div>
