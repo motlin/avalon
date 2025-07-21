@@ -12,6 +12,14 @@ const meta: Meta<typeof Login> = {
       control: 'object',
       description: 'Avalon API object with user data and methods',
     },
+    disableAutoFocus: {
+      control: 'boolean',
+      description: 'Disable auto-focus on the name input field',
+      defaultValue: true,
+    },
+  },
+  args: {
+    disableAutoFocus: true,
   },
 };
 

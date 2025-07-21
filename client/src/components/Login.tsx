@@ -28,9 +28,10 @@ interface AvalonApi {
 
 interface LoginProps {
   avalon: AvalonApi;
+  disableAutoFocus?: boolean;
 }
 
-const Login: React.FC<LoginProps> = ({ avalon }) => {
+const Login: React.FC<LoginProps> = ({ avalon, disableAutoFocus = false }) => {
   const [name, setName] = useState<string>(avalon.user ? avalon.user.name : '');
   const [lobby, setLobby] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
@@ -114,7 +115,7 @@ const Login: React.FC<LoginProps> = ({ avalon }) => {
               placeholder="Your Name"
               value={name}
               onChange={handleNameChange}
-              autoFocus
+              autoFocus={!disableAutoFocus}
             />
             {errorMessage && <div className={styles.errorMessage}>{errorMessage}</div>}
             <button
