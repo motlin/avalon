@@ -36,7 +36,7 @@ const ToolbarQuitButton: React.FC<ToolbarQuitButtonProps> = ({ avalon }) => {
         onClick={() => setDialog(true)}
         disabled={quitting}
       >
-        <span className={styles.icon}>🚪</span>
+        <span className={styles.icon}>↗️</span>
         Quit
       </button>
 
