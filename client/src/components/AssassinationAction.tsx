@@ -39,7 +39,7 @@ const AssassinationAction: React.FC<AssassinationActionProps> = ({ avalon, playe
 
   const isValidSelection =
     playerList.length === 1 &&
-    playerList[0] !== avalon.user.name;
+    playerList[0] !== avalon.user?.name;
 
   const assassinateButtonText = isValidSelection
     ? `Assassinate ${playerList[0]}`
@@ -60,7 +60,7 @@ const AssassinationAction: React.FC<AssassinationActionProps> = ({ avalon, playe
         <h3 className={styles.title}>Assassination Attempt</h3>
       </div>
       <div className={styles.cardContent}>
-        {avalon.lobby.role.assassin ? (
+        {avalon.lobby?.role?.assassin ? (
           <button
             className={styles.assassinateButton}
             disabled={!isValidSelection || isAssassinating}

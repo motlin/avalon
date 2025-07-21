@@ -38,13 +38,13 @@ interface TeamVoteActionProps {
 }
 
 const TeamVoteAction: React.FC<TeamVoteActionProps> = ({ avalon }) => {
-  const hasVoted = avalon.game.currentProposal.votes.includes(avalon.user.name);
+  const hasVoted = avalon.game.currentProposal?.votes?.includes(avalon.user?.name) || false;
 
   const [loadingState, setLoadingState] = useState({ yes: false, no: false });
   const [disabledState, setDisabledState] = useState({ yes: hasVoted, no: hasVoted });
   const [votedState, setVotedState] = useState({ yes: false, no: false });
 
-  const proposer = avalon.game.currentProposer === avalon.user.name
+  const proposer = avalon.game.currentProposer === avalon.user?.name
     ? 'your'
     : avalon.game.currentProposer + "'s ";
 
@@ -76,7 +76,7 @@ const TeamVoteAction: React.FC<TeamVoteActionProps> = ({ avalon }) => {
       </div>
       <div className={styles.cardContent}>
         <div className={styles.votingText}>
-          Voting for {proposer} team of {joinWithAnd(avalon.game.currentProposal.team)}
+          Voting for {proposer} team of {joinWithAnd(avalon.game.currentProposal?.team || [])}
         </div>
         <div className={styles.buttonLayout}>
           <button

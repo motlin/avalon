@@ -27,14 +27,14 @@ interface TeamProposalActionProps {
 const TeamProposalAction: React.FC<TeamProposalActionProps> = ({ avalon, playerList }) => {
   const [isProposing, setIsProposing] = useState(false);
 
-  const isValidSelection = playerList.length === avalon.game.currentMission.teamSize;
+  const isValidSelection = playerList.length === avalon.game.currentMission?.teamSize;
 
   const proposeTeam = () => {
     setIsProposing(true);
     avalon.proposeTeam(playerList);
   };
 
-  const isCurrentProposer = avalon.game.currentProposer === avalon.user.name;
+  const isCurrentProposer = avalon.game.currentProposer === avalon.user?.name;
 
   return (
     <div className={styles.card}>
@@ -46,7 +46,7 @@ const TeamProposalAction: React.FC<TeamProposalActionProps> = ({ avalon, playerL
           {isCurrentProposer ? (
             <div>
               <div className={styles.instruction}>
-                Propose a team of {avalon.game.currentMission.teamSize}
+                Propose a team of {avalon.game.currentMission?.teamSize}
               </div>
               <button
                 className={`${styles.proposeButton} ${isProposing ? styles.loading : ''}`}

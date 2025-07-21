@@ -40,14 +40,14 @@ function joinWithAnd(array: string[]): string {
 
 const MissionAction: React.FC<MissionActionProps> = ({ avalon }) => {
   const [needsToVote, setNeedsToVote] = useState(
-    avalon.game.currentProposal.team.includes(avalon.user.name)
+    avalon.game.currentProposal?.team?.includes(avalon.user?.name) || false
   );
 
   const stillWaitingFor = useMemo(() => {
-    return avalon.game.currentProposal.team
-      .filter(name => !avalon.game.currentMission.team.includes(name))
-      .filter(name => name !== avalon.user.name);
-  }, [avalon.game.currentProposal.team, avalon.game.currentMission.team, avalon.user.name]);
+    return (avalon.game.currentProposal?.team || [])
+      .filter(name => !(avalon.game.currentMission?.team || []).includes(name))
+      .filter(name => name !== avalon.user?.name);
+  }, [avalon.game.currentProposal?.team, avalon.game.currentMission?.team, avalon.user?.name]);
 
   const waitingForText = useMemo(() => {
     if (stillWaitingFor.length > 0) {

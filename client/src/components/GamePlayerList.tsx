@@ -75,10 +75,10 @@ export default function GamePlayerList({
 	const enableCheckboxes = (name: string): boolean => {
 		return (
 			(avalon.game.phase === "TEAM_PROPOSAL" &&
-				avalon.game.currentProposer === avalon.user.name) ||
+				avalon.game.currentProposer === avalon.user?.name) ||
 			(avalon.game.phase === "ASSASSINATION" &&
-				avalon.lobby.role.assassin &&
-				name !== avalon.user.name)
+				avalon.lobby?.role?.assassin &&
+				name !== avalon.user?.name)
 		);
 	};
 
@@ -86,21 +86,21 @@ export default function GamePlayerList({
 		return (
 			(avalon.game.phase === "PROPOSAL_VOTE" ||
 				avalon.game.phase === "MISSION_VOTE") &&
-			avalon.game.currentProposal.team.includes(name)
+			avalon.game.currentProposal?.team?.includes(name)
 		);
 	};
 
 	const hasVoted = (name: string): boolean => {
 		return (
 			avalon.game.phase === "PROPOSAL_VOTE" &&
-			avalon.game.currentProposal.votes.includes(name)
+			avalon.game.currentProposal?.votes?.includes(name)
 		);
 	};
 
 	const waitingOnVote = (name: string): boolean => {
 		return (
 			avalon.game.phase === "PROPOSAL_VOTE" &&
-			!avalon.game.currentProposal.votes.includes(name)
+			!avalon.game.currentProposal?.votes?.includes(name)
 		);
 	};
 
@@ -114,7 +114,7 @@ export default function GamePlayerList({
 				);
 			case "PROPOSAL_VOTE":
 			case "MISSION_VOTE":
-				return avalon.game.currentProposal.team.includes(name);
+				return avalon.game.currentProposal?.team?.includes(name) || false;
 			default:
 				console.error("Unhandled game phase", avalon.game.phase);
 				return false;
@@ -131,7 +131,7 @@ export default function GamePlayerList({
 				avalon.game.lastProposal.votes.includes(name)
 			);
 		} else if (avalon.game.phase === "MISSION_VOTE") {
-			return avalon.game.currentProposal.votes.includes(name);
+			return avalon.game.currentProposal?.votes?.includes(name) || false;
 		}
 		return false;
 	};
@@ -146,7 +146,7 @@ export default function GamePlayerList({
 				!avalon.game.lastProposal.votes.includes(name)
 			);
 		} else if (avalon.game.phase === "MISSION_VOTE") {
-			return !avalon.game.currentProposal.votes.includes(name);
+			return !avalon.game.currentProposal?.votes?.includes(name);
 		}
 		return false;
 	};
