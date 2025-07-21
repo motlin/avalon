@@ -39,32 +39,32 @@ interface TeamVoteActionProps {
 
 const TeamVoteAction: React.FC<TeamVoteActionProps> = ({ avalon }) => {
   const hasVoted = avalon.game.currentProposal.votes.includes(avalon.user.name);
-  
+
   const [loadingState, setLoadingState] = useState({ yes: false, no: false });
   const [disabledState, setDisabledState] = useState({ yes: hasVoted, no: hasVoted });
   const [votedState, setVotedState] = useState({ yes: false, no: false });
 
-  const proposer = avalon.game.currentProposer === avalon.user.name 
-    ? 'your' 
+  const proposer = avalon.game.currentProposer === avalon.user.name
+    ? 'your'
     : avalon.game.currentProposer + "'s ";
 
   const teamVote = (vote: boolean) => {
     const myState = vote ? 'yes' : 'no';
     const otherState = vote ? 'no' : 'yes';
-    
+
     setLoadingState(prev => ({ ...prev, [myState]: true }));
     setDisabledState(prev => ({ ...prev, [otherState]: true }));
-    
+
     avalon.voteTeam(vote).finally(() => {
       setLoadingState(prev => ({ ...prev, [myState]: false }));
-      setDisabledState(prev => ({ 
-        ...prev, 
-        [myState]: true, 
-        [otherState]: false 
+      setDisabledState(prev => ({
+        ...prev,
+        [myState]: true,
+        [otherState]: false
       }));
-      setVotedState({ 
-        [myState]: true, 
-        [otherState]: false 
+      setVotedState({
+        [myState]: true,
+        [otherState]: false
       } as { yes: boolean; no: boolean });
     });
   };
@@ -79,24 +79,24 @@ const TeamVoteAction: React.FC<TeamVoteActionProps> = ({ avalon }) => {
           Voting for {proposer} team of {joinWithAnd(avalon.game.currentProposal.team)}
         </div>
         <div className={styles.buttonLayout}>
-          <button 
+          <button
             className={`${styles.button} ${styles.approveButton} ${loadingState.yes ? styles.loading : ''}`}
             onClick={() => teamVote(true)}
             disabled={disabledState.yes}
           >
-            <FontAwesomeIcon 
-              icon={votedState.yes ? faVoteYea : faThumbsUp} 
+            <FontAwesomeIcon
+              icon={votedState.yes ? faVoteYea : faThumbsUp}
               className={`${styles.icon} ${votedState.yes ? styles.greenIcon : styles.greenIcon}`}
             />
             Approve
           </button>
-          <button 
+          <button
             className={`${styles.button} ${styles.rejectButton} ${loadingState.no ? styles.loading : ''}`}
             onClick={() => teamVote(false)}
             disabled={disabledState.no}
           >
-            <FontAwesomeIcon 
-              icon={votedState.no ? faVoteYea : faThumbsDown} 
+            <FontAwesomeIcon
+              icon={votedState.no ? faVoteYea : faThumbsDown}
               className={`${styles.icon} ${votedState.no ? styles.redIcon : styles.redIcon}`}
             />
             Reject

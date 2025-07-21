@@ -84,4 +84,3 @@ export const RealGameNoRoles: Story = {
     missionVotes: realGameMissionVotes,
   },
 };
-

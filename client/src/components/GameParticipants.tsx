@@ -83,16 +83,16 @@ const GameParticipants: React.FC<GameParticipantsProps> = ({ avalon, onSelectedP
           </button>
         ))}
       </div>
-      
+
       <div className={styles.tabContent}>
         {activeTab === 0 && (
-          <GamePlayerList 
-            avalon={avalon} 
+          <GamePlayerList
+            avalon={avalon}
             onSelectedPlayers={onSelectedPlayers}
           />
         )}
         {activeTab === 1 && (
-          <RoleList 
+          <RoleList
             roles={roles}
             allowSelect={false}
           />

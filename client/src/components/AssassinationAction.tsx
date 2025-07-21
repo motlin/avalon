@@ -37,11 +37,11 @@ interface AssassinationActionProps {
 const AssassinationAction: React.FC<AssassinationActionProps> = ({ avalon, playerList }) => {
   const [isAssassinating, setIsAssassinating] = useState(false);
 
-  const isValidSelection = 
-    playerList.length === 1 && 
+  const isValidSelection =
+    playerList.length === 1 &&
     playerList[0] !== avalon.user.name;
 
-  const assassinateButtonText = isValidSelection 
+  const assassinateButtonText = isValidSelection
     ? `Assassinate ${playerList[0]}`
     : 'Select target';
 

@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 const createMockAvalon = (mission: any, initialEvents: string[] = []) => {
   let eventCallback: ((event: string, ...args: any[]) => void) | null = null;
-  
+
   return {
     lobby: {
       game: {
@@ -25,7 +25,7 @@ const createMockAvalon = (mission: any, initialEvents: string[] = []) => {
     },
     onEvent: (callback: (event: string, ...args: any[]) => void) => {
       eventCallback = callback;
-      
+
       setTimeout(() => {
         initialEvents.forEach(event => {
           if (eventCallback) {
@@ -33,7 +33,7 @@ const createMockAvalon = (mission: any, initialEvents: string[] = []) => {
           }
         });
       }, 100);
-      
+
       return () => {
         eventCallback = null;
       };
@@ -91,7 +91,7 @@ export const Hidden: Story = {
 export const InteractiveExample: Story = {
   render: () => {
     const [mockAvalon] = useState(() => createMockAvalon(successMission));
-    
+
     return (
       <div>
         <div style={{ marginBottom: '16px' }}>

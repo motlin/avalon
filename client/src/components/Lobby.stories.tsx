@@ -170,7 +170,7 @@ export const TooManyPlayers: Story = {
     avalon: createMockAvalon({
       config: {
         playerList: [
-          'ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE', 
+          'ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE',
           'FRANK', 'GRACE', 'HENRY', 'IVY', 'JACK', 'KAREN'
         ],
         selectableRoles: sampleRoles,
@@ -201,7 +201,7 @@ export const MaxPlayersReady: Story = {
     avalon: createMockAvalon({
       config: {
         playerList: [
-          'ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE', 
+          'ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE',
           'FRANK', 'GRACE', 'HENRY', 'IVY', 'JACK'
         ],
         selectableRoles: sampleRoles,

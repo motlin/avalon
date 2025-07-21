@@ -31,7 +31,7 @@ const UserLogin: React.FC<UserLoginProps> = ({ avalon }) => {
     setIsSubmittingEmailAddr(true);
     clearErrorMessage();
     avalon.confirmingEmailError = '';
-    
+
     avalon.submitEmailAddr(emailAddr)
       .then(() => {
         setEmailSubmitted(true);
@@ -73,7 +73,7 @@ const UserLogin: React.FC<UserLoginProps> = ({ avalon }) => {
               {avalon.confirmingEmailError} Please try logging in again.
             </div>
           )}
-          
+
           <div className={styles.welcomeSection}>
             <span className={styles.textH3}>
               Avalon: The Resistance <span className={styles.fontWeightThin}>Online</span>
@@ -88,13 +88,13 @@ const UserLogin: React.FC<UserLoginProps> = ({ avalon }) => {
 
         <div className={styles.tabs}>
           <div className={styles.tabsSlider}></div>
-          <button 
+          <button
             className={`${styles.tab} ${tab === 0 ? styles.tabActive : ''}`}
             onClick={() => setTab(0)}
           >
             Email
           </button>
-          <button 
+          <button
             className={`${styles.tab} ${tab === 1 ? styles.tabActive : ''}`}
             onClick={() => setTab(1)}
           >

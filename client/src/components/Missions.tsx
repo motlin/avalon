@@ -98,7 +98,7 @@ const Missions: React.FC<MissionsProps> = ({ avalon }) => {
             </button>
           ))}
         </div>
-        
+
         <div className={styles.tabContent}>
           {avalon.game.missions.map((mission, idx) => (
             <div
@@ -109,14 +109,14 @@ const Missions: React.FC<MissionsProps> = ({ avalon }) => {
                 <div className={styles.cardContent}>
                   <div className={styles.missionTitle}>
                     Mission {idx + 1}:{' '}
-                    {(idx === avalon.game.currentMissionIdx) && (avalon.game.phase !== 'ASSASSINATION') 
-                      ? 'CURRENT' 
+                    {(idx === avalon.game.currentMissionIdx) && (avalon.game.phase !== 'ASSASSINATION')
+                      ? 'CURRENT'
                       : mission.state}
                     {mission.numFails > 0 && (
                       <span> ({mission.numFails} {mission.numFails > 1 ? 'fails' : 'fail'})</span>
                     )}
                   </div>
-                  
+
                   {mission.state === 'PENDING' ? (
                     <div className={styles.missionDetails}>
                       Team Size: {mission.teamSize}
@@ -129,7 +129,7 @@ const Missions: React.FC<MissionsProps> = ({ avalon }) => {
                       <div>Team: {mission.team.joinWithAnd()}</div>
                     </div>
                   )}
-                  
+
                   {avalon.game.options?.inGameLog && (
                     <MissionSummaryTable
                       players={avalon.game.players}

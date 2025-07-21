@@ -114,7 +114,7 @@ const ViewRoleButton: React.FC<ViewRoleButtonProps> = ({ avalon }) => {
         ) : (
           <div className={styles.card}>
             <div className={`${styles.cardTitle} ${styles.roleTitle}`}>
-              <i className={`${avalon.lobby.role.role.team === 'good' ? 'fab fa-old-republic' : 'fas fa-empire'} ${styles.roleIcon}`} 
+              <i className={`${avalon.lobby.role.role.team === 'good' ? 'fab fa-old-republic' : 'fas fa-empire'} ${styles.roleIcon}`}
                  style={avalon.lobby.role.role.team === 'evil' ? { color: 'red' } : undefined}></i>
               <span className={styles.roleName}>{avalon.lobby.role.role.name}</span>
             </div>

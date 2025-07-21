@@ -49,7 +49,7 @@ const RoleList: React.FC<RoleListProps> = ({ roles, allowSelect = false }) => {
               </span>
               <span className={styles.roleName}>{role.name}</span>
             </div>
-            <button 
+            <button
               className={styles.infoButton}
               onClick={() => showRoleInfo(role)}
               aria-label={`Show info for ${role.name}`}
@@ -72,7 +72,7 @@ const RoleList: React.FC<RoleListProps> = ({ roles, allowSelect = false }) => {
             <div className={styles.dialogContent}>
               {selectedRole.description}
             </div>
-            <button 
+            <button
               className={styles.closeButton}
               onClick={() => setShowDialog(false)}
             >

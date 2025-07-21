@@ -21,7 +21,7 @@ const ToolbarQuitButton: React.FC<ToolbarQuitButtonProps> = ({ avalon }) => {
   const quitButtonClicked = () => {
     setQuitting(true);
     setDialog(false);
-    
+
     if (avalon.isGameInProgress) {
       avalon.cancelGame().finally(() => setQuitting(false));
     } else {
@@ -31,7 +31,7 @@ const ToolbarQuitButton: React.FC<ToolbarQuitButtonProps> = ({ avalon }) => {
 
   return (
     <>
-      <button 
+      <button
         className={`${styles.quitButton} ${quitting ? styles.loading : ''}`}
         onClick={() => setDialog(true)}
         disabled={quitting}

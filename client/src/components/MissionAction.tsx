@@ -70,14 +70,14 @@ const MissionAction: React.FC<MissionActionProps> = ({ avalon }) => {
       <div className={styles.cardContent}>
         {needsToVote ? (
           <div className={styles.buttonLayout}>
-            <button 
+            <button
               className={styles.successButton}
               onClick={() => missionVote(true)}
             >
               <FontAwesomeIcon icon={faCheckCircle} className={styles.successIcon} />
               SUCCESS
             </button>
-            <button 
+            <button
               className={styles.failButton}
               onClick={() => missionVote(false)}
             >

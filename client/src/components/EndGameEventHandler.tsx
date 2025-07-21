@@ -81,7 +81,7 @@ const EndGameEventHandler: React.FC<EndGameEventHandlerProps> = ({ avalon }) => 
 
   const getTitle = () => {
     if (!avalon.game?.outcome) return '';
-    
+
     switch (avalon.game.outcome.state) {
       case 'GOOD_WIN':
         return 'Good wins!';
@@ -96,9 +96,9 @@ const EndGameEventHandler: React.FC<EndGameEventHandlerProps> = ({ avalon }) => 
 
   const getRoleAssignments = () => {
     if (!avalon.game?.outcome) return [];
-    
+
     return avalon.game.outcome.roles.slice().sort((a, b) => {
-      const roleIndexOf = (name: string) => 
+      const roleIndexOf = (name: string) =>
         avalon.config.roles.findIndex(r => r.name === name);
       return roleIndexOf(a.role) - roleIndexOf(b.role);
     });
@@ -106,8 +106,8 @@ const EndGameEventHandler: React.FC<EndGameEventHandlerProps> = ({ avalon }) => 
 
   const getFilteredMissions = () => {
     if (!avalon.game) return [];
-    
-    return avalon.game.missions.filter(m => 
+
+    return avalon.game.missions.filter(m =>
       m.proposals.filter(p => p.state !== 'PENDING').length > 0
     );
   };

@@ -26,27 +26,27 @@ const StatsDisplay: React.FC<StatsDisplayProps> = ({ stats, globalStats }) => {
   const wins = stats.wins || 0;
   const goodWins = stats.good_wins || 0;
   const evilWins = wins - goodWins;
-  
-  const winRate = games 
+
+  const winRate = games
     ? `${(100 * wins / games).toFixed(0)}%`
     : 'N/A';
-  
-  const goodWinRate = good 
+
+  const goodWinRate = good
     ? `${(100 * goodWins / good).toFixed(0)}%`
     : 'N/A';
-  
-  const evilWinRate = evil 
+
+  const evilWinRate = evil
     ? `${(100 * evilWins / evil).toFixed(0)}%`
     : 'N/A';
-  
-  const globalGoodWinRate = globalStats 
+
+  const globalGoodWinRate = globalStats
     ? `${(100 * globalStats.good_wins / globalStats.games).toFixed(0)}%`
     : '';
-  
-  const globalEvilWinRate = globalStats 
+
+  const globalEvilWinRate = globalStats
     ? `${(100 * (globalStats.games - globalStats.good_wins) / globalStats.games).toFixed(0)}%`
     : '';
-  
+
   const playtime = (() => {
     const playtimeSeconds = stats.playtimeSeconds || 0;
     const hours = playtimeSeconds / 60 / 60;

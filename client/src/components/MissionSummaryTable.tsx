@@ -59,28 +59,28 @@ const MissionSummaryTable: React.FC<MissionSummaryTableProps> = ({
                 const isOnTeam = proposal.team.includes(player);
                 const votedYes = proposal.votes.includes(player);
                 const isPending = proposal.state === 'PENDING';
-                
+
                 return (
-                  <td 
+                  <td
                     key={`${player}_proposal${missionIndex}_${proposalIndex}`}
                     className={styles.proposalCell}
                   >
                     <div className={styles.iconStack}>
                       {isProposer && (
-                        <FontAwesomeIcon 
-                          icon={faCircle} 
+                        <FontAwesomeIcon
+                          icon={faCircle}
                           className={styles.proposerIcon}
                         />
                       )}
                       {isOnTeam && (
-                        <FontAwesomeIcon 
-                          icon={faCircleOutline} 
+                        <FontAwesomeIcon
+                          icon={faCircleOutline}
                           className={styles.teamIcon}
                         />
                       )}
                       {!isPending && (
-                        <FontAwesomeIcon 
-                          icon={votedYes ? faThumbsUpOutline : faThumbsDownOutline} 
+                        <FontAwesomeIcon
+                          icon={votedYes ? faThumbsUpOutline : faThumbsDownOutline}
                           className={votedYes ? styles.voteYes : styles.voteNo}
                         />
                       )}
@@ -92,7 +92,7 @@ const MissionSummaryTable: React.FC<MissionSummaryTableProps> = ({
               const missionVoteCell = missionVotes && (
                 <td key={`${player}_mission${missionIndex}`} className={styles.missionResult}>
                   {mission.team.includes(player) && (
-                    <FontAwesomeIcon 
+                    <FontAwesomeIcon
                       icon={missionVotes[missionIndex]?.[player] ? faCheckCircle : faTimesCircle}
                       color={missionVotes[missionIndex]?.[player] ? 'green' : 'red'}
                       size="sm"

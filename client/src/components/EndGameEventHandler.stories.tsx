@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 const createMockAvalon = (gameOutcome: 'GOOD_WIN' | 'EVIL_WIN' | 'CANCELED', assassinated?: string) => {
   const eventListeners: Array<(event: string) => void> = [];
-  
+
   return {
     game: {
       players: ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
@@ -52,8 +52,8 @@ const createMockAvalon = (gameOutcome: 'GOOD_WIN' | 'EVIL_WIN' | 'CANCELED', ass
       ],
       outcome: {
         state: gameOutcome,
-        message: gameOutcome === 'GOOD_WIN' 
-          ? 'The forces of good have triumphed!' 
+        message: gameOutcome === 'GOOD_WIN'
+          ? 'The forces of good have triumphed!'
           : gameOutcome === 'EVIL_WIN'
           ? 'Evil has prevailed in this quest!'
           : 'The game has been canceled.',
@@ -101,12 +101,12 @@ const createMockAvalon = (gameOutcome: 'GOOD_WIN' | 'EVIL_WIN' | 'CANCELED', ass
     },
     onEvent: (callback: (event: string) => void) => {
       eventListeners.push(callback);
-      
+
       // Automatically trigger GAME_ENDED event
       setTimeout(() => {
         eventListeners.forEach(listener => listener('GAME_ENDED'));
       }, 100);
-      
+
       return () => {
         const index = eventListeners.indexOf(callback);
         if (index > -1) {
@@ -175,7 +175,7 @@ export const GameCanceled: Story = {
 export const InteractiveControls: Story = {
   render: () => {
     const mockAvalon = createMockAvalon('GOOD_WIN', 'Alice');
-    
+
     return (
       <div>
         <div style={{ marginBottom: '16px' }}>

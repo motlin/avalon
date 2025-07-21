@@ -55,7 +55,7 @@ const createMockAvalon = (
   initialEvents: string[] = []
 ) => {
   let eventCallback: ((event: string, ...args: any[]) => void) | null = null;
-  
+
   return {
     user: {
       name: 'TestPlayer',
@@ -85,7 +85,7 @@ const createMockAvalon = (
     isGameInProgress,
     onEvent: (callback: (event: string, ...args: any[]) => void) => {
       eventCallback = callback;
-      
+
       // Simulate initial events
       setTimeout(() => {
         initialEvents.forEach(event => {
@@ -94,7 +94,7 @@ const createMockAvalon = (
           }
         });
       }, 100);
-      
+
       return () => {
         eventCallback = null;
       };
@@ -177,7 +177,7 @@ export const InteractiveExample: Story = {
       description: 'You are Percival. You see Merlin and Morgana, but you do not know which is which.',
       sees: ['Merlin', 'Morgana'],
     }));
-    
+
     return (
       <div>
         <div style={{ marginBottom: '16px' }}>

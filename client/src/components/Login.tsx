@@ -38,7 +38,7 @@ const Login: React.FC<LoginProps> = ({ avalon }) => {
   const [isJoiningLobby, setIsJoiningLobby] = useState<boolean>(false);
   const [isCreatingLobby, setIsCreatingLobby] = useState<boolean>(false);
   const [alertTimeoutTimer, setAlertTimeoutTimer] = useState<NodeJS.Timeout | null>(null);
-  
+
   const nameTextFieldRef = useRef<HTMLInputElement>(null);
   const lobbyTextFieldRef = useRef<HTMLInputElement>(null);
 
@@ -160,9 +160,9 @@ const Login: React.FC<LoginProps> = ({ avalon }) => {
           </>
         )}
         <div className={styles.spacer}></div>
-        <StatsDisplay 
-          stats={avalon.user?.stats || {}} 
-          globalStats={avalon.globalStats} 
+        <StatsDisplay
+          stats={avalon.user?.stats || {}}
+          globalStats={avalon.globalStats}
         />
       </div>
     </div>
