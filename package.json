@@ -18,11 +18,14 @@
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook --maxWorkers=1 --testTimeout=15000",
     "test-storybook:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"yarn build-storybook --quiet && npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test-storybook\"",
-    "test:vitest": "vitest run"
+    "test:vitest": "vitest run",
+    "lint:biome": "biome check client/src/components/**/*.tsx",
+    "format:biome": "biome format --write client/src/components/**/*.tsx"
   },
   "devDependencies": {
     "@babel/core": "^7.25.8",
     "@babel/eslint-parser": "^7.25.8",
+    "@biomejs/biome": "^2.1.2",
     "@storybook/addon-docs": "^9.0.17",
     "@storybook/addon-onboarding": "^9.0.17",
     "@storybook/addon-vitest": "^9.0.17",
@@ -31,6 +34,7 @@
     "@storybook/test-runner": "^0.23.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.7.0",
     "@vitest/browser": "^3.2.4",
     "autoprefixer": "^10.4.20",
     "concurrently": "^9.2.0",
@@ -40,6 +44,7 @@
     "http-server": "^14.1.1",
     "playwright": "^1.54.1",
     "postcss": "^8.4.47",
+    "prettier": "^3.6.2",
     "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
