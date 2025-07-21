@@ -130,7 +130,7 @@ const Missions: React.FC<MissionsProps> = ({ avalon }) => {
                     </div>
                   )}
 
-                  {avalon.game.options?.inGameLog && (
+                  {avalon.game.options?.inGameLog && mission.proposals && mission.proposals.length > 0 && (
                     <MissionSummaryTable
                       players={avalon.game.players}
                       missions={[mission]}

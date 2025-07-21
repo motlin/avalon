@@ -53,7 +53,9 @@ const MissionSummaryTable: React.FC<MissionSummaryTableProps> = ({
               </td>
             )}
             {missions.map((mission, missionIndex) => {
-              const validProposals = mission.proposals.filter(p => p.team.length > 0);
+              const validProposals = mission.proposals && mission.proposals.length > 0
+                ? mission.proposals.filter(p => p.team && p.team.length > 0)
+                : [];
               const proposalCells = validProposals.map((proposal, proposalIndex) => {
                 const isProposer = proposal.proposer === player;
                 const isOnTeam = proposal.team.includes(player);
