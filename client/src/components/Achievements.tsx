@@ -1,8 +1,8 @@
-import { faTrophy } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type React from "react";
 import GameAnalysis from "../avalon-analysis.ts";
 import styles from "./Achievements.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrophy } from '@fortawesome/free-solid-svg-icons';
 
 interface Badge {
 	title: string;
@@ -83,7 +83,7 @@ const Achievements: React.FC<AchievementsProps> = ({ avalon }) => {
 							<FontAwesomeIcon
 								icon={faTrophy}
 								className={styles.trophyIcon}
-								color="yellow"
+								style={{ color: 'yellow' }}
 							/>
 							<div className={styles.badgeTitle}>{badge.title}</div>
 						</div>

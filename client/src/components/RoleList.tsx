@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faOldRepublic, faEmpire } from '@fortawesome/free-brands-svg-icons';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import styles from './RoleList.module.css';
+import InfoIcon from '@mui/icons-material/Info';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faOldRepublic } from '@fortawesome/free-brands-svg-icons';
+import { faEmpire } from '@fortawesome/free-brands-svg-icons';
 
 interface Role {
   name: string;
@@ -47,10 +48,9 @@ const RoleList: React.FC<RoleListProps> = ({ roles, allowSelect = false }) => {
               </div>
             )}
             <div className={styles.roleContent}>
-              <FontAwesomeIcon
-                icon={role.team === 'good' ? faOldRepublic : faEmpire}
-                className={`${styles.icon} ${role.team === 'evil' ? styles.iconEvil : ''}`}
-              />
+              <span className={`${styles.icon} ${role.team === 'evil' ? styles.iconEvil : ''}`}>
+                <FontAwesomeIcon icon={role.team === 'good' ? faOldRepublic : faEmpire} />
+              </span>
               <span className={styles.roleName}>{role.name}</span>
             </div>
             <button
@@ -58,7 +58,7 @@ const RoleList: React.FC<RoleListProps> = ({ roles, allowSelect = false }) => {
               onClick={() => showRoleInfo(role)}
               aria-label={`Show info for ${role.name}`}
             >
-              <FontAwesomeIcon icon={faInfoCircle} />
+              <InfoIcon />
             </button>
           </div>
         ))}
@@ -68,10 +68,9 @@ const RoleList: React.FC<RoleListProps> = ({ roles, allowSelect = false }) => {
         <div className={styles.dialogBackdrop} onClick={() => setShowDialog(false)}>
           <div className={styles.dialog} onClick={(e) => e.stopPropagation()}>
             <div className={styles.dialogHeader}>
-              <FontAwesomeIcon
-                icon={selectedRole.team === 'good' ? faOldRepublic : faEmpire}
-                className={`${styles.dialogIcon} ${selectedRole.team === 'evil' ? styles.iconEvil : ''}`}
-              />
+              <span className={`${styles.dialogIcon} ${selectedRole.team === 'evil' ? styles.iconEvil : ''}`}>
+                <FontAwesomeIcon icon={selectedRole.team === 'good' ? faOldRepublic : faEmpire} />
+              </span>
               <h3>{selectedRole.name}</h3>
             </div>
             <div className={styles.dialogContent}>

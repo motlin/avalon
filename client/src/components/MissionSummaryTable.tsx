@@ -1,8 +1,10 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle, faThumbsUp, faThumbsDown, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { faCircle as faCircleOutline, faThumbsUp as faThumbsUpOutline, faThumbsDown as faThumbsDownOutline } from '@fortawesome/free-regular-svg-icons';
 import styles from './MissionSummaryTable.module.css';
+import CircleIcon from '@mui/icons-material/Circle';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp, faThumbsDown, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp as faThumbsUpRegular, faThumbsDown as faThumbsDownRegular } from '@fortawesome/free-regular-svg-icons';
 
 interface PlayerRole {
   name: string;
@@ -69,22 +71,15 @@ const MissionSummaryTable: React.FC<MissionSummaryTableProps> = ({
                   >
                     <div className={styles.iconStack}>
                       {isProposer && (
-                        <FontAwesomeIcon
-                          icon={faCircle}
-                          className={styles.proposerIcon}
-                        />
+                        <span className={styles.proposerIcon}><CircleIcon /></span>
                       )}
                       {isOnTeam && (
-                        <FontAwesomeIcon
-                          icon={faCircleOutline}
-                          className={styles.teamIcon}
-                        />
+                        <span className={styles.teamIcon}><RadioButtonUncheckedIcon /></span>
                       )}
                       {!isPending && (
-                        <FontAwesomeIcon
-                          icon={votedYes ? faThumbsUpOutline : faThumbsDownOutline}
-                          className={votedYes ? styles.voteYes : styles.voteNo}
-                        />
+                        <span className={votedYes ? styles.voteYes : styles.voteNo}>
+                          <FontAwesomeIcon icon={votedYes ? faThumbsUpRegular : faThumbsDownRegular} />
+                        </span>
                       )}
                     </div>
                   </td>
@@ -94,11 +89,9 @@ const MissionSummaryTable: React.FC<MissionSummaryTableProps> = ({
               const missionVoteCell = missionVotes && (
                 <td key={`${player}_mission${missionIndex}`} className={styles.missionResult}>
                   {mission.team.includes(player) && (
-                    <FontAwesomeIcon
-                      icon={missionVotes[missionIndex]?.[player] ? faCheckCircle : faTimesCircle}
-                      color={missionVotes[missionIndex]?.[player] ? 'green' : 'red'}
-                      size="sm"
-                    />
+                    <span style={{ color: missionVotes[missionIndex]?.[player] ? 'green' : 'red' }}>
+                      <FontAwesomeIcon icon={missionVotes[missionIndex]?.[player] ? faCheckCircle : faTimesCircle} />
+                    </span>
                   )}
                 </td>
               );

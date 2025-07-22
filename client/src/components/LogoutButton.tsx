@@ -1,8 +1,7 @@
-import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type React from "react";
 import { useState } from "react";
 import styles from "./LogoutButton.module.css";
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 interface AvalonApi {
 	logout: () => void;
@@ -26,7 +25,7 @@ const LogoutButton: React.FC<LogoutButtonProps> = ({ avalon }) => {
 			onClick={handleLogoutClick}
 			disabled={loggingOut}
 		>
-			<FontAwesomeIcon icon={faRightFromBracket} className={styles.icon} />
+			<span className={styles.icon}><ExitToAppIcon /></span>
 			{loggingOut ? "Logging out..." : "Logout"}
 		</button>
 	);

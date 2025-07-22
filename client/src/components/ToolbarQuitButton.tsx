@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './ToolbarQuitButton.module.css';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 interface AvalonApi {
   isGameInProgress: boolean;
@@ -36,7 +37,7 @@ const ToolbarQuitButton: React.FC<ToolbarQuitButtonProps> = ({ avalon }) => {
         onClick={() => setDialog(true)}
         disabled={quitting}
       >
-        <span className={styles.icon}>↗️</span>
+        <span className={styles.icon}><ExitToAppIcon /></span>
         Quit
       </button>
 

@@ -1,17 +1,11 @@
-import {
-	faCircle,
-	faThumbsDown,
-	faThumbsUp,
-} from "@fortawesome/free-regular-svg-icons";
-import {
-	faCrown,
-	faEllipsis,
-	faHammer,
-	faVoteYea,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import styles from "./GamePlayerList.module.css";
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHammer, faCrown, faVoteYea } from '@fortawesome/free-solid-svg-icons';
 
 interface AvalonUser {
 	name: string;
@@ -233,11 +227,10 @@ export default function GamePlayerList({
 								className={styles.crownContainer}
 								title={`${playerName} is proposing the next team`}
 							>
-								<FontAwesomeIcon
-									icon={faCrown}
+								<span
 									className={styles.crown}
 									style={{ color: crownColor }}
-								/>
+								><FontAwesomeIcon icon={faCrown} /></span>
 								<span className={styles.proposalNumber}>
 									{avalon.game.currentProposalIdx + 1}
 								</span>
@@ -246,7 +239,7 @@ export default function GamePlayerList({
 						{playerName === avalon.game.hammer &&
 							avalon.game.currentProposer !== playerName && (
 								<div className={styles.hammerContainer}>
-									<FontAwesomeIcon icon={faHammer} className={styles.hammer} />
+									<span className={styles.hammer}><FontAwesomeIcon icon={faHammer} /></span>
 								</div>
 							)}
 					</div>
@@ -260,38 +253,23 @@ export default function GamePlayerList({
 								title={tooltipText(playerName) || ""}
 							>
 								{wasOnLastTeamProposed(playerName) && (
-									<FontAwesomeIcon
-										icon={faCircle}
-										className={styles.teamIcon}
-									/>
+									<span className={styles.teamIcon}><RadioButtonUncheckedIcon /></span>
 								)}
 								{waitingOnVote(playerName) && (
-									<FontAwesomeIcon
-										icon={faEllipsis}
-										className={styles.waitingIcon}
-									/>
+									<span className={styles.waitingIcon}><MoreHorizIcon /></span>
 								)}
 								{hasVoted(playerName) && !waitingOnVote(playerName) && (
-									<FontAwesomeIcon
-										icon={faVoteYea}
-										className={styles.votedIcon}
-									/>
+									<span className={styles.votedIcon}><FontAwesomeIcon icon={faVoteYea} /></span>
 								)}
 								{approvedProposal(playerName) &&
 									!hasVoted(playerName) &&
 									!waitingOnVote(playerName) && (
-										<FontAwesomeIcon
-											icon={faThumbsUp}
-											className={styles.approvedIcon}
-										/>
+										<span className={styles.approvedIcon}><ThumbUpIcon /></span>
 									)}
 								{rejectedProposal(playerName) &&
 									!hasVoted(playerName) &&
 									!waitingOnVote(playerName) && (
-										<FontAwesomeIcon
-											icon={faThumbsDown}
-											className={styles.rejectedIcon}
-										/>
+										<span className={styles.rejectedIcon}><ThumbDownIcon /></span>
 									)}
 							</div>
 						)}

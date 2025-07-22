@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
+import styles from './MissionAction.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import styles from './MissionAction.module.css';
 
 interface User {
   name: string;
@@ -74,14 +74,14 @@ const MissionAction: React.FC<MissionActionProps> = ({ avalon }) => {
               className={styles.successButton}
               onClick={() => missionVote(true)}
             >
-              <FontAwesomeIcon icon={faCheckCircle} className={styles.successIcon} />
+              <span className={styles.successIcon}><FontAwesomeIcon icon={faCheckCircle} /></span>
               SUCCESS
             </button>
             <button
               className={styles.failButton}
               onClick={() => missionVote(false)}
             >
-              <FontAwesomeIcon icon={faTimesCircle} className={styles.failIcon} />
+              <span className={styles.failIcon}><FontAwesomeIcon icon={faTimesCircle} /></span>
               FAIL
             </button>
           </div>

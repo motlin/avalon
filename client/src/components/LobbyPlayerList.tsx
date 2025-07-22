@@ -15,17 +15,15 @@ import {
 	verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import {
-	faBars,
-	faStar,
-	faTimes,
-	faUser,
-	faUserCircle,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type React from "react";
 import { useEffect, useState } from "react";
 import styles from "./LobbyPlayerList.module.css";
+import StarIcon from '@mui/icons-material/Star';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import PersonIcon from '@mui/icons-material/Person';
+import ClearIcon from '@mui/icons-material/Clear';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 interface User {
 	name: string;
@@ -82,11 +80,11 @@ const SortableItem: React.FC<SortableItemProps> = ({
 
 	const getPlayerIcon = () => {
 		if (player === avalon.lobby.admin.name) {
-			return <FontAwesomeIcon icon={faStar} />;
+			return <StarIcon />;
 		} else if (player === avalon.user.name) {
-			return <FontAwesomeIcon icon={faUserCircle} />;
+			return <PermIdentityIcon />;
 		} else {
-			return <FontAwesomeIcon icon={faUser} />;
+			return <PersonIcon />;
 		}
 	};
 
@@ -113,7 +111,7 @@ const SortableItem: React.FC<SortableItemProps> = ({
 					{playersBeingKicked.includes(player) ? (
 						"⏳"
 					) : (
-						<FontAwesomeIcon icon={faTimes} />
+						<ClearIcon />
 					)}
 				</button>
 			)}

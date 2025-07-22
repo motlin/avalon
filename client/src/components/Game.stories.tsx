@@ -33,7 +33,7 @@ The component receives the complete Avalon game state as props and passes the re
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const createMockAvalon = (gamePhase: string = 'TEAM_PROPOSAL', missionIdx: number = 0) => ({
+const createMockAvalon = (gamePhase: string = 'TEAM_PROPOSAL', missionIdx: number = 0, isAssassin: boolean = false) => ({
   game: {
     missions: [
       {
@@ -75,13 +75,29 @@ const createMockAvalon = (gamePhase: string = 'TEAM_PROPOSAL', missionIdx: numbe
     ],
     currentMissionIdx: missionIdx,
     phase: gamePhase,
-    players: ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'],
+    players: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
     roles: ['merlin', 'percival', 'loyal', 'morgana', 'assassin'],
+    currentProposer: 'ALICE',
+    currentProposalIdx: 0,
+    currentProposal: {
+      team: ['ALICE', 'BOB'],
+      votes: [],
+    },
+    currentMission: {
+      teamSize: 2,
+      team: [],
+    },
+  },
+  user: {
+    name: 'ALICE',
   },
   lobby: {
     game: {
       currentMissionIdx: missionIdx,
       roles: ['merlin', 'percival', 'loyal', 'morgana', 'assassin'],
+    },
+    role: {
+      assassin: isAssassin,
     },
   },
   config: {
@@ -115,6 +131,6 @@ export const MissionVote: Story = {
 
 export const Assassination: Story = {
   args: {
-    avalon: createMockAvalon('ASSASSINATION', 4),
+    avalon: createMockAvalon('ASSASSINATION', 4, true),
   },
 };

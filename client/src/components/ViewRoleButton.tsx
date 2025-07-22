@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 import styles from './ViewRoleButton.module.css';
 import StatsDisplay from './StatsDisplay';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faOldRepublic } from '@fortawesome/free-brands-svg-icons';
+import { faEmpire } from '@fortawesome/free-brands-svg-icons';
 
 interface User {
   name: string;
@@ -86,7 +88,7 @@ const ViewRoleButton: React.FC<ViewRoleButtonProps> = ({ avalon }) => {
   if (!sheet) {
     return (
       <button className={styles.activatorButton} onClick={handleButtonClick}>
-        <FontAwesomeIcon icon={faUser} />
+        <PermIdentityIcon />
         {avalon.user.name}
       </button>
     );
@@ -114,8 +116,9 @@ const ViewRoleButton: React.FC<ViewRoleButtonProps> = ({ avalon }) => {
         ) : (
           <div className={styles.card}>
             <div className={`${styles.cardTitle} ${styles.roleTitle}`}>
-              <i className={`${avalon.lobby.role.role.team === 'good' ? 'fab fa-old-republic' : 'fas fa-empire'} ${styles.roleIcon}`}
-                 style={avalon.lobby.role.role.team === 'evil' ? { color: 'red' } : undefined}></i>
+              <span className={styles.roleIcon} style={avalon.lobby.role.role.team === 'evil' ? { color: 'red' } : undefined}>
+                <FontAwesomeIcon icon={avalon.lobby.role.role.team === 'good' ? faOldRepublic : faEmpire} />
+              </span>
               <span className={styles.roleName}>{avalon.lobby.role.role.name}</span>
             </div>
             <div className={styles.cardText}>

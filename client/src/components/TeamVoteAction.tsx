@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faVoteYea } from '@fortawesome/free-solid-svg-icons';
-import { faThumbsUp, faThumbsDown } from '@fortawesome/free-regular-svg-icons';
 import styles from './TeamVoteAction.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVoteYea, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp as faThumbsUpRegular, faThumbsDown as faThumbsDownRegular } from '@fortawesome/free-regular-svg-icons';
 
 function joinWithAnd(array: string[]): string {
   if (array.length === 0) return '';
@@ -84,10 +84,9 @@ const TeamVoteAction: React.FC<TeamVoteActionProps> = ({ avalon }) => {
             onClick={() => teamVote(true)}
             disabled={disabledState.yes}
           >
-            <FontAwesomeIcon
-              icon={votedState.yes ? faVoteYea : faThumbsUp}
-              className={`${styles.icon} ${votedState.yes ? styles.greenIcon : styles.greenIcon}`}
-            />
+            <span className={`${styles.icon} ${styles.greenIcon}`}>
+              <FontAwesomeIcon icon={votedState.yes ? faVoteYea : faThumbsUpRegular} />
+            </span>
             Approve
           </button>
           <button
@@ -95,10 +94,9 @@ const TeamVoteAction: React.FC<TeamVoteActionProps> = ({ avalon }) => {
             onClick={() => teamVote(false)}
             disabled={disabledState.no}
           >
-            <FontAwesomeIcon
-              icon={votedState.no ? faVoteYea : faThumbsDown}
-              className={`${styles.icon} ${votedState.no ? styles.redIcon : styles.redIcon}`}
-            />
+            <span className={`${styles.icon} ${styles.redIcon}`}>
+              <FontAwesomeIcon icon={votedState.no ? faVoteYea : faThumbsDownRegular} />
+            </span>
             Reject
           </button>
         </div>

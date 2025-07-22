@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './UserLogin.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
 
 interface AvalonApi {
   confirmingEmailError: string;
@@ -168,9 +170,7 @@ const UserLogin: React.FC<UserLoginProps> = ({ avalon }) => {
             rel="noopener noreferrer"
             className={`${styles.btn} ${styles.small} ${styles.greyLighten2}`}
           >
-            <span className={`${styles.icon} ${styles.left} ${styles.small}`}>
-              ✉️
-            </span>
+            <span className={`${styles.icon} ${styles.left} ${styles.small}`}><FontAwesomeIcon icon={faEnvelopeSquare} /></span>
             <span>Email</span>
           </a>
         </div>

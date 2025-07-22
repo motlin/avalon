@@ -3,6 +3,10 @@ import LobbyPlayerList from './LobbyPlayerList';
 import RoleList from './RoleList';
 import styles from './Lobby.module.css';
 import avalonLib from '../../../server/common/avalonlib.mjs';
+import InfoIcon from '@mui/icons-material/Info';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
 
 interface User {
   name: string;
@@ -175,7 +179,7 @@ const Lobby: React.FC<LobbyProps> = ({ avalon }) => {
               </div>
               <div className={styles.infoButton}>
                 <button onClick={() => setShowOptionGameLog(true)} className={styles.infoBtn}>
-                  ℹ️
+                  <InfoIcon />
                 </button>
               </div>
             </div>
@@ -190,7 +194,7 @@ const Lobby: React.FC<LobbyProps> = ({ avalon }) => {
             onClick={handleStartGame}
             disabled={startingGame}
           >
-            <span className={styles.startButtonIcon}>▶️</span>
+            <span className={styles.startButtonIcon}><PlayArrowIcon /></span>
             {startingGame ? 'Starting...' : 'Start Game'}
           </button>
         ) : (
@@ -210,7 +214,7 @@ const Lobby: React.FC<LobbyProps> = ({ avalon }) => {
             rel="noopener noreferrer"
             className={styles.feedbackButton}
           >
-            <span className={styles.feedbackIcon}>✉️</span>
+            <FontAwesomeIcon icon={faEnvelopeSquare} className={styles.feedbackIcon} />
             <span>Send feedback</span>
           </a>
         </div>

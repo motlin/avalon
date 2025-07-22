@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle as faCircleSolid } from '@fortawesome/free-solid-svg-icons';
-import { faCircle, faTimesCircle, faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import MissionSummaryTable from './MissionSummaryTable';
 import styles from './Missions.module.css';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import CloseCircleOutlineIcon from '@mui/icons-material/Cancel';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircle';
+import CircleIcon from '@mui/icons-material/Circle';
 
 interface Mission {
   state: 'PENDING' | 'SUCCESS' | 'FAIL';
@@ -75,24 +76,23 @@ const Missions: React.FC<MissionsProps> = ({ avalon }) => {
               <div className={styles.iconContainer}>
                 {mission.state === 'PENDING' ? (
                   <div className={styles.iconStack}>
-                    <FontAwesomeIcon
-                      icon={faCircle}
-                      color={isFutureMission(mission, idx) ? 'gray' : 'black'}
-                      size="2x"
-                    />
+                    <span style={{ color: isFutureMission(mission, idx) ? 'gray' : 'black', fontSize: '2em' }}>
+                      <RadioButtonUncheckedIcon />
+                    </span>
                     <span className={styles.teamSizeText}>{mission.teamSize}</span>
                   </div>
                 ) : mission.state === 'FAIL' ? (
-                  <FontAwesomeIcon icon={faTimesCircle} color="red" size="2x" />
+                  <span style={{ color: 'red', fontSize: '2em' }}><CloseCircleOutlineIcon /></span>
                 ) : (
-                  <FontAwesomeIcon icon={faCheckCircle} color="green" size="2x" />
+                  <span style={{ color: 'green', fontSize: '2em' }}><CheckCircleOutlineIcon /></span>
                 )}
                 {mission.failsRequired > 1 && (
-                  <FontAwesomeIcon
-                    icon={faCircleSolid}
-                    color="red"
+                  <span
                     className={styles.failsRequiredIndicator}
-                  />
+                    style={{ color: 'red' }}
+                  >
+                    <CircleIcon />
+                  </span>
                 )}
               </div>
             </button>
