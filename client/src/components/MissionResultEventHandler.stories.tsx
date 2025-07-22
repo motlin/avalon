@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import MissionResultEventHandler from './MissionResultEventHandler';
+import realGameData from '../test-data/game-2025-07-16T19:54:25.962Z_VGZ.json';
 
 const meta: Meta<typeof MissionResultEventHandler> = {
   component: MissionResultEventHandler,
@@ -48,20 +49,20 @@ const createMockAvalon = (mission: any, initialEvents: string[] = []) => {
 
 const successMission = {
   state: 'SUCCESS',
-  team: ['CRAIGM', 'ZEHUA', 'VINAY'],
-  numFails: 0
+  team: realGameData.missions[1].team,
+  numFails: realGameData.missions[1].numFails
 };
 
 const failureMission = {
-  state: 'FAILURE',
-  team: ['CRAIGM', 'ZEHUA'],
-  numFails: 1
+  state: 'FAIL',
+  team: realGameData.missions[0].team,
+  numFails: realGameData.missions[0].numFails
 };
 
 const failureMissionMultiple = {
-  state: 'FAILURE',
-  team: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE'],
-  numFails: 2
+  state: 'FAIL',
+  team: realGameData.missions[2].team,
+  numFails: realGameData.missions[2].numFails
 };
 
 export const MissionSucceeded: Story = {

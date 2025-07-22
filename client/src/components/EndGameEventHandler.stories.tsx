@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import EndGameEventHandler from './EndGameEventHandler';
+import realGameData from '../test-data/game-2025-07-16T19:54:25.962Z_VGZ.json';
 
 const meta: Meta<typeof EndGameEventHandler> = {
   title: 'Components/EndGameEventHandler',
@@ -17,39 +18,8 @@ const createMockAvalon = (gameOutcome: 'GOOD_WIN' | 'EVIL_WIN' | 'CANCELED', ass
 
   return {
     game: {
-      players: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
-      missions: [
-        {
-          proposals: [
-            {
-              proposer: 'CRAIGM',
-              team: ['CRAIGM', 'ZEHUA'],
-              votes: ['CRAIGM', 'ZEHUA', 'VINAY'],
-              state: 'APPROVED' as const,
-            },
-          ],
-          team: ['CRAIGM', 'ZEHUA'],
-          state: 'COMPLETE',
-          evilOnTeam: [],
-          failsRequired: 1,
-          numFails: 0,
-        },
-        {
-          proposals: [
-            {
-              proposer: 'ZEHUA',
-              team: ['ZEHUA', 'VINAY', 'LUKEE'],
-              votes: ['ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
-              state: 'APPROVED' as const,
-            },
-          ],
-          team: ['ZEHUA', 'VINAY', 'LUKEE'],
-          state: 'COMPLETE',
-          evilOnTeam: ['LUKEE'],
-          failsRequired: 1,
-          numFails: 0,
-        },
-      ],
+      players: realGameData.players.map(p => p.name),
+      missions: realGameData.missions,
       outcome: {
         state: gameOutcome,
         message: gameOutcome === 'GOOD_WIN'
@@ -58,45 +28,35 @@ const createMockAvalon = (gameOutcome: 'GOOD_WIN' | 'EVIL_WIN' | 'CANCELED', ass
           ? 'Evil has prevailed in this quest!'
           : 'The game has been canceled.',
         assassinated,
-        roles: [
-          { name: 'CRAIGM', role: 'Merlin' },
-          { name: 'ZEHUA', role: 'Percival' },
-          { name: 'VINAY', role: 'Loyal Servant of Arthur' },
-          { name: 'LUKEE', role: 'Morgana' },
-          { name: 'KEN', role: 'Assassin', assassin: true },
-        ],
-        votes: {
-          0: { 'CRAIGM': true, 'ZEHUA': true },
-          1: { 'ZEHUA': true, 'VINAY': false, 'LUKEE': false },
-        },
+        roles: realGameData.outcome.roles,
+        votes: realGameData.outcome.votes,
       },
     },
     lobby: {
       game: {
-        players: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
-        missions: [],
+        players: realGameData.players.map(p => p.name),
+        missions: realGameData.missions,
         outcome: {
           state: gameOutcome,
-          message: '',
-          roles: [],
-          votes: {},
+          message: gameOutcome === 'GOOD_WIN'
+            ? 'The forces of good have triumphed!'
+            : gameOutcome === 'EVIL_WIN'
+            ? 'Evil has prevailed in this quest!'
+            : 'The game has been canceled.',
+          roles: realGameData.outcome.roles,
+          votes: realGameData.outcome.votes,
         },
       },
     },
     config: {
-      roles: [
-        { name: 'Merlin' },
-        { name: 'Percival' },
-        { name: 'Loyal Servant of Arthur' },
-        { name: 'Morgana' },
-        { name: 'Assassin' },
-      ],
+      roles: realGameData.outcome.roles.map(r => ({ name: r.role })),
       roleMap: {
-        'Merlin': { team: 'good' },
-        'Percival': { team: 'good' },
-        'Loyal Servant of Arthur': { team: 'good' },
-        'Morgana': { team: 'evil' },
-        'Assassin': { team: 'evil' },
+        'MERLIN': { team: 'good' },
+        'PERCIVAL': { team: 'good' },
+        'LOYAL FOLLOWER': { team: 'good' },
+        'MORGANA': { team: 'evil' },
+        'ASSASSIN': { team: 'evil' },
+        'EVIL MINION': { team: 'evil' },
       },
     },
     onEvent: (callback: (event: string) => void) => {
@@ -148,7 +108,7 @@ export const EvilWins: Story = {
 
 export const EvilWinsWithAssassination: Story = {
   args: {
-    avalon: createMockAvalon('EVIL_WIN', 'CRAIGM'),
+    avalon: createMockAvalon('EVIL_WIN', realGameData.outcome.assassinated),
   },
   parameters: {
     docs: {
@@ -174,7 +134,7 @@ export const GameCanceled: Story = {
 
 export const InteractiveControls: Story = {
   render: () => {
-    const mockAvalon = createMockAvalon('GOOD_WIN', 'CRAIGM');
+    const mockAvalon = createMockAvalon('GOOD_WIN', realGameData.outcome.assassinated);
 
     return (
       <div>

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import ViewRoleButton from './ViewRoleButton';
+import realGameData from '../test-data/game-2025-07-16T19:54:25.962Z_VGZ.json';
 
 const meta: Meta<typeof ViewRoleButton> = {
   component: ViewRoleButton,
@@ -58,7 +59,7 @@ const createMockAvalon = (
 
   return {
     user: {
-      name: 'TestPlayer',
+      name: realGameData.players[0].name,
       stats: {
         games: 42,
         good: 25,
@@ -70,9 +71,9 @@ const createMockAvalon = (
     lobby: {
       role: {
         role: {
-          name: roleData.name || 'Loyal Servant of Arthur',
+          name: roleData.name || 'LOYAL FOLLOWER',
           team: roleData.team || 'good',
-          description: roleData.description || 'You are a loyal servant of Arthur. You must help the good team succeed on 3 missions.',
+          description: roleData.description || 'You are a loyal follower of Arthur. You must help the good team succeed on 3 missions.',
         },
         assassin: roleData.assassin || false,
         sees: roleData.sees || [],
@@ -116,10 +117,10 @@ export const PreGameStats: Story = {
 export const GoodRole: Story = {
   args: {
     avalon: createMockAvalon(true, {
-      name: 'Percival',
+      name: 'PERCIVAL',
       team: 'good',
       description: 'You are Percival. You see Merlin and Morgana, but you do not know which is which.',
-      sees: ['Merlin', 'Morgana'],
+      sees: [realGameData.outcome.roles.find(r => r.role === 'MERLIN')?.name, realGameData.outcome.roles.find(r => r.role === 'MORGANA')?.name].filter(Boolean),
     }),
   },
 };
@@ -127,10 +128,10 @@ export const GoodRole: Story = {
 export const EvilRole: Story = {
   args: {
     avalon: createMockAvalon(true, {
-      name: 'Morgana',
+      name: 'MORGANA',
       team: 'evil',
       description: 'You are Morgana. You appear as Merlin to Percival. You must help the evil team fail 3 missions.',
-      sees: ['Mordred', 'Assassin'],
+      sees: [realGameData.outcome.roles.find(r => r.role === 'ASSASSIN')?.name, realGameData.outcome.roles.find(r => r.role === 'EVIL MINION')?.name].filter(Boolean),
     }),
   },
 };
@@ -138,11 +139,11 @@ export const EvilRole: Story = {
 export const AssassinRole: Story = {
   args: {
     avalon: createMockAvalon(true, {
-      name: 'Assassin',
+      name: 'ASSASSIN',
       team: 'evil',
       description: 'You are the Assassin. You must help the evil team fail 3 missions.',
       assassin: true,
-      sees: ['Morgana', 'Mordred'],
+      sees: [realGameData.outcome.roles.find(r => r.role === 'MORGANA')?.name, realGameData.outcome.roles.find(r => r.role === 'EVIL MINION')?.name].filter(Boolean),
     }),
   },
 };
@@ -150,10 +151,10 @@ export const AssassinRole: Story = {
 export const MerlinRole: Story = {
   args: {
     avalon: createMockAvalon(true, {
-      name: 'Merlin',
+      name: 'MERLIN',
       team: 'good',
       description: 'You are Merlin. You see all evil players except Mordred. You must help the good team succeed on 3 missions, but stay hidden from the Assassin.',
-      sees: ['Morgana', 'Assassin'],
+      sees: [realGameData.outcome.roles.find(r => r.role === 'MORGANA')?.name, realGameData.outcome.roles.find(r => r.role === 'ASSASSIN')?.name, realGameData.outcome.roles.find(r => r.role === 'EVIL MINION')?.name].filter(Boolean),
     }),
   },
 };
@@ -161,9 +162,9 @@ export const MerlinRole: Story = {
 export const RoleSeesNoOne: Story = {
   args: {
     avalon: createMockAvalon(true, {
-      name: 'Loyal Servant of Arthur',
+      name: 'LOYAL FOLLOWER',
       team: 'good',
-      description: 'You are a loyal servant of Arthur. You must help the good team succeed on 3 missions.',
+      description: 'You are a loyal follower of Arthur. You must help the good team succeed on 3 missions.',
       sees: [],
     }),
   },
@@ -172,10 +173,10 @@ export const RoleSeesNoOne: Story = {
 export const InteractiveExample: Story = {
   render: () => {
     const [mockAvalon] = useState(() => createMockAvalon(true, {
-      name: 'Percival',
+      name: 'PERCIVAL',
       team: 'good',
       description: 'You are Percival. You see Merlin and Morgana, but you do not know which is which.',
-      sees: ['Merlin', 'Morgana'],
+      sees: [realGameData.outcome.roles.find(r => r.role === 'MERLIN')?.name, realGameData.outcome.roles.find(r => r.role === 'MORGANA')?.name].filter(Boolean),
     }));
 
     return (
