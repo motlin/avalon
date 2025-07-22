@@ -22,6 +22,7 @@ import StarIcon from '@mui/icons-material/Star';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import PersonIcon from '@mui/icons-material/Person';
 import ClearIcon from '@mui/icons-material/Clear';
+import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -109,7 +110,7 @@ const SortableItem: React.FC<SortableItemProps> = ({
 					disabled={playersBeingKicked.includes(player)}
 				>
 					{playersBeingKicked.includes(player) ? (
-						"⏳"
+						<HourglassEmptyIcon />
 					) : (
 						<ClearIcon />
 					)}
