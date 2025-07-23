@@ -51,10 +51,12 @@ const Login: React.FC<LoginProps> = ({ avalon, disableAutoFocus = false }) => {
   useEffect(() => {
     const textFieldRef = showLobbyInput ? lobbyTextFieldRef : nameTextFieldRef;
     if (textFieldRef.current) {
-      textFieldRef.current.focus();
+      if (!disableAutoFocus) {
+        textFieldRef.current.focus();
+      }
       setInputWidth(textFieldRef);
     }
-  }, [showLobbyInput]);
+  }, [showLobbyInput, disableAutoFocus]);
 
   const setInputWidth = (fieldRef: React.RefObject<HTMLInputElement>) => {
     const size = 20;
