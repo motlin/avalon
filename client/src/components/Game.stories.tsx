@@ -75,12 +75,12 @@ const createMockAvalon = (gamePhase: string = 'TEAM_PROPOSAL', missionIdx: numbe
     ],
     currentMissionIdx: missionIdx,
     phase: gamePhase,
-    players: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
+    players: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
     roles: ['merlin', 'percival', 'loyal', 'morgana', 'assassin'],
-    currentProposer: 'ALICE',
+    currentProposer: 'CRAIGM',
     currentProposalIdx: 0,
     currentProposal: {
-      team: ['ALICE', 'BOB'],
+      team: ['CRAIGM', 'ZEHUA'],
       votes: [],
     },
     currentMission: {
@@ -89,7 +89,7 @@ const createMockAvalon = (gamePhase: string = 'TEAM_PROPOSAL', missionIdx: numbe
     },
   },
   user: {
-    name: 'ALICE',
+    name: 'CRAIGM',
   },
   lobby: {
     game: {

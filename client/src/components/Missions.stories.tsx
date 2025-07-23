@@ -18,7 +18,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const mockTeam = {
-  joinWithAnd: () => 'ALICE, BOB and CHARLIE'
+  joinWithAnd: () => 'CRAIGM, ZEHUA and VINAY'
 };
 
 const mockAvalonData = {
@@ -33,10 +33,10 @@ const mockAvalonData = {
         evilOnTeam: [],
         proposals: [
           {
-            proposer: 'ALICE',
+            proposer: 'CRAIGM',
             state: 'APPROVED' as const,
-            team: ['ALICE', 'BOB'],
-            votes: ['ALICE', 'BOB', 'CHARLIE', 'DIANA']
+            team: ['CRAIGM', 'ZEHUA'],
+            votes: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE']
           }
         ],
       },
@@ -46,19 +46,19 @@ const mockAvalonData = {
         failsRequired: 1,
         numFails: 1,
         team: mockTeam,
-        evilOnTeam: ['EVE'],
+        evilOnTeam: ['KEN'],
         proposals: [
           {
-            proposer: 'BOB',
+            proposer: 'ZEHUA',
             state: 'REJECTED' as const,
-            team: ['BOB', 'CHARLIE', 'DIANA'],
-            votes: ['BOB', 'CHARLIE']
+            team: ['ZEHUA', 'VINAY', 'LUKEE'],
+            votes: ['ZEHUA', 'VINAY']
           },
           {
-            proposer: 'CHARLIE',
+            proposer: 'VINAY',
             state: 'APPROVED' as const,
-            team: ['ALICE', 'BOB', 'CHARLIE'],
-            votes: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE']
+            team: ['CRAIGM', 'ZEHUA', 'VINAY'],
+            votes: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN']
           }
         ],
       },
@@ -71,9 +71,9 @@ const mockAvalonData = {
         evilOnTeam: [],
         proposals: [
           {
-            proposer: 'DIANA',
+            proposer: 'LUKEE',
             state: 'PENDING' as const,
-            team: ['DIANA', 'EVE'],
+            team: ['LUKEE', 'KEN'],
             votes: []
           }
         ],
@@ -99,7 +99,7 @@ const mockAvalonData = {
     ],
     currentMissionIdx: 2,
     phase: 'PROPOSAL',
-    players: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
+    players: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
     options: {
       inGameLog: false,
     },

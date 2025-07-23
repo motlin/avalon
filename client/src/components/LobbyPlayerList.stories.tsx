@@ -14,17 +14,17 @@ type Story = StoryObj<typeof meta>;
 
 const createMockAvalon = (overrides = {}) => ({
   config: {
-    playerList: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
+    playerList: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
     sortList: (newList: string[]) => {
       console.log('Sorting list:', newList);
     },
   },
   user: {
-    name: 'ALICE',
+    name: 'CRAIGM',
   },
   lobby: {
     admin: {
-      name: 'ALICE',
+      name: 'CRAIGM',
     },
   },
   isAdmin: true,
@@ -51,7 +51,7 @@ export const NonAdminView: Story = {
   args: {
     avalon: createMockAvalon({
       isAdmin: false,
-      user: { name: 'BOB' },
+      user: { name: 'ZEHUA' },
     }),
   },
 };
@@ -60,7 +60,7 @@ export const SinglePlayer: Story = {
   args: {
     avalon: createMockAvalon({
       config: {
-        playerList: ['ALICE'],
+        playerList: ['CRAIGM'],
         sortList: (newList: string[]) => {
           console.log('Sorting list:', newList);
         },
@@ -73,14 +73,14 @@ export const AdminInMiddle: Story = {
   args: {
     avalon: createMockAvalon({
       config: {
-        playerList: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
+        playerList: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
         sortList: (newList: string[]) => {
           console.log('Sorting list:', newList);
         },
       },
-      user: { name: 'CHARLIE' },
+      user: { name: 'VINAY' },
       lobby: {
-        admin: { name: 'CHARLIE' },
+        admin: { name: 'VINAY' },
       },
     }),
   },

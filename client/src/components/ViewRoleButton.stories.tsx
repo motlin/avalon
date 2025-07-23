@@ -58,7 +58,7 @@ const createMockAvalon = (
 
   return {
     user: {
-      name: 'TestPlayer',
+      name: 'CRAIGM',
       stats: {
         games: 42,
         good: 25,

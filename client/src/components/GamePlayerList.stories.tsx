@@ -14,22 +14,22 @@ type Story = StoryObj<typeof meta>;
 
 const createMockAvalon = (overrides = {}) => ({
   game: {
-    players: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
+    players: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
     phase: 'TEAM_PROPOSAL',
-    currentProposer: 'ALICE',
+    currentProposer: 'CRAIGM',
     currentProposalIdx: 0,
     currentMission: {
       teamSize: 3,
     },
     currentProposal: {
-      team: ['ALICE', 'BOB', 'CHARLIE'],
-      votes: ['ALICE', 'BOB'],
+      team: ['CRAIGM', 'ZEHUA', 'VINAY'],
+      votes: ['CRAIGM', 'ZEHUA'],
     },
     lastProposal: null,
-    hammer: 'EVE',
+    hammer: 'KEN',
   },
   user: {
-    name: 'ALICE',
+    name: 'CRAIGM',
   },
   lobby: {
     role: {
@@ -52,19 +52,19 @@ export const ProposalVoting: Story = {
   args: {
     avalon: createMockAvalon({
       game: {
-        players: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
+        players: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
         phase: 'PROPOSAL_VOTE',
-        currentProposer: 'ALICE',
+        currentProposer: 'CRAIGM',
         currentProposalIdx: 0,
         currentMission: {
           teamSize: 3,
         },
         currentProposal: {
-          team: ['ALICE', 'BOB', 'CHARLIE'],
-          votes: ['ALICE', 'BOB'],
+          team: ['CRAIGM', 'ZEHUA', 'VINAY'],
+          votes: ['CRAIGM', 'ZEHUA'],
         },
         lastProposal: null,
-        hammer: 'EVE',
+        hammer: 'KEN',
       },
     }),
     onSelectedPlayers: (players: string[]) => {
@@ -77,19 +77,19 @@ export const MissionVoting: Story = {
   args: {
     avalon: createMockAvalon({
       game: {
-        players: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
+        players: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
         phase: 'MISSION_VOTE',
-        currentProposer: 'ALICE',
+        currentProposer: 'CRAIGM',
         currentProposalIdx: 0,
         currentMission: {
           teamSize: 3,
         },
         currentProposal: {
-          team: ['ALICE', 'BOB', 'CHARLIE'],
-          votes: ['ALICE', 'BOB'],
+          team: ['CRAIGM', 'ZEHUA', 'VINAY'],
+          votes: ['CRAIGM', 'ZEHUA'],
         },
         lastProposal: null,
-        hammer: 'EVE',
+        hammer: 'KEN',
       },
     }),
     onSelectedPlayers: (players: string[]) => {
@@ -102,22 +102,22 @@ export const Assassination: Story = {
   args: {
     avalon: createMockAvalon({
       game: {
-        players: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
+        players: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
         phase: 'ASSASSINATION',
-        currentProposer: 'ALICE',
+        currentProposer: 'CRAIGM',
         currentProposalIdx: 0,
         currentMission: {
           teamSize: 3,
         },
         currentProposal: {
-          team: ['ALICE', 'BOB', 'CHARLIE'],
-          votes: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
+          team: ['CRAIGM', 'ZEHUA', 'VINAY'],
+          votes: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
         },
         lastProposal: {
-          team: ['ALICE', 'BOB', 'DIANA'],
-          votes: ['ALICE', 'BOB', 'CHARLIE'],
+          team: ['CRAIGM', 'ZEHUA', 'LUKEE'],
+          votes: ['CRAIGM', 'ZEHUA', 'VINAY'],
         },
-        hammer: 'EVE',
+        hammer: 'KEN',
       },
       lobby: {
         role: {
@@ -135,9 +135,9 @@ export const HammerTime: Story = {
   args: {
     avalon: createMockAvalon({
       game: {
-        players: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
+        players: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
         phase: 'TEAM_PROPOSAL',
-        currentProposer: 'EVE',
+        currentProposer: 'KEN',
         currentProposalIdx: 4,
         currentMission: {
           teamSize: 3,
@@ -147,13 +147,13 @@ export const HammerTime: Story = {
           votes: [],
         },
         lastProposal: {
-          team: ['ALICE', 'BOB', 'DIANA'],
-          votes: ['ALICE', 'BOB'],
+          team: ['CRAIGM', 'ZEHUA', 'LUKEE'],
+          votes: ['CRAIGM', 'ZEHUA'],
         },
-        hammer: 'EVE',
+        hammer: 'KEN',
       },
       user: {
-        name: 'EVE',
+        name: 'KEN',
       },
     }),
     onSelectedPlayers: (players: string[]) => {

@@ -104,13 +104,13 @@ const sampleRoles = [
 
 const createMockAvalon = (overrides = {}) => ({
   user: {
-    name: 'ALICE',
+    name: 'CRAIGM',
     stats: {
       games: 5,
     },
   },
   config: {
-    playerList: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
+    playerList: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
     selectableRoles: sampleRoles,
     sortList: (newList: string[]) => {
       console.log('Sorting player list:', newList);
@@ -119,7 +119,7 @@ const createMockAvalon = (overrides = {}) => ({
   lobby: {
     name: 'test-lobby-123',
     admin: {
-      name: 'ALICE',
+      name: 'CRAIGM',
     },
   },
   isAdmin: true,
@@ -186,7 +186,7 @@ export const NonAdminWaiting: Story = {
   args: {
     avalon: createMockAvalon({
       user: {
-        name: 'BOB',
+        name: 'ZEHUA',
         stats: {
           games: 3,
         },
@@ -201,8 +201,8 @@ export const MaxPlayersReady: Story = {
     avalon: createMockAvalon({
       config: {
         playerList: [
-          'ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE',
-          'FRANK', 'GRACE', 'HENRY', 'IVY', 'JACK'
+          'CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN',
+          'ROB', 'JUSTIN', 'TIFANY', 'FLORA', 'JACK'
         ],
         selectableRoles: sampleRoles,
         sortList: (newList: string[]) => {
@@ -217,7 +217,7 @@ export const MinPlayersReady: Story = {
   args: {
     avalon: createMockAvalon({
       config: {
-        playerList: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
+        playerList: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
         selectableRoles: sampleRoles,
         sortList: (newList: string[]) => {
           console.log('Sorting player list:', newList);
@@ -237,7 +237,7 @@ export const NewPlayerLobby: Story = {
         },
       },
       config: {
-        playerList: ['NEWBIE', 'ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE'],
+        playerList: ['NEWBIE', 'CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN'],
         selectableRoles: sampleRoles,
         sortList: (newList: string[]) => {
           console.log('Sorting player list:', newList);
@@ -246,7 +246,7 @@ export const NewPlayerLobby: Story = {
       lobby: {
         name: 'beginner-friendly-lobby',
         admin: {
-          name: 'ALICE',
+          name: 'CRAIGM',
         },
       },
       isAdmin: false,
@@ -258,7 +258,7 @@ export const SevenPlayerGame: Story = {
   args: {
     avalon: createMockAvalon({
       config: {
-        playerList: ['ALICE', 'BOB', 'CHARLIE', 'DIANA', 'EVE', 'FRANK', 'GRACE'],
+        playerList: ['CRAIGM', 'ZEHUA', 'VINAY', 'LUKEE', 'KEN', 'ROB', 'JUSTIN'],
         selectableRoles: sampleRoles,
         sortList: (newList: string[]) => {
           console.log('Sorting player list:', newList);
