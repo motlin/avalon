@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "./GamePlayerList.module.css";
-import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHammer, faCrown, faVoteYea } from '@fortawesome/free-solid-svg-icons';
+import { faHammer, faCrown, faVoteYea, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import {
+	faThumbsUp,
+	faThumbsDown,
+	faCircle as faCircleRegular
+} from '@fortawesome/free-regular-svg-icons';
 
 interface AvalonUser {
 	name: string;
@@ -224,23 +225,20 @@ export default function GamePlayerList({
 					<div className={styles.statusColumn}>
 						{avalon.game.currentProposer === playerName && (
 							<div
-								className={styles.crownContainer}
+								className={styles.crown}
 								title={`${playerName} is proposing the next team`}
 							>
-								<span
-									className={styles.crown}
-									style={{ color: crownColor }}
-								><FontAwesomeIcon icon={faCrown} /></span>
-								<span className={styles.proposalNumber}>
-									{avalon.game.currentProposalIdx + 1}
+								<span className="fa-layers fa-fw">
+									<FontAwesomeIcon icon={faCrown} color={crownColor} />
+									<span className="fa-layers-text" style={{fontSize: '0.5em'}}>
+										{avalon.game.currentProposalIdx + 1}
+									</span>
 								</span>
 							</div>
 						)}
 						{playerName === avalon.game.hammer &&
 							avalon.game.currentProposer !== playerName && (
-								<div className={styles.hammerContainer}>
-									<span className={styles.hammer}><FontAwesomeIcon icon={faHammer} /></span>
-								</div>
+								<FontAwesomeIcon icon={faHammer} />
 							)}
 					</div>
 
@@ -252,25 +250,28 @@ export default function GamePlayerList({
 								className={styles.statusIcons}
 								title={tooltipText(playerName) || ""}
 							>
+                                        <span className="fa-layers fa-fw">
+
 								{wasOnLastTeamProposed(playerName) && (
-									<span className={styles.teamIcon}><RadioButtonUncheckedIcon /></span>
+									<FontAwesomeIcon icon={faCircleRegular} color="#629ec1" transform="grow-13"/>
 								)}
 								{waitingOnVote(playerName) && (
-									<span className={styles.waitingIcon}><MoreHorizIcon /></span>
+									<FontAwesomeIcon icon={faEllipsisH} color="#4c4c4c" />
 								)}
 								{hasVoted(playerName) && !waitingOnVote(playerName) && (
-									<span className={styles.votedIcon}><FontAwesomeIcon icon={faVoteYea} /></span>
+									<FontAwesomeIcon icon={faVoteYea} transform="up-1" color="#4c4c4c" />
 								)}
 								{approvedProposal(playerName) &&
 									!hasVoted(playerName) &&
 									!waitingOnVote(playerName) && (
-										<span className={styles.approvedIcon}><ThumbUpIcon /></span>
+										<FontAwesomeIcon icon={faThumbsUp} transform='right-1' color={'green'}/>
 									)}
 								{rejectedProposal(playerName) &&
 									!hasVoted(playerName) &&
 									!waitingOnVote(playerName) && (
-										<span className={styles.rejectedIcon}><ThumbDownIcon /></span>
+										<FontAwesomeIcon icon={faThumbsDown} transform='right-1' color={'#ed1515'}/>
 									)}
+										</span>
 							</div>
 						)}
 					</div>
