@@ -25,7 +25,7 @@
   "devDependencies": {
     "@babel/core": "^7.25.8",
     "@babel/eslint-parser": "^7.25.8",
-    "@biomejs/biome": "^2.1.2",
+    "@biomejs/biome": "^2.3.8",
     "@storybook/addon-docs": "^9.0.17",
     "@storybook/addon-onboarding": "^9.0.17",
     "@storybook/addon-vitest": "^9.0.17",
