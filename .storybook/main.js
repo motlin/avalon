@@ -1,3 +1,5 @@
+const path = require('path');
+
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
   "stories": [
@@ -19,20 +21,24 @@ const config = {
         localsConvention: 'camelCase'
       }
     };
-    
+
     config.resolve = {
       ...config.resolve,
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+      alias: {
+        ...config.resolve?.alias,
+        '@avalon/common': path.resolve(__dirname, '../common'),
+      },
     };
-    
+
     config.build = {
       ...config.build,
       commonjsOptions: {
         transformMixedEsModules: true
       }
     };
-    
+
     return config;
   }
 };
-export default config;
+module.exports = config;

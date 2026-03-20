@@ -78,3 +78,8 @@ export const ROLES: Role[] = [
 export function getNumEvilForGameSize(numPlayers: number): number | undefined {
     return ({ 5: 2, 6: 2, 7: 3, 8: 3, 9: 3, 10: 4 } as Record<number, number>)[numPlayers];
 }
+
+export default {
+    ROLES,
+    getNumEvilForGameSize
+};
