@@ -11,7 +11,7 @@ import { defineComponent } from 'vue'
 import { useToast } from 'vue-toastification'
 import { EventBus } from '@/eventBus'
 import StartGameEventHandler from './StartGameEventHandler.vue'
-import EndGameEventHandler from './EndGameEventHandler.vue'
+import EndGameEventHandler from './EndGameEventHandler.tsx'
 import MissionResultEventHandler from './MissionResultEventHandler.vue'
 
 export default defineComponent({

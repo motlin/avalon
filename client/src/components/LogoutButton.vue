@@ -17,9 +17,15 @@ export default defineComponent({
       };
   },
   methods: {
-      logoutButtonClicked() {
+      async logoutButtonClicked() {
           this.loggingOut = true;
-          this.avalon.logout();
+          try {
+              await this.avalon.logout();
+          } catch (error) {
+              console.error('Logout failed:', error);
+          } finally {
+              this.loggingOut = false;
+          }
       }
   }
 })

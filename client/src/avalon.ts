@@ -535,8 +535,8 @@ export default class AvalonGame {
     }
   }
 
-  logout(): void {
-    signOut(auth);
+  logout(): Promise<void> {
+    return signOut(auth);
   }
 
   async validateEmailAddr(email: string): Promise<boolean> {
