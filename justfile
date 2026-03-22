@@ -6,21 +6,36 @@ default:
 install:
     yarn install
 
-# `yarn storybook`
-storybook: install
-    yarn storybook
+# Build common + client for production
+build: install
+    yarn build
 
-# `yarn build-storybook`
-build-storybook: install
-    yarn build-storybook
+# Lint client code
+lint-client: install
+    yarn workspace @avalon/client lint
 
-# `yarn test-storybook` - Run tests using Storybook test runner
-test-storybook: install
-    yarn test-storybook
+# Lint server code
+lint-server: install
+    yarn workspace @avalon/server lint
 
-# `yarn test:vitest` - Run tests using Vitest addon
-test-vitest: install build-storybook
-    yarn test:vitest
+# Lint all code
+lint: lint-client lint-server
+
+# Run E2E flow tests (starts dev server automatically)
+test: install
+    #!/usr/bin/env bash
+    set -euo pipefail
+    ROOT="{{justfile_directory()}}"
+    cd "$ROOT/client" && yarn dev &
+    DEV_PID=$!
+    trap "kill $DEV_PID 2>/dev/null || true" EXIT
+    for i in $(seq 1 30); do
+        if curl -s http://localhost:5173/ > /dev/null 2>&1; then
+            break
+        fi
+        sleep 1
+    done
+    cd "$ROOT" && yarn test
 
 # Runs all precommit checks
-precommit: test-vitest
+precommit: build lint test
