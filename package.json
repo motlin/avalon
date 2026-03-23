@@ -1,6 +1,6 @@
 {
   "name": "avalon-workspace",
-  "packageManager": "yarn@4.12.0",
+  "packageManager": "yarn@4.9.1",
   "workspaces": [
     "common",
     "client",
@@ -8,32 +8,60 @@
     "firebase/functions"
   ],
   "bin": {
-    "avalon-admin": "./server/admin.ts",
-    "avalon-server": "./server/server.ts"
+    "avalon-admin": "./server/admin.js",
+    "avalon-server": "./server/server.js"
   },
   "scripts": {
-    "build:common": "yarn workspace @avalon/common build",
-    "build": "yarn build:common && yarn workspace @avalon/client build",
-    "bundle:server": "yarn build:common && esbuild server/server.ts --bundle --platform=node --target=node24 --outfile=dist-server/server.js --format=esm --define:__BUNDLED__=true --banner:js=\"import{createRequire}from'module';import{fileURLToPath as _f}from'url';import{dirname as _d}from'path';const require=createRequire(import.meta.url);const __filename=_f(import.meta.url);const __dirname=_d(__filename);\"",
+    "build": "yarn workspace @avalon/client build",
     "start": "yarn workspace @avalon/server start",
-    "admin": "yarn workspace @avalon/server tsx admin.ts",
-    "test": "node tests/e2e-flow.mjs",
-    "test:browser": "node tests/e2e-browser.mjs",
-    "test:game": "node tests/e2e-full-game.mjs"
+    "admin": "avalon-admin",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "test-storybook": "test-storybook --maxWorkers=1 --testTimeout=15000",
+    "test-storybook:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"yarn build-storybook --quiet && npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test-storybook\"",
+    "test:vitest": "vitest run",
+    "lint:biome": "biome check client/src/components/**/*.tsx",
+    "format:biome": "biome format --write client/src/components/**/*.tsx"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.57.0",
-    "@typescript-eslint/parser": "^8.57.0",
-    "autoprefixer": "^10.4.27",
-    "esbuild": "^0.27.4",
-    "eslint": "^10.0.3",
-    "eslint-plugin-vue": "^10.8.0",
-    "globals": "^17.4.0",
-    "playwright": "^1.58.2",
-    "postcss": "^8.5.8",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.0",
-    "vue-eslint-parser": "^10.4.0"
+    "@babel/core": "^7.25.8",
+    "@babel/eslint-parser": "^7.25.8",
+    "@biomejs/biome": "^2.3.8",
+    "@storybook/addon-docs": "^9.0.17",
+    "@storybook/addon-onboarding": "^9.0.17",
+    "@storybook/addon-vitest": "^9.0.17",
+    "@storybook/react": "^9.0.17",
+    "@storybook/react-vite": "^9.0.17",
+    "@storybook/test-runner": "^0.23.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.7.0",
+    "@vitest/browser": "^3.2.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.2.0",
+    "eslint": "^9.12.0",
+    "eslint-plugin-storybook": "^9.0.17",
+    "eslint-plugin-vue": "^9.29.0",
+    "http-server": "^14.1.1",
+    "playwright": "^1.54.1",
+    "postcss": "^8.4.47",
+    "prettier": "^3.6.2",
+    "prop-types": "^15.8.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "require-from-string": "^2.0.2",
+    "storybook": "^9.0.17",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.4",
+    "vitest": "^3.2.4",
+    "wait-on": "^8.0.3"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@mui/icons-material": "^7.2.0",
+    "@mui/material": "^7.2.0"
   }
 }

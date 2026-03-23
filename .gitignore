@@ -1,4 +1,5 @@
 /dist
+client/dist/
 
 # Logs
 logs
@@ -88,3 +89,6 @@ tests/screenshots/
 # Dolt database files (added by bd init)
 .dolt/
 *.db
+
+*storybook.log
+storybook-static
