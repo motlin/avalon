@@ -14,7 +14,7 @@ concurrency:
  
 jobs:
   DeterminateCI:
-    uses: DeterminateSystems/ci/.github/workflows/workflow.yml@main
+    uses: DeterminateSystems/ci/.github/workflows/workflow.yml@57a29b403cbed0efb915f225f1212ad654c50e16 # main
     permissions:
       id-token: write
       contents: read
