@@ -19,6 +19,7 @@ jobs:
       - uses: "actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5" # v4.3.1
         with:
           ref: "${{ (inputs.tag != null) && format('refs/tags/{0}', inputs.tag) || '' }}"
+          persist-credentials: false
       - uses: "DeterminateSystems/nix-installer-action@a7ad9c4f0c65208097f4d34f3cfa1913b80cce5c" # main
       - uses: "DeterminateSystems/flakehub-push@0e801cf490b3b3dcb099131a69146bc59d610d0f" # main
         with:
