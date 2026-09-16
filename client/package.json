@@ -6,7 +6,9 @@
     "lint": "eslint src --fix",
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "build:avalon-cool": "vite build --mode avalon-cool",
+    "build:georgyo-avalon": "vite build --mode georgyo-avalon"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

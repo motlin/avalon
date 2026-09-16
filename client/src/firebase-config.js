@@ -1,10 +1,7 @@
-const config = {
-  apiKey: "AIzaSyARX8d_fjzy7_wd4JUdFuOyxA9EwTICodc",
-  authDomain: "avalon-cool.firebaseapp.com",
-  projectId: "avalon-cool",
-  storageBucket: "avalon-cool.firebasestorage.app",
-  messagingSenderId: "266781145190",
-  appId: "1:266781145190:web:2e53b3df46819d5ec2d5a7"
-};
+import {selectFirebaseConfig} from './firebase-configs';
+
+// Set VITE_FIREBASE_PROJECT at build time to target a different project,
+// e.g. `yarn build --mode georgyo-avalon`.
+const config = selectFirebaseConfig(import.meta.env.VITE_FIREBASE_PROJECT);
 
 export default config;
