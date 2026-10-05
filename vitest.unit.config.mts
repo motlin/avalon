@@ -1,6 +1,6 @@
 import {defineConfig} from 'vite';
 
-// Kept separate from vitest.config.ts, which runs Storybook tests in a browser.
+// Kept separate from vitest.config.mts, which runs Storybook tests in a browser.
 export default defineConfig({
   test: {
     name: 'unit',
