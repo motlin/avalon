@@ -1,6 +1,6 @@
-import { useEffect, useState, useSyncExternalStore } from 'react';
 import { CircularProgress } from '@mui/material';
-import AvalonGame from './avalon.js';
+import type AvalonGame from './avalon.js';
+import { AvalonProvider, useAvalon } from './AvalonContext';
 import EventHandler from './components/EventHandler';
 import Game from './components/Game';
 import Lobby from './components/Lobby';
@@ -13,16 +13,12 @@ interface AppProps {
   createAvalon?: () => AvalonGame;
 }
 
-const createGame = () => new AvalonGame();
+export default function App({ createAvalon }: AppProps) {
+  return <AvalonProvider createAvalon={createAvalon}><AppContent /></AvalonProvider>;
+}
 
-export default function App({ createAvalon = createGame }: AppProps) {
-  const [avalon] = useState(createAvalon);
-  useSyncExternalStore(avalon.subscribe, avalon.getSnapshot);
-
-  useEffect(() => {
-    avalon.init();
-    return () => avalon.dispose();
-  }, [avalon]);
+function AppContent() {
+  const avalon = useAvalon();
 
   return (
     <div className={styles.app}>
