@@ -166,6 +166,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:19.1.0"],\
           ["react-dom", "virtual:307f0f0a0f6bbe419b2892b2adbeb625075054c34bce101c7493ba00895524625ed865e532e293b325047e347afc45f9c2b2b1217a78ed253b0c25afd92ce307#npm:19.1.0"],\
           ["seedrandom", "npm:3.0.5"],\
+          ["storybook", "virtual:72317fc24132b0dfc6fb58738ca290a67319a03b6d103f7bc51125559648f6a8b269569c980259fc873c383282f7a0e2337aa6d97ccebc2f6c5667ef5691ebd8#npm:9.0.17"],\
           ["typescript", "patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"],\
           ["vite", "virtual:72317fc24132b0dfc6fb58738ca290a67319a03b6d103f7bc51125559648f6a8b269569c980259fc873c383282f7a0e2337aa6d97ccebc2f6c5667ef5691ebd8#npm:3.2.11"],\
           ["vite-plugin-vue2", "virtual:72317fc24132b0dfc6fb58738ca290a67319a03b6d103f7bc51125559648f6a8b269569c980259fc873c383282f7a0e2337aa6d97ccebc2f6c5667ef5691ebd8#npm:2.0.3"],\
@@ -22493,6 +22494,30 @@ const RAW_RUNTIME_STATE =
           ["recast", "npm:0.23.11"],\
           ["semver", "npm:7.7.2"],\
           ["storybook", "virtual:307f0f0a0f6bbe419b2892b2adbeb625075054c34bce101c7493ba00895524625ed865e532e293b325047e347afc45f9c2b2b1217a78ed253b0c25afd92ce307#npm:9.0.17"],\
+          ["ws", "virtual:922e26b9df0c54ecd230556eca9c81c0042d4763ef0c190bdff7dac974679e69b8979509fc3a1a86fbec21c81aedaf7bcbefce86517d23ee1e1b373683c38945#npm:8.18.3"]\
+        ],\
+        "packagePeers": [\
+          "@types/prettier",\
+          "prettier"\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["virtual:72317fc24132b0dfc6fb58738ca290a67319a03b6d103f7bc51125559648f6a8b269569c980259fc873c383282f7a0e2337aa6d97ccebc2f6c5667ef5691ebd8#npm:9.0.17", {\
+        "packageLocation": "./.yarn/__virtual__/storybook-virtual-041c8464c8/0/cache/storybook-npm-9.0.17-8f9db402a2-8c464646f4.zip/node_modules/storybook/",\
+        "packageDependencies": [\
+          ["@storybook/global", "npm:5.0.0"],\
+          ["@testing-library/jest-dom", "npm:6.6.3"],\
+          ["@testing-library/user-event", "virtual:86147287c05e5862628d90a920b48a0176665fe692c2f3d33d002859f5ae5337f345e7b2a6cae9258c299d181684be34af19b7b1442440e43647f812bce0d64a#npm:14.6.1"],\
+          ["@types/prettier", null],\
+          ["@vitest/expect", "npm:3.2.4"],\
+          ["@vitest/spy", "npm:3.2.4"],\
+          ["better-opn", "npm:3.0.2"],\
+          ["esbuild", "npm:0.25.6"],\
+          ["esbuild-register", "virtual:86147287c05e5862628d90a920b48a0176665fe692c2f3d33d002859f5ae5337f345e7b2a6cae9258c299d181684be34af19b7b1442440e43647f812bce0d64a#npm:3.6.0"],\
+          ["prettier", null],\
+          ["recast", "npm:0.23.11"],\
+          ["semver", "npm:7.7.2"],\
+          ["storybook", "virtual:72317fc24132b0dfc6fb58738ca290a67319a03b6d103f7bc51125559648f6a8b269569c980259fc873c383282f7a0e2337aa6d97ccebc2f6c5667ef5691ebd8#npm:9.0.17"],\
           ["ws", "virtual:922e26b9df0c54ecd230556eca9c81c0042d4763ef0c190bdff7dac974679e69b8979509fc3a1a86fbec21c81aedaf7bcbefce86517d23ee1e1b373683c38945#npm:8.18.3"]\
         ],\
         "packagePeers": [\

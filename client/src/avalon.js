@@ -85,7 +85,7 @@ class Game {
 
 class LobbySubscription {
 
-  constructor(uid, lobbyName, config, eventHandler) {
+  constructor(uid, lobbyName, config, eventHandler, stateChanged) {
     this.name = lobbyName;
     this._uid = uid;
     this._doc = null;
@@ -94,6 +94,7 @@ class LobbySubscription {
     this._config = config;
     this.connected = false;
     this._eventHandler = eventHandler;
+    this._stateChanged = stateChanged;
     this._subscriptions = { };
   }
 
@@ -138,6 +139,7 @@ class LobbySubscription {
 
     this._subscriptions = { };
     this.connected = false;
+    this._stateChanged();
   }
 
   _roleDocUpdated(roleDoc) {
@@ -146,6 +148,7 @@ class LobbySubscription {
     if (this._roleDoc) {
       this._roleDoc.role = this._config.roleMap[this._roleDoc.role];
     }
+    this._stateChanged();
   }
 
   _lobbyDocUpdated(newDoc) {
@@ -160,6 +163,7 @@ class LobbySubscription {
 
     this._doc = newDoc.data();
     this._game = new Game(this._doc.game, this._config);
+    this._stateChanged();
 
     if ((oldDoc == null) ||
         (oldDoc.name != this._doc.name)) {
@@ -279,7 +283,7 @@ class GameConfig {
 
 export default class AvalonGame {
 
-  constructor(eventCallback) {
+  constructor(eventCallback = null) {
     // XXX TODO: find a better place for this:
     Array.prototype.joinWithAnd = function() {
       if (this.length == 0) return '';
@@ -297,20 +301,44 @@ export default class AvalonGame {
     this.user = null;
     this.userDocUnsubscribe = null;
     this.globalStats = null;
+    this._stateListeners = new Set();
+    this._eventListeners = new Set();
+    this._stateVersion = 0;
+    this._authGeneration = 0;
+    this._authUnsubscribe = null;
     this.hostname = process.env.NODE_ENV == 'development' ? 'http://localhost:8080/' : HOSTNAME;
 
-    _.bindAll(this);
+    _.bindAll(this, 'subscribe', 'getSnapshot', 'stateChanged');
 
     this._eventCallback = eventCallback;
     this.config = new GameConfig(this.notifyEvent.bind(this));    
   }
 
-  notifyEvent() {
+  subscribe(listener) {
+    this._stateListeners.add(listener);
+    return () => { this._stateListeners.delete(listener); };
+  }
+
+  getSnapshot() {
+    return this._stateVersion;
+  }
+
+  stateChanged() {
+    this._stateVersion += 1;
+    this._stateListeners.forEach(listener => listener());
+  }
+
+  onEvent(listener) {
+    this._eventListeners.add(listener);
+    return () => { this._eventListeners.delete(listener); };
+  }
+
+  notifyEvent(...args) {
+    this.stateChanged();
     if (this._eventCallback) {
-      this._eventCallback(...arguments);
-    } else {
-      console.warn("(no event callback)", ...arguments);
+      this._eventCallback(...args);
     }
+    this._eventListeners.forEach(listener => listener(...args));
   }
 
   joinLobbyImpl(joinLobbyPromise) {
@@ -404,7 +432,7 @@ export default class AvalonGame {
   }
 
   get game() {
-    return this.lobby.game;
+    return this.lobby?.game;
   }
 
   userDocUpdated(userDoc) {
@@ -412,6 +440,7 @@ export default class AvalonGame {
 
     if (!userDoc.exists) {
       console.warn('user doc does not exist');
+      this.stateChanged();
       return;
     }
 
@@ -426,12 +455,14 @@ export default class AvalonGame {
     if (this.user.lobby && (this.lobby == null)) {
       this.subscribeToLobby(this.user.lobby);
     }
+    this.stateChanged();
   }
 
   unsubscribeFromLobby() {
     if (this.lobby != null) {
       this.lobby.stop();
       this.lobby = null;
+      this.stateChanged();
     }
   }
 
@@ -456,7 +487,8 @@ export default class AvalonGame {
             console.debug('received', evt, 'in avalon game engine');
         }
         this.notifyEvent(evt);
-      }.bind(this)
+      }.bind(this),
+      this.stateChanged
     );
     this.lobby.start();
   }
@@ -508,6 +540,7 @@ export default class AvalonGame {
   }
 
   init() {
+    if (this._authUnsubscribe) return;
     let urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("purchaseSuccess")) {
       alert('Thank you. Your support means a lot.');
@@ -515,7 +548,10 @@ export default class AvalonGame {
       alert('Maybe next time?');
     }
 
-    firebase.auth().onAuthStateChanged(function (userCred) {
+    this._authUnsubscribe = firebase.auth().onAuthStateChanged(function (userCred) {
+      const generation = ++this._authGeneration;
+      this.userDocUnsubscribe?.();
+      this.userDocUnsubscribe = null;
       if (userCred == null) {
         // not logged in
         // maybe there's an email link?
@@ -523,11 +559,16 @@ export default class AvalonGame {
         if (urlParams.has("confirmEmail")) {
           const emailAddr = urlParams.get("confirmEmail");
           return firebase.auth().signInWithEmailLink(emailAddr, window.location.href).then(function() {
+            if (generation !== this._authGeneration) return;
             this.confirmingEmailError = null;
+            this.stateChanged();
           }.bind(this)).catch(function(err) {
+            if (generation !== this._authGeneration) return;
             this.confirmingEmailError = err.message;
             this._authStateInitialized = true;
+            this.stateChanged();
           }.bind(this)).finally(function() {
+            if (generation !== this._authGeneration) return;
             // strip params from URL
             window.history.replaceState(null, null, window.location.pathname);
           }.bind(this));
@@ -536,27 +577,40 @@ export default class AvalonGame {
           this._authStateInitialized = true;
         }
     
-        if (this.userDocUnsubscribe != null) {
-          this.userDocUnsubscribe();
-          this.userDocUnsubscribe = null;
-        }
         this.user = null;
+        this.unsubscribeFromLobby();
+        this.stateChanged();
       } else {
         // we have user credentials
         console.debug('I am', userCred.uid);
         this.api.login(userCred.email).then(function() {
+          if (generation !== this._authGeneration) return;
           this.userDocUnsubscribe = db.collection('users').doc(userCred.uid).onSnapshot(
             this.userDocUpdated.bind(this),
             onFirebaseError);
           }.bind(this));
 
           db.collection('stats').doc('global').get().then(doc => {
+            if (generation !== this._authGeneration) return;
             this.globalStats = doc.data();
+            this.stateChanged();
           });
 
           // strip params from URL (if we followed a confirmEmail link but we're already logged in)
           window.history.replaceState(null, null, window.location.pathname);
         }
     }.bind(this));
+  }
+
+  dispose() {
+    this._authGeneration += 1;
+    this._authUnsubscribe?.();
+    this._authUnsubscribe = null;
+    this.userDocUnsubscribe?.();
+    this.userDocUnsubscribe = null;
+    this.unsubscribeFromLobby();
+    this._authStateInitialized = false;
+    this.user = null;
+    this.stateChanged();
   }
 }
