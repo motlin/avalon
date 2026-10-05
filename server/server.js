@@ -1,3 +1,5 @@
+process.title = "avalon-workspace-server";
+
 const express = require('express');
 const firebaseAdmin = require('firebase-admin');
 const serviceAccount = require('./firebaseKey.js');
