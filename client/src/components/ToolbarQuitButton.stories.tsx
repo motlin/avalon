@@ -2,14 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ToolbarQuitButton from './ToolbarQuitButton';
 
 const meta: Meta<typeof ToolbarQuitButton> = {
-  title: 'UI/ToolbarQuitButton',
   component: ToolbarQuitButton,
   parameters: {
     layout: 'centered',
     docs: {
       description: {
         component: `ToolbarQuitButton provides a context-sensitive exit option for leaving lobbies or canceling games.
-        
+
 ## Features
 - Context-aware button text
 - Shows "Leave Lobby" when in lobby

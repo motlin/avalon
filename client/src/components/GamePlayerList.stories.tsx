@@ -2,14 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import GamePlayerList from './GamePlayerList';
 
 const meta: Meta<typeof GamePlayerList> = {
-  title: 'Game/GamePlayerList',
   component: GamePlayerList,
   parameters: {
     layout: 'centered',
     docs: {
       description: {
         component: `GamePlayerList shows the status of all players during an active Avalon game.
-        
+
 ## Features
 - Displays all players in game order
 - Shows current proposer with visual indicator

@@ -3,14 +3,13 @@ import { useState } from 'react';
 import MissionResultEventHandler from './MissionResultEventHandler';
 
 const meta: Meta<typeof MissionResultEventHandler> = {
-  title: 'Events/MissionResultEventHandler',
   component: MissionResultEventHandler,
   parameters: {
     layout: 'centered',
     docs: {
       description: {
         component: `MissionResultEventHandler displays the outcome of missions with dramatic flair.
-        
+
 ## Features
 - Fullscreen modal presentation
 - Success/failure animations

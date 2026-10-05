@@ -2,14 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Missions from './Missions';
 
 const meta: Meta<typeof Missions> = {
-  title: 'Game/Missions',
   component: Missions,
   parameters: {
     layout: 'centered',
     docs: {
       description: {
         component: `The Missions component displays the progress of all 5 missions in an Avalon game.
-        
+
 ## Features
 - Visual representation of all 5 missions
 - Shows success/fail status for completed missions

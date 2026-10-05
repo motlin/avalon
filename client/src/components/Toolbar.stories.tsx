@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Toolbar from './Toolbar';
 
 const meta: Meta<typeof Toolbar> = {
-  title: 'Components/Toolbar',
   component: Toolbar,
   parameters: {
     layout: 'fullscreen',

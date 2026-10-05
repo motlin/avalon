@@ -2,14 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import StatsDisplay from './StatsDisplay';
 
 const meta: Meta<typeof StatsDisplay> = {
-  title: 'UI/StatsDisplay',
   component: StatsDisplay,
   parameters: {
     layout: 'centered',
     docs: {
       description: {
         component: `StatsDisplay shows player statistics and win rates in a clean, informative format.
-        
+
 ## Features
 - Games played count
 - Win percentage with visual progress bar
@@ -32,7 +31,7 @@ import StatsDisplay from './StatsDisplay';
 
 function Profile() {
   return (
-    <StatsDisplay 
+    <StatsDisplay
       stats={userStats}
       globalStats={globalStats} // optional
     />

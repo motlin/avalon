@@ -2,14 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import LobbyPlayerList from './LobbyPlayerList';
 
 const meta: Meta<typeof LobbyPlayerList> = {
-  title: 'Lobby/LobbyPlayerList',
   component: LobbyPlayerList,
   parameters: {
     layout: 'centered',
     docs: {
       description: {
         component: `LobbyPlayerList displays and manages players in a game lobby before the game starts.
-        
+
 ## Features
 - Display all players currently in the lobby
 - Admin controls for player management

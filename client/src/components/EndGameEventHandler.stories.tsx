@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import EndGameEventHandler from './EndGameEventHandler';
 
 const meta: Meta<typeof EndGameEventHandler> = {
-  title: 'Components/EndGameEventHandler',
   component: EndGameEventHandler,
   parameters: {
     layout: 'fullscreen',

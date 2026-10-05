@@ -2,14 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Login from './Login';
 
 const meta: Meta<typeof Login> = {
-  title: 'Authentication/Login',
   component: Login,
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
         component: `The Login component provides the main entry point for users to join or create game lobbies.
-        
+
 ## Features
 - Display user stats and achievements
 - Create new game lobbies

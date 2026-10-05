@@ -2,14 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import GameParticipants from './GameParticipants';
 
 const meta: Meta<typeof GameParticipants> = {
-  title: 'Game/GameParticipants',
   component: GameParticipants,
   parameters: {
     layout: 'centered',
     docs: {
       description: {
         component: `GameParticipants displays the list of players in an Avalon game with their roles and status.
-        
+
 ## Features
 - Shows all players in the game
 - Displays current proposer and hammer
