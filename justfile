@@ -2,6 +2,10 @@
 default:
     @just --list --unsorted
 
+# Configure git-test with clean-tree checks and commit skip logic
+setup-git-test:
+    git test add --test default 'just --global-justfile _check-local-modifications && (should-skip-commit || just precommit) && just --global-justfile _check-local-modifications' --forget
+
 # `yarn install`
 install:
     yarn install
