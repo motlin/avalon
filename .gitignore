@@ -1,5 +1,8 @@
 /dist
 client/dist/
+.llm/
+.envrc
+JUSTFILE_BRANCH
 
 # Logs
 logs
