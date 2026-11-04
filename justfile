@@ -22,8 +22,12 @@ build-storybook: install
 test-storybook: install
     yarn test-storybook
 
+# `yarn playwright install chromium` - Install the browser build this Playwright version needs
+install-browsers: install
+    yarn playwright install chromium
+
 # `yarn test:vitest` - Run tests using Vitest addon
-test-vitest: install build-storybook
+test-vitest: install-browsers build-storybook
     yarn test:vitest
 
 # Runs all precommit checks
